@@ -21,7 +21,36 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ``, "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, `*{
+    border: solid red 1px;
+}
+
+#content{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: 2fr 12fr 1fr;
+}
+
+header{
+    grid-column: 1/3;
+    grid-row: 1/2;
+}
+
+#sidebar{
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+main{
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+footer{
+    grid-column: 1/3;
+    grid-row: 3/4;
+}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,qBAAqB;AACzB;;AAEA;IACI,aAAa;IACb,aAAa;IACb,8BAA8B;IAC9B,gCAAgC;AACpC;;AAEA;IACI,gBAAgB;IAChB,aAAa;AACjB;;AAEA;IACI,gBAAgB;IAChB,aAAa;AACjB;;AAEA;IACI,gBAAgB;IAChB,aAAa;AACjB;;AAEA;IACI,gBAAgB;IAChB,aAAa;AACjB","sourcesContent":["*{\n    border: solid red 1px;\n}\n\n#content{\n    height: 100vh;\n    display: grid;\n    grid-template-columns: 1fr 6fr;\n    grid-template-rows: 2fr 12fr 1fr;\n}\n\nheader{\n    grid-column: 1/3;\n    grid-row: 1/2;\n}\n\n#sidebar{\n    grid-column: 1/2;\n    grid-row: 2/3;\n}\n\nmain{\n    grid-column: 2/3;\n    grid-row: 2/3;\n}\n\nfooter{\n    grid-column: 1/3;\n    grid-row: 3/4;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -468,20 +497,153 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
-/***/ "./src/generate.joke.js":
-/*!******************************!*\
-  !*** ./src/generate.joke.js ***!
-  \******************************/
+/***/ "./src/pageManipulaton/footer.js":
+/*!***************************************!*\
+  !*** ./src/pageManipulaton/footer.js ***!
+  \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ createFooter)
 /* harmony export */ });
-function generateJoke(){
-    return 'I dont trust stairs'
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (generateJoke);
+
+function createFooter(){
+    const footerElement = document.createElement('footer');
+    footerElement.textContent = 'This is the footer';
+    return footerElement
+};
+
+/***/ }),
+
+/***/ "./src/pageManipulaton/header.js":
+/*!***************************************!*\
+  !*** ./src/pageManipulaton/header.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ createHeader)
+/* harmony export */ });
+
+function createHeader(){
+    // create Header element
+    const headerElement = document.createElement('header');
+    // Create children for header element
+    const headingElement = document.createElement('h1')
+    // Add content to children
+    headingElement.innerHTML = `Dom's Todo List`
+    // Populate main
+    headerElement.appendChild(headingElement)
+    return headerElement
+};
+
+/***/ }),
+
+/***/ "./src/pageManipulaton/main.js":
+/*!*************************************!*\
+  !*** ./src/pageManipulaton/main.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ createMain)
+/* harmony export */ });
+
+function createMain(){
+
+    // Create the main element
+    const mainElement = document.createElement('main');
+    // Create children for main element
+    const headingElement = document.createElement('h1')
+    // Add content to children
+    headingElement.innerHTML = `This is the main content`
+    // Populate main
+    mainElement.appendChild(headingElement)
+    
+    return mainElement
+};
+
+/***/ }),
+
+/***/ "./src/pageManipulaton/sideBar.js":
+/*!****************************************!*\
+  !*** ./src/pageManipulaton/sideBar.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ createSidebar)
+/* harmony export */ });
+
+function createSidebar(){
+    // Create Sidebar
+    const sideBarElement = document.createElement('div');
+    sideBarElement.id = 'sidebar'
+
+    const sideBarHeadingElement = document.createElement('h1');
+    sideBarHeadingElement.textContent = 'Timeline';
+
+    // Sidebar children
+    const sideBarTabs = document.createElement('ul');
+
+    // Create list items
+    const tabToday = document.createElement('li');
+    const tabThisWeek = document.createElement('li');
+    const tabThisMonth = document.createElement('li');
+    const tabThisQuater = document.createElement('li');
+
+    // Create Tabchildren
+    tabToday.textContent = 'Today';
+    tabThisWeek.textContent = 'This Week';
+    tabThisMonth.textContent = 'This Month';
+    tabThisQuater.textContent = 'This Quater';
+
+    // Tab ID's
+    sideBarTabs.id = 'tabs';
+    tabToday.id = 'today';
+    tabThisWeek.id = 'week';
+    tabThisMonth.id = 'month';
+    tabThisQuater.id = 'quater'
+
+    // Tab classes
+    sideBarTabs.classList.add('tabs')
+    tabToday.classList.add('tab')
+    tabThisWeek.classList.add('tab')
+    tabThisMonth.classList.add('tab')
+    tabThisQuater.classList.add('tab')
+
+    // Adding event listeners
+    sideBarTabs.addEventListener('click', (event) => {
+        const contentElement = document.querySelector('#content')
+        const clickedTab = event.target.closest('li');
+        if (clickedTab.classList.contains('tab')) {
+            console.log(`You clicked ${clickedTab.id}`)
+            const clickedElementId = clickedTab.id;
+
+            const newMainContent = populateMain(clickedElementId);
+    
+            // Replace the existing main content with the new one
+            const existingMainElement = document.querySelector('main');
+            contentElement.replaceChild(newMainContent, existingMainElement);
+            setActiveTab(clickedElementId)
+        }
+    });
+
+    // Add items to list
+    sideBarTabs.appendChild(tabToday);
+    sideBarTabs.appendChild(tabThisWeek);
+    sideBarTabs.appendChild(tabThisMonth);
+    sideBarTabs.appendChild(tabThisQuater);
+    
+    // Add content to elements
+    sideBarElement.appendChild(sideBarHeadingElement);
+    sideBarElement.appendChild(sideBarTabs);
+    return sideBarElement;
+};
 
 /***/ })
 
@@ -565,15 +727,37 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _generate_joke__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./generate.joke */ "./src/generate.joke.js");
-/* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/main.css */ "./src/styles/main.css");
+/* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.css */ "./src/styles/main.css");
+/* harmony import */ var _pageManipulaton_header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pageManipulaton/header */ "./src/pageManipulaton/header.js");
+/* harmony import */ var _pageManipulaton_sideBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pageManipulaton/sideBar */ "./src/pageManipulaton/sideBar.js");
+/* harmony import */ var _pageManipulaton_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pageManipulaton/main */ "./src/pageManipulaton/main.js");
+/* harmony import */ var _pageManipulaton_footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pageManipulaton/footer */ "./src/pageManipulaton/footer.js");
 
 
-// import image
 
-console.log(_generate_joke__WEBPACK_IMPORTED_MODULE_0__["default"])
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  // DOM is fully parsed and ready for manipulation
+  
+  const contentElement = document.querySelector('#content')
+  
+  // Add the image to our existing div.
+
+  contentElement.appendChild((0,_pageManipulaton_header__WEBPACK_IMPORTED_MODULE_1__["default"])());
+  contentElement.appendChild((0,_pageManipulaton_sideBar__WEBPACK_IMPORTED_MODULE_2__["default"])())
+  contentElement.appendChild((0,_pageManipulaton_main__WEBPACK_IMPORTED_MODULE_3__["default"])());
+  contentElement.appendChild((0,_pageManipulaton_footer__WEBPACK_IMPORTED_MODULE_4__["default"])());
+
+  
+}
+
+
+
+);
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle628d3f8b79cea406c959.js.map
+//# sourceMappingURL=bundle3a13ef4101b951fa57b1.js.map
