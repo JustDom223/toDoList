@@ -22,7 +22,36 @@ export default function createSidebar(){
     tabThisMonth.textContent = 'This Month';
     tabThisQuater.textContent = 'This Quater';
 
-    // 
+    // Tab ID's
+    sideBarTabs.id = 'tabs';
+    tabToday.id = 'today';
+    tabThisWeek.id = 'week';
+    tabThisMonth.id = 'month';
+    tabThisQuater.id = 'quater'
+
+    // Tab classes
+    sideBarTabs.classList.add('tabs')
+    tabToday.classList.add('tab')
+    tabThisWeek.classList.add('tab')
+    tabThisMonth.classList.add('tab')
+    tabThisQuater.classList.add('tab')
+
+    // Adding event listeners
+    sideBarTabs.addEventListener('click', (event) => {
+        const contentElement = document.querySelector('#content')
+        const clickedTab = event.target.closest('li');
+        if (clickedTab.classList.contains('tab')) {
+            console.log(`You clicked ${clickedTab.id}`)
+            const clickedElementId = clickedTab.id;
+
+            const newMainContent = populateMain(clickedElementId);
+    
+            // Replace the existing main content with the new one
+            const existingMainElement = document.querySelector('main');
+            contentElement.replaceChild(newMainContent, existingMainElement);
+            setActiveTab(clickedElementId)
+        }
+    });
 
     // Add items to list
     sideBarTabs.appendChild(tabToday);

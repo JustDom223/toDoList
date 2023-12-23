@@ -4,9 +4,6 @@ import createSidebar from './pageManipulaton/sideBar';
 import createMain from './pageManipulaton/main';
 import createFooter from './pageManipulaton/footer';
 
-
-console.log('Test')
-
 document.addEventListener('DOMContentLoaded', function() {
   // DOM is fully parsed and ready for manipulation
   
