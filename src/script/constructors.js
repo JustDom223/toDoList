@@ -1,5 +1,5 @@
 
-function createTask(title, description, dueDate, priority) {
+export function createTask(title, description, dueDate, priority) {
     return {
         title: title,
         description: description,
@@ -11,3 +11,4 @@ function createTask(title, description, dueDate, priority) {
         }
     };
 }
+

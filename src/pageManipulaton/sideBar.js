@@ -1,3 +1,5 @@
+import populateMain from "../script/populateMain";
+
 
 export default function createSidebar(){
     // Create Sidebar
@@ -49,7 +51,7 @@ export default function createSidebar(){
             // Replace the existing main content with the new one
             const existingMainElement = document.querySelector('main');
             contentElement.replaceChild(newMainContent, existingMainElement);
-            setActiveTab(clickedElementId)
+            // setActiveTab(clickedElementId)
         }
     });
 
