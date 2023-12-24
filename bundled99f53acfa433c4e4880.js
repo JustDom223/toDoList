@@ -578,6 +578,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ createSidebar)
 /* harmony export */ });
+/* harmony import */ var _script_populateMain__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../script/populateMain */ "./src/script/populateMain.js");
+
+
 
 function createSidebar(){
     // Create Sidebar
@@ -624,12 +627,12 @@ function createSidebar(){
             console.log(`You clicked ${clickedTab.id}`)
             const clickedElementId = clickedTab.id;
 
-            const newMainContent = populateMain(clickedElementId);
+            const newMainContent = (0,_script_populateMain__WEBPACK_IMPORTED_MODULE_0__["default"])(clickedElementId);
     
             // Replace the existing main content with the new one
             const existingMainElement = document.querySelector('main');
             contentElement.replaceChild(newMainContent, existingMainElement);
-            setActiveTab(clickedElementId)
+            // setActiveTab(clickedElementId)
         }
     });
 
@@ -644,6 +647,146 @@ function createSidebar(){
     sideBarElement.appendChild(sideBarTabs);
     return sideBarElement;
 };
+
+/***/ }),
+
+/***/ "./src/script/constructors.js":
+/*!************************************!*\
+  !*** ./src/script/constructors.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createTask: () => (/* binding */ createTask)
+/* harmony export */ });
+
+function createTask(title, description, dueDate, priority) {
+    return {
+        title: title,
+        description: description,
+        dueDate: dueDate,
+        priority: priority,
+        complete: false,
+        markComplete: function() {
+            this.complete = true;
+        }
+    };
+}
+
+
+
+/***/ }),
+
+/***/ "./src/script/populateMain.js":
+/*!************************************!*\
+  !*** ./src/script/populateMain.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ populateMain),
+/* harmony export */   initializeToday: () => (/* binding */ initializeToday)
+/* harmony export */ });
+/* harmony import */ var _tasks_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tasks.js */ "./src/script/tasks.js");
+
+
+function populateMain(clickedElementId){
+    const mainElement = document.createElement('main')
+    // Clear main
+    mainElement.innerHTML = '';
+    
+    // Adding content to main elements
+    
+    if(clickedElementId === 'today'){
+        const toDoCards = initializeToday()
+        toDoCards.forEach(task =>{
+            mainElement.appendChild(task)
+        });
+// 
+    }else if(clickedElementId === 'week'){
+        const toDoCards = initializeWeek()
+        toDoCards.forEach(task =>{
+            mainElement.appendChild(task)
+        });
+    }else if(clickedElementId === 'month'){
+        const toDoCards = initializeMonth()
+        toDoCards.forEach(task =>{
+            mainElement.appendChild(task)
+        });
+        
+    }else if(clickedElementId === 'quater'){
+        const toDoCards = initializeQuater()
+        toDoCards.forEach(task =>{
+            mainElement.appendChild(task)
+        });
+
+    };
+    return mainElement;
+};
+
+function initializeToday(){
+
+    const jobCards = _tasks_js__WEBPACK_IMPORTED_MODULE_0__["default"].map(task => {
+        
+        // Create elements for Menupage
+        const jobCardElement = document.createElement('div');
+        const jobTitleElement = document.createElement('h2');
+        const jobDescElement = document.createElement('p');
+        const jobDueDateElement = document.createElement('input');
+        const jobPriorityElement = document.createElement('p');
+        const jobCompletionElement = document.createElement('input');
+        
+        // Adding a class to the card
+        jobCardElement.classList.add('jobCard');
+        jobTitleElement.classList.add('jobTitle');
+        jobDueDateElement.classList.add('jobDueDate');
+        jobPriorityElement.classList.add('jobPriority');
+
+        // Choosing element type
+        jobDueDateElement.type = 'date';
+        jobCompletionElement.type = 'checkbox';
+        // Adding content to elements
+        jobTitleElement.innerHTML = task.title;
+        jobDescElement.innerHTML = task.description;
+        jobDueDateElement.value = task.dueDate;
+        jobPriorityElement.innerHTML = task.priority;
+        
+        jobCardElement.appendChild(jobTitleElement);
+        jobCardElement.appendChild(jobDescElement);
+        jobCardElement.appendChild(jobDueDateElement);
+        jobCardElement.appendChild(jobPriorityElement);
+        jobCardElement.appendChild(jobCompletionElement);
+        
+        return jobCardElement;
+    });
+    return jobCards;
+
+
+
+};
+
+/***/ }),
+
+/***/ "./src/script/tasks.js":
+/*!*****************************!*\
+  !*** ./src/script/tasks.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _constructors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constructors */ "./src/script/constructors.js");
+
+const tasks = []
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (tasks);
+
+let newTask = (0,_constructors__WEBPACK_IMPORTED_MODULE_0__.createTask)('FirstJob', 'This will be the first job', '2024-04-30', 'High')
+
+tasks.push(newTask)
 
 /***/ })
 
@@ -732,6 +875,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pageManipulaton_sideBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pageManipulaton/sideBar */ "./src/pageManipulaton/sideBar.js");
 /* harmony import */ var _pageManipulaton_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pageManipulaton/main */ "./src/pageManipulaton/main.js");
 /* harmony import */ var _pageManipulaton_footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pageManipulaton/footer */ "./src/pageManipulaton/footer.js");
+/* harmony import */ var _script_tasks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./script/tasks */ "./src/script/tasks.js");
+
 
 
 
@@ -760,4 +905,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle3a13ef4101b951fa57b1.js.map
+//# sourceMappingURL=bundled99f53acfa433c4e4880.js.map
