@@ -35,9 +35,12 @@ export default function populateMain(clickedElementId){
 };
 
 export function initializeToday(){
-
-    const jobCards = tasks.map(task => {
-        
+    const currentDate = new Date();
+    const jobCards = tasks.filter(task => {
+        const startDate = new Date(task.startDate);
+        return startDate <= currentDate;
+    })
+    .map(task => {
         // Create elements for Menupage
         const jobCardElement = document.createElement('div');
         const jobTitleElement = document.createElement('h2');
@@ -46,31 +49,28 @@ export function initializeToday(){
         const jobPriorityElement = document.createElement('p');
         const jobCompletionElement = document.createElement('input');
         
-        // Adding a class to the card
-        jobCardElement.classList.add('jobCard');
-        jobTitleElement.classList.add('jobTitle');
-        jobDueDateElement.classList.add('jobDueDate');
-        jobPriorityElement.classList.add('jobPriority');
-
-        // Choosing element type
-        jobDueDateElement.type = 'date';
-        jobCompletionElement.type = 'checkbox';
-        // Adding content to elements
-        jobTitleElement.innerHTML = task.title;
-        jobDescElement.innerHTML = task.description;
-        jobDueDateElement.value = task.dueDate;
-        jobPriorityElement.innerHTML = task.priority;
-        
-        jobCardElement.appendChild(jobTitleElement);
-        jobCardElement.appendChild(jobDescElement);
-        jobCardElement.appendChild(jobDueDateElement);
-        jobCardElement.appendChild(jobPriorityElement);
-        jobCardElement.appendChild(jobCompletionElement);
-        
-        return jobCardElement;
-    });
-    return jobCards;
-
-
-
-};
+            // Adding a class to the card
+            jobCardElement.classList.add('jobCard');
+            jobTitleElement.classList.add('jobTitle');
+            jobDueDateElement.classList.add('jobDueDate');
+            jobPriorityElement.classList.add('jobPriority');
+            
+            // Choosing element type
+            jobDueDateElement.type = 'date';
+            jobCompletionElement.type = 'checkbox';
+            // Adding content to elements
+            jobTitleElement.innerHTML = task.title;
+            jobDescElement.innerHTML = task.description;
+            jobDueDateElement.value = task.dueDate;
+            jobPriorityElement.innerHTML = task.priority;
+            
+            jobCardElement.appendChild(jobTitleElement);
+            jobCardElement.appendChild(jobDescElement);
+            jobCardElement.appendChild(jobDueDateElement);
+            jobCardElement.appendChild(jobPriorityElement);
+            jobCardElement.appendChild(jobCompletionElement);
+            
+            return jobCardElement;
+        });
+        return jobCards;
+    };

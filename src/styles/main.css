@@ -3,10 +3,10 @@
 }
 
 #content{
-    height: 100vh;
+    height: fit-content;
     display: grid;
     grid-template-columns: 1fr 6fr;
-    grid-template-rows: 2fr 12fr 1fr;
+    grid-template-rows: 100px 12fr 1fr;
 }
 
 header{
@@ -27,4 +27,17 @@ main{
 footer{
     grid-column: 1/3;
     grid-row: 3/4;
+}
+
+/* Main content */
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.jobCard{
+    margin: 20px;
+    padding: 20px;
+    min-height: 150px;
+    width: 1fr;
 }
