@@ -6,7 +6,7 @@
     height: fit-content;
     display: grid;
     grid-template-columns: 1fr 6fr;
-    grid-template-rows: 100px 12fr 1fr;
+    grid-template-rows: 100px 12fr 50px;
 }
 
 header{

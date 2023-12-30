@@ -3,7 +3,6 @@ import createHeader from './pageManipulaton/header';
 import createSidebar from './pageManipulaton/sideBar';
 import createMain from './pageManipulaton/main';
 import createFooter from './pageManipulaton/footer';
-import tasks from './script/tasks';
 
 document.addEventListener('DOMContentLoaded', function() {
   // DOM is fully parsed and ready for manipulation

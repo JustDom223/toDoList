@@ -1,76 +1,91 @@
-import tasks from "./tasks.js";
+import projects from "./projects.js";
 
-export default function populateMain(clickedElementId){
+export default function populateMain(clickedElementId) {
     const mainElement = document.createElement('main')
     // Clear main
     mainElement.innerHTML = '';
-    
+
     // Adding content to main elements
-    
-    if(clickedElementId === 'today'){
+
+    if (clickedElementId === 'projects') {
+        const toDoCards = initializeProjects()
+        toDoCards.forEach(project => {
+            mainElement.appendChild(project)
+        });
+    } else if (clickedElementId === 'today') {
         const toDoCards = initializeToday()
-        toDoCards.forEach(task =>{
-            mainElement.appendChild(task)
+        toDoCards.forEach(project => {
+            mainElement.appendChild(project)
         });
-// 
-    }else if(clickedElementId === 'week'){
+    } else if (clickedElementId === 'week') {
         const toDoCards = initializeWeek()
-        toDoCards.forEach(task =>{
-            mainElement.appendChild(task)
+        toDoCards.forEach(project => {
+            mainElement.appendChild(project)
         });
-    }else if(clickedElementId === 'month'){
+    } else if (clickedElementId === 'month') {
         const toDoCards = initializeMonth()
-        toDoCards.forEach(task =>{
-            mainElement.appendChild(task)
+        toDoCards.forEach(project => {
+            mainElement.appendChild(project)
         });
-        
-    }else if(clickedElementId === 'quater'){
+
+    } else if (clickedElementId === 'quater') {
         const toDoCards = initializeQuater()
-        toDoCards.forEach(task =>{
-            mainElement.appendChild(task)
+        toDoCards.forEach(project => {
+            mainElement.appendChild(project)
         });
 
     };
     return mainElement;
 };
 
-export function initializeToday(){
+export function initializeProjects() {
     const currentDate = new Date();
-    const jobCards = tasks.filter(task => {
-        const startDate = new Date(task.startDate);
+    const projectCards = projects.filter(project => {
+        const startDate = new Date(project.startDate);
         return startDate <= currentDate;
     })
-    .map(task => {
-        // Create elements for Menupage
-        const jobCardElement = document.createElement('div');
-        const jobTitleElement = document.createElement('h2');
-        const jobDescElement = document.createElement('p');
-        const jobDueDateElement = document.createElement('input');
-        const jobPriorityElement = document.createElement('p');
-        const jobCompletionElement = document.createElement('input');
-        
+        .map(project => {
+            // Create elements for Menupage
+            const projectCardElement = document.createElement('div');
+            const projectTitleElement = document.createElement('h2');
+            const projectDescElement = document.createElement('p');
+            const projectDueDateLabelElement = document.createElement('label')
+            const projectDueDateElement = document.createElement('input');
+            const projectPriorityElement = document.createElement('p');
+            const projectCompletionElement = document.createElement('input');
+            const projectTasksButtonElement = document.createElement('input')
+
             // Adding a class to the card
-            jobCardElement.classList.add('jobCard');
-            jobTitleElement.classList.add('jobTitle');
-            jobDueDateElement.classList.add('jobDueDate');
-            jobPriorityElement.classList.add('jobPriority');
-            
+            projectCardElement.classList.add('jobCard');
+            projectTitleElement.classList.add('jobTitle');
+            projectDueDateLabelElement.classList.add('jobDueDateLabel');
+            projectDueDateElement.classList.add('jobDueDate');
+            projectPriorityElement.classList.add('jobPriority');
+
+            // Adding ID to 
+            projectTasksButtonElement.id = 'taskButton'
+
             // Choosing element type
-            jobDueDateElement.type = 'date';
-            jobCompletionElement.type = 'checkbox';
+            projectDueDateElement.type = 'date';
+            projectCompletionElement.type = 'checkbox';
+            projectTasksButtonElement.type = 'button';
             // Adding content to elements
-            jobTitleElement.innerHTML = task.title;
-            jobDescElement.innerHTML = task.description;
-            jobDueDateElement.value = task.dueDate;
-            jobPriorityElement.innerHTML = task.priority;
-            
-            jobCardElement.appendChild(jobTitleElement);
-            jobCardElement.appendChild(jobDescElement);
-            jobCardElement.appendChild(jobDueDateElement);
-            jobCardElement.appendChild(jobPriorityElement);
-            jobCardElement.appendChild(jobCompletionElement);
-            
-            return jobCardElement;
+            projectTitleElement.innerHTML = project.title;
+            projectDescElement.innerHTML = project.description;
+            projectDueDateLabelElement.innerHTML = 'Due Date: '
+            projectDueDateElement.value = project.dueDate;
+            projectPriorityElement.innerHTML = project.priority;
+            projectTasksButtonElement.value = 'Project Tasks'
+
+            projectCardElement.appendChild(projectTitleElement);
+            projectCardElement.appendChild(projectDescElement);
+            projectCardElement.appendChild(projectDueDateLabelElement);
+            projectCardElement.appendChild(projectDueDateElement);
+            projectCardElement.appendChild(projectPriorityElement);
+            projectCardElement.appendChild(projectCompletionElement);
+            projectCardElement.appendChild(projectTasksButtonElement);
+
+            return projectCardElement;
         });
-        return jobCards;
-    };
+    return projectCards;
+};

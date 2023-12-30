@@ -13,12 +13,14 @@ export default function createSidebar(){
     const sideBarTabs = document.createElement('ul');
 
     // Create list items
+    const tabProjects = document.createElement('li');
     const tabToday = document.createElement('li');
     const tabThisWeek = document.createElement('li');
     const tabThisMonth = document.createElement('li');
     const tabThisQuater = document.createElement('li');
 
     // Create Tabchildren
+    tabProjects.textContent = 'Projects';
     tabToday.textContent = 'Today';
     tabThisWeek.textContent = 'This Week';
     tabThisMonth.textContent = 'This Month';
@@ -26,6 +28,7 @@ export default function createSidebar(){
 
     // Tab ID's
     sideBarTabs.id = 'tabs';
+    tabProjects.id = 'projects';
     tabToday.id = 'today';
     tabThisWeek.id = 'week';
     tabThisMonth.id = 'month';
@@ -33,6 +36,7 @@ export default function createSidebar(){
 
     // Tab classes
     sideBarTabs.classList.add('tabs')
+    tabProjects.classList.add('tab')
     tabToday.classList.add('tab')
     tabThisWeek.classList.add('tab')
     tabThisMonth.classList.add('tab')
@@ -56,6 +60,7 @@ export default function createSidebar(){
     });
 
     // Add items to list
+    sideBarTabs.appendChild(tabProjects);
     sideBarTabs.appendChild(tabToday);
     sideBarTabs.appendChild(tabThisWeek);
     sideBarTabs.appendChild(tabThisMonth);
