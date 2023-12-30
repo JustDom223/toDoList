@@ -26,10 +26,10 @@ ___CSS_LOADER_EXPORT___.push([module.id, `*{
 }
 
 #content{
-    height: 100vh;
+    height: fit-content;
     display: grid;
     grid-template-columns: 1fr 6fr;
-    grid-template-rows: 2fr 12fr 1fr;
+    grid-template-rows: 100px 12fr 50px;
 }
 
 header{
@@ -50,7 +50,20 @@ main{
 footer{
     grid-column: 1/3;
     grid-row: 3/4;
-}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,qBAAqB;AACzB;;AAEA;IACI,aAAa;IACb,aAAa;IACb,8BAA8B;IAC9B,gCAAgC;AACpC;;AAEA;IACI,gBAAgB;IAChB,aAAa;AACjB;;AAEA;IACI,gBAAgB;IAChB,aAAa;AACjB;;AAEA;IACI,gBAAgB;IAChB,aAAa;AACjB;;AAEA;IACI,gBAAgB;IAChB,aAAa;AACjB","sourcesContent":["*{\n    border: solid red 1px;\n}\n\n#content{\n    height: 100vh;\n    display: grid;\n    grid-template-columns: 1fr 6fr;\n    grid-template-rows: 2fr 12fr 1fr;\n}\n\nheader{\n    grid-column: 1/3;\n    grid-row: 1/2;\n}\n\n#sidebar{\n    grid-column: 1/2;\n    grid-row: 2/3;\n}\n\nmain{\n    grid-column: 2/3;\n    grid-row: 2/3;\n}\n\nfooter{\n    grid-column: 1/3;\n    grid-row: 3/4;\n}"],"sourceRoot":""}]);
+}
+
+/* Main content */
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.jobCard{
+    margin: 20px;
+    padding: 20px;
+    min-height: 150px;
+    width: 1fr;
+}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,qBAAqB;AACzB;;AAEA;IACI,mBAAmB;IACnB,aAAa;IACb,8BAA8B;IAC9B,mCAAmC;AACvC;;AAEA;IACI,gBAAgB;IAChB,aAAa;AACjB;;AAEA;IACI,gBAAgB;IAChB,aAAa;AACjB;;AAEA;IACI,gBAAgB;IAChB,aAAa;AACjB;;AAEA;IACI,gBAAgB;IAChB,aAAa;AACjB;;AAEA,iBAAiB;AACjB;IACI,aAAa;IACb,sBAAsB;AAC1B;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,iBAAiB;IACjB,UAAU;AACd","sourcesContent":["*{\n    border: solid red 1px;\n}\n\n#content{\n    height: fit-content;\n    display: grid;\n    grid-template-columns: 1fr 6fr;\n    grid-template-rows: 100px 12fr 50px;\n}\n\nheader{\n    grid-column: 1/3;\n    grid-row: 1/2;\n}\n\n#sidebar{\n    grid-column: 1/2;\n    grid-row: 2/3;\n}\n\nmain{\n    grid-column: 2/3;\n    grid-row: 2/3;\n}\n\nfooter{\n    grid-column: 1/3;\n    grid-row: 3/4;\n}\n\n/* Main content */\nmain {\n    display: flex;\n    flex-direction: column;\n}\n\n.jobCard{\n    margin: 20px;\n    padding: 20px;\n    min-height: 150px;\n    width: 1fr;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -594,12 +607,14 @@ function createSidebar(){
     const sideBarTabs = document.createElement('ul');
 
     // Create list items
+    const tabProjects = document.createElement('li');
     const tabToday = document.createElement('li');
     const tabThisWeek = document.createElement('li');
     const tabThisMonth = document.createElement('li');
     const tabThisQuater = document.createElement('li');
 
     // Create Tabchildren
+    tabProjects.textContent = 'Projects';
     tabToday.textContent = 'Today';
     tabThisWeek.textContent = 'This Week';
     tabThisMonth.textContent = 'This Month';
@@ -607,6 +622,7 @@ function createSidebar(){
 
     // Tab ID's
     sideBarTabs.id = 'tabs';
+    tabProjects.id = 'projects';
     tabToday.id = 'today';
     tabThisWeek.id = 'week';
     tabThisMonth.id = 'month';
@@ -614,6 +630,7 @@ function createSidebar(){
 
     // Tab classes
     sideBarTabs.classList.add('tabs')
+    tabProjects.classList.add('tab')
     tabToday.classList.add('tab')
     tabThisWeek.classList.add('tab')
     tabThisMonth.classList.add('tab')
@@ -637,6 +654,7 @@ function createSidebar(){
     });
 
     // Add items to list
+    sideBarTabs.appendChild(tabProjects);
     sideBarTabs.appendChild(tabToday);
     sideBarTabs.appendChild(tabThisWeek);
     sideBarTabs.appendChild(tabThisMonth);
@@ -658,19 +676,47 @@ function createSidebar(){
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createProject: () => (/* binding */ createProject),
 /* harmony export */   createTask: () => (/* binding */ createTask)
 /* harmony export */ });
 
-function createTask(title, description, dueDate, priority) {
+// Function to create a project
+function createProject(title, description, startDate, dueDate, priority) {
     return {
         title: title,
         description: description,
+        startDate: startDate,
         dueDate: dueDate,
+        priority: priority,
+        tasks: [],
+        complete: false,
+        markComplete: function() {
+            this.complete = true;
+        },
+        markIncomplete: function() {
+            this.complete = false;
+        },
+        createTask: function(taskTitle, taskDescription, taskStartDate, taskDueDate, taskPriority) {
+            const newTask = createTask(taskTitle, taskDescription, taskStartDate, taskDueDate, taskPriority);
+            this.tasks.push(newTask);
+            return newTask;
+        },
+    };
+}
+
+// Function to create a task
+function createTask(title, description, priority) {
+    return {
+        title: title,
+        description: description,
         priority: priority,
         complete: false,
         markComplete: function() {
             this.complete = true;
-        }
+        },
+        markIncomplete: function() {
+            this.complete = false;
+        },
     };
 }
 
@@ -687,9 +733,9 @@ function createTask(title, description, dueDate, priority) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ populateMain),
-/* harmony export */   initializeToday: () => (/* binding */ initializeToday)
+/* harmony export */   initializeProjects: () => (/* binding */ initializeProjects)
 /* harmony export */ });
-/* harmony import */ var _tasks_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tasks.js */ "./src/script/tasks.js");
+/* harmony import */ var _projects_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects.js */ "./src/script/projects.js");
 
 
 function populateMain(clickedElementId){
@@ -699,37 +745,44 @@ function populateMain(clickedElementId){
     
     // Adding content to main elements
     
-    if(clickedElementId === 'today'){
-        const toDoCards = initializeToday()
-        toDoCards.forEach(task =>{
-            mainElement.appendChild(task)
+    if(clickedElementId === 'projects'){
+        const toDoCards = initializeProjects()
+        toDoCards.forEach(project =>{
+            mainElement.appendChild(project)
         });
-// 
+    }else if(clickedElementId === 'today'){
+        const toDoCards = initializeToday()
+        toDoCards.forEach(project =>{
+            mainElement.appendChild(project)
+        });
     }else if(clickedElementId === 'week'){
         const toDoCards = initializeWeek()
-        toDoCards.forEach(task =>{
-            mainElement.appendChild(task)
+        toDoCards.forEach(project =>{
+            mainElement.appendChild(project)
         });
     }else if(clickedElementId === 'month'){
         const toDoCards = initializeMonth()
-        toDoCards.forEach(task =>{
-            mainElement.appendChild(task)
+        toDoCards.forEach(project =>{
+            mainElement.appendChild(project)
         });
         
     }else if(clickedElementId === 'quater'){
         const toDoCards = initializeQuater()
-        toDoCards.forEach(task =>{
-            mainElement.appendChild(task)
+        toDoCards.forEach(project =>{
+            mainElement.appendChild(project)
         });
 
     };
     return mainElement;
 };
 
-function initializeToday(){
-
-    const jobCards = _tasks_js__WEBPACK_IMPORTED_MODULE_0__["default"].map(task => {
-        
+function initializeProjects(){
+    const currentDate = new Date();
+    const jobCards = _projects_js__WEBPACK_IMPORTED_MODULE_0__["default"].filter(project => {
+        const startDate = new Date(project.startDate);
+        return startDate <= currentDate;
+    })
+    .map(project => {
         // Create elements for Menupage
         const jobCardElement = document.createElement('div');
         const jobTitleElement = document.createElement('h2');
@@ -738,41 +791,39 @@ function initializeToday(){
         const jobPriorityElement = document.createElement('p');
         const jobCompletionElement = document.createElement('input');
         
-        // Adding a class to the card
-        jobCardElement.classList.add('jobCard');
-        jobTitleElement.classList.add('jobTitle');
-        jobDueDateElement.classList.add('jobDueDate');
-        jobPriorityElement.classList.add('jobPriority');
+            // Adding a class to the card
+            jobCardElement.classList.add('jobCard');
+            jobTitleElement.classList.add('jobTitle');
+            jobDueDateElement.classList.add('jobDueDate');
+            jobPriorityElement.classList.add('jobPriority');
+            
+            // Choosing element type
+            jobDueDateElement.type = 'date';
+            jobCompletionElement.type = 'checkbox';
+            // Adding content to elements
+            jobTitleElement.innerHTML = project.title;
+            jobDescElement.innerHTML = project.description;
+            jobDueDateElement.value = project.dueDate;
+            jobPriorityElement.innerHTML = project.priority;
+            
+            jobCardElement.appendChild(jobTitleElement);
+            jobCardElement.appendChild(jobDescElement);
+            jobCardElement.appendChild(jobDueDateElement);
+            jobCardElement.appendChild(jobPriorityElement);
+            jobCardElement.appendChild(jobCompletionElement);
+            
+            return jobCardElement;
+        });
+        return jobCards;
+    };
 
-        // Choosing element type
-        jobDueDateElement.type = 'date';
-        jobCompletionElement.type = 'checkbox';
-        // Adding content to elements
-        jobTitleElement.innerHTML = task.title;
-        jobDescElement.innerHTML = task.description;
-        jobDueDateElement.value = task.dueDate;
-        jobPriorityElement.innerHTML = task.priority;
-        
-        jobCardElement.appendChild(jobTitleElement);
-        jobCardElement.appendChild(jobDescElement);
-        jobCardElement.appendChild(jobDueDateElement);
-        jobCardElement.appendChild(jobPriorityElement);
-        jobCardElement.appendChild(jobCompletionElement);
-        
-        return jobCardElement;
-    });
-    return jobCards;
-
-
-
-};
 
 /***/ }),
 
-/***/ "./src/script/tasks.js":
-/*!*****************************!*\
-  !*** ./src/script/tasks.js ***!
-  \*****************************/
+/***/ "./src/script/projects.js":
+/*!********************************!*\
+  !*** ./src/script/projects.js ***!
+  \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -781,12 +832,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _constructors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constructors */ "./src/script/constructors.js");
 
-const tasks = []
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (tasks);
+const projects = []
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (projects);
 
-let newTask = (0,_constructors__WEBPACK_IMPORTED_MODULE_0__.createTask)('FirstJob', 'This will be the first job', '2024-04-30', 'High')
+let newTask = (0,_constructors__WEBPACK_IMPORTED_MODULE_0__.createProject)('FirstJob', 'This will be the first job', '2023-12-26', '2024-04-30', 'High')
+let newTask2 = (0,_constructors__WEBPACK_IMPORTED_MODULE_0__.createProject)('SecondJob', 'This will be the second job', '2023-12-27', '2024-08-30', 'High')
+let newTask3 = (0,_constructors__WEBPACK_IMPORTED_MODULE_0__.createProject)('Job 1', 'Description of Job 1', '2024-01-01', '2023-01-15', 'Medium');
+let newTask4 = (0,_constructors__WEBPACK_IMPORTED_MODULE_0__.createProject)('Job 2', 'Description of Job 2', '2023-03-20', '2023-04-01', 'Low');
+let newTask5 = (0,_constructors__WEBPACK_IMPORTED_MODULE_0__.createProject)('Job 3', 'Description of Job 3', '2022-12-01', '2023-01-10', 'High');
+// let newTask6 = createProject('Job 4', 'Description of Job 4', '2023-07-15', '2023-08-20', 'Medium');
+// let newTask7 = createProject('Job 5', 'Description of Job 5', '2023-09-10', '2023-10-05', 'Low');
+// let newTask8 = createProject('Job 6', 'Description of Job 6', '2023-06-07', '2023-06-30', 'High');
+// let newTask9 = createProject('Job 7', 'Description of Job 7', '2023-11-12', '2023-12-15', 'Medium');
+// let newTask10 = createProject('Job 8', 'Description of Job 8', '2023-05-05', '2023-05-20', 'Low');
+// let newTask11 = createProject('Job 9', 'Description of Job 9', '2023-02-14', '2023-03-01', 'High');
+// let newTask12 = createProject('Job 10', 'Description of Job 10', '2023-08-25', '2023-09-10', 'Medium');
 
-tasks.push(newTask)
+
+
+
+projects.push(newTask, newTask2, newTask3, newTask4, newTask5)
+
+//  newTask6, newTask7, newTask8, newTask9, newTask10, newTask11, newTask12, 
 
 /***/ })
 
@@ -875,8 +942,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pageManipulaton_sideBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pageManipulaton/sideBar */ "./src/pageManipulaton/sideBar.js");
 /* harmony import */ var _pageManipulaton_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pageManipulaton/main */ "./src/pageManipulaton/main.js");
 /* harmony import */ var _pageManipulaton_footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pageManipulaton/footer */ "./src/pageManipulaton/footer.js");
-/* harmony import */ var _script_tasks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./script/tasks */ "./src/script/tasks.js");
-
 
 
 
@@ -905,4 +970,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /******/ })()
 ;
-//# sourceMappingURL=bundled99f53acfa433c4e4880.js.map
+//# sourceMappingURL=bundle2671313697255cb00382.js.map
