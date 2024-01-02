@@ -690,14 +690,15 @@ function createProject(title, description, startDate, dueDate, priority) {
         priority: priority,
         tasks: [],
         complete: false,
-        markComplete: function() {
-            this.complete = true;
+        taskCompletion: function() {
+            if(this.complete){
+                this.complete = false;
+            }else{
+                this.complete = true;
+            }
         },
-        markIncomplete: function() {
-            this.complete = false;
-        },
-        createTask: function(taskTitle, taskDescription, taskStartDate, taskDueDate, taskPriority) {
-            const newTask = createTask(taskTitle, taskDescription, taskStartDate, taskDueDate, taskPriority);
+        createTask: function(taskDescription, taskPriority) {
+            const newTask = createTask(taskDescription, taskPriority);
             this.tasks.push(newTask);
             return newTask;
         },
@@ -705,18 +706,19 @@ function createProject(title, description, startDate, dueDate, priority) {
 }
 
 // Function to create a task
-function createTask(title, description, priority) {
+function createTask(description, priority) {
     return {
-        title: title,
         description: description,
         priority: priority,
         complete: false,
-        markComplete: function() {
-            this.complete = true;
+        taskCompletion: function() {
+            if(this.complete){
+                this.complete = false;
+            }else{
+                this.complete = true;
+            }
         },
-        markIncomplete: function() {
-            this.complete = false;
-        },
+
     };
 }
 
@@ -733,89 +735,175 @@ function createTask(title, description, priority) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ populateMain),
-/* harmony export */   initializeProjects: () => (/* binding */ initializeProjects)
+/* harmony export */   initializeProjects: () => (/* binding */ initializeProjects),
+/* harmony export */   initializeTasks: () => (/* binding */ initializeTasks)
 /* harmony export */ });
 /* harmony import */ var _projects_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects.js */ "./src/script/projects.js");
 
 
-function populateMain(clickedElementId){
+function populateMain(clickedElementId) {
     const mainElement = document.createElement('main')
     // Clear main
     mainElement.innerHTML = '';
-    
+
     // Adding content to main elements
-    
-    if(clickedElementId === 'projects'){
+
+    if (clickedElementId === 'projects') {
         const toDoCards = initializeProjects()
-        toDoCards.forEach(project =>{
+        toDoCards.forEach(project => {
             mainElement.appendChild(project)
         });
-    }else if(clickedElementId === 'today'){
+    } else if (clickedElementId === 'today') {
         const toDoCards = initializeToday()
-        toDoCards.forEach(project =>{
+        toDoCards.forEach(project => {
             mainElement.appendChild(project)
         });
-    }else if(clickedElementId === 'week'){
+    } else if (clickedElementId === 'week') {
         const toDoCards = initializeWeek()
-        toDoCards.forEach(project =>{
+        toDoCards.forEach(project => {
             mainElement.appendChild(project)
         });
-    }else if(clickedElementId === 'month'){
+    } else if (clickedElementId === 'month') {
         const toDoCards = initializeMonth()
-        toDoCards.forEach(project =>{
-            mainElement.appendChild(project)
-        });
-        
-    }else if(clickedElementId === 'quater'){
-        const toDoCards = initializeQuater()
-        toDoCards.forEach(project =>{
+        toDoCards.forEach(project => {
             mainElement.appendChild(project)
         });
 
+    } else if (clickedElementId === 'quater') {
+        const toDoCards = initializeQuater()
+        toDoCards.forEach(project => {
+            mainElement.appendChild(project)
+        });
+
+    } else if (clickedElementId === 'taskButton') {
+        const taskCards = initializeTasks()
+        taskCards.forEach(task => {
+            mainElement.appendChild(task)
+        })
     };
     return mainElement;
 };
 
-function initializeProjects(){
+function initializeProjects() {
     const currentDate = new Date();
-    const jobCards = _projects_js__WEBPACK_IMPORTED_MODULE_0__["default"].filter(project => {
+    const projectCards = _projects_js__WEBPACK_IMPORTED_MODULE_0__["default"].filter(project => {
         const startDate = new Date(project.startDate);
         return startDate <= currentDate;
     })
-    .map(project => {
-        // Create elements for Menupage
-        const jobCardElement = document.createElement('div');
-        const jobTitleElement = document.createElement('h2');
-        const jobDescElement = document.createElement('p');
-        const jobDueDateElement = document.createElement('input');
-        const jobPriorityElement = document.createElement('p');
-        const jobCompletionElement = document.createElement('input');
-        
+        .map(project => {
+            // Create elements for Menupage
+            const projectCardElement = document.createElement('div');
+            const projectTitleElement = document.createElement('h2');
+            const projectDescElement = document.createElement('p');
+            const projectDueDateLabelElement = document.createElement('label')
+            const projectDueDateElement = document.createElement('input');
+            const projectPriorityElement = document.createElement('p');
+            const projectCompletionElement = document.createElement('input');
+            const projectTasksButtonElement = document.createElement('input')
+
             // Adding a class to the card
-            jobCardElement.classList.add('jobCard');
-            jobTitleElement.classList.add('jobTitle');
-            jobDueDateElement.classList.add('jobDueDate');
-            jobPriorityElement.classList.add('jobPriority');
-            
+            projectCardElement.classList.add('jobCard');
+            projectTitleElement.classList.add('jobTitle');
+            projectDueDateLabelElement.classList.add('jobDueDateLabel');
+            projectDueDateElement.classList.add('jobDueDate');
+            projectPriorityElement.classList.add('jobPriority');
+
+            // Adding ID to 
+            projectTasksButtonElement.id = 'taskButton'
+
             // Choosing element type
-            jobDueDateElement.type = 'date';
-            jobCompletionElement.type = 'checkbox';
+            projectDueDateElement.type = 'date';
+            projectCompletionElement.type = 'checkbox';
+            projectTasksButtonElement.type = 'button';
             // Adding content to elements
-            jobTitleElement.innerHTML = project.title;
-            jobDescElement.innerHTML = project.description;
-            jobDueDateElement.value = project.dueDate;
-            jobPriorityElement.innerHTML = project.priority;
-            
-            jobCardElement.appendChild(jobTitleElement);
-            jobCardElement.appendChild(jobDescElement);
-            jobCardElement.appendChild(jobDueDateElement);
-            jobCardElement.appendChild(jobPriorityElement);
-            jobCardElement.appendChild(jobCompletionElement);
-            
-            return jobCardElement;
+            projectTitleElement.innerHTML = project.title;
+            projectDescElement.innerHTML = project.description;
+            projectDueDateLabelElement.innerHTML = 'Due Date: '
+            projectDueDateElement.value = project.dueDate;
+            projectPriorityElement.innerHTML = project.priority;
+            projectTasksButtonElement.value = 'Project Tasks'
+
+            // Creating event listeners to the Task button
+                // Adding event listeners
+            projectTasksButtonElement.addEventListener('click', () => {
+                for (const project of _projects_js__WEBPACK_IMPORTED_MODULE_0__["default"]){
+                    if(project.title === projectTitleElement.innerHTML){
+                        console.log(project.tasks)
+                    }
+                }
+                // initializeTasks()
+            });
+
+            projectCardElement.appendChild(projectTitleElement);
+            projectCardElement.appendChild(projectDescElement);
+            projectCardElement.appendChild(projectDueDateLabelElement);
+            projectCardElement.appendChild(projectDueDateElement);
+            projectCardElement.appendChild(projectPriorityElement);
+            projectCardElement.appendChild(projectCompletionElement);
+            projectCardElement.appendChild(projectTasksButtonElement);
+
+            return projectCardElement;
         });
-        return jobCards;
-    };
+    return projectCards;
+};
+
+function initializeTasks() {
+    const currentDate = new Date();
+    const projectCards = _projects_js__WEBPACK_IMPORTED_MODULE_0__["default"].filter(project => {
+        const startDate = new Date(project.startDate);
+        return startDate <= currentDate;
+    })
+        .map(project => {
+            // Create elements for Menupage
+            const projectCardElement = document.createElement('div');
+            const projectTitleElement = document.createElement('h2');
+            const projectDescElement = document.createElement('p');
+            const projectDueDateLabelElement = document.createElement('label')
+            const projectDueDateElement = document.createElement('input');
+            const projectPriorityElement = document.createElement('p');
+            const projectCompletionElement = document.createElement('input');
+            const projectTasksButtonElement = document.createElement('input')
+
+            // Adding a class to the card
+            projectCardElement.classList.add('jobCard');
+            projectTitleElement.classList.add('jobTitle');
+            projectDueDateLabelElement.classList.add('jobDueDateLabel');
+            projectDueDateElement.classList.add('jobDueDate');
+            projectPriorityElement.classList.add('jobPriority');
+
+            // Adding ID to 
+            projectTasksButtonElement.id = 'taskButton'
+
+            // Choosing element type
+            projectDueDateElement.type = 'date';
+            projectCompletionElement.type = 'checkbox';
+            projectTasksButtonElement.type = 'button';
+            // Adding content to elements
+            projectTitleElement.innerHTML = project.title;
+            projectDescElement.innerHTML = project.description;
+            projectDueDateLabelElement.innerHTML = 'Due Date: '
+            projectDueDateElement.value = project.dueDate;
+            projectPriorityElement.innerHTML = project.priority;
+            projectTasksButtonElement.value = 'Project Tasks'
+
+            // Creating event listeners to the Task button
+                // Adding event listeners
+            projectTasksButtonElement.addEventListener('click', (event) => {
+
+            });
+
+            projectCardElement.appendChild(projectTitleElement);
+            projectCardElement.appendChild(projectDescElement);
+            projectCardElement.appendChild(projectDueDateLabelElement);
+            projectCardElement.appendChild(projectDueDateElement);
+            projectCardElement.appendChild(projectPriorityElement);
+            projectCardElement.appendChild(projectCompletionElement);
+            projectCardElement.appendChild(projectTasksButtonElement);
+
+            return projectCardElement;
+        });
+    return projectCards;
+};
 
 
 /***/ }),
@@ -848,7 +936,8 @@ let newTask5 = (0,_constructors__WEBPACK_IMPORTED_MODULE_0__.createProject)('Job
 // let newTask11 = createProject('Job 9', 'Description of Job 9', '2023-02-14', '2023-03-01', 'High');
 // let newTask12 = createProject('Job 10', 'Description of Job 10', '2023-08-25', '2023-09-10', 'Medium');
 
-
+newTask.createTask('This will be the first task', 'High')
+console.log(newTask)
 
 
 projects.push(newTask, newTask2, newTask3, newTask4, newTask5)
@@ -970,4 +1059,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle2671313697255cb00382.js.map
+//# sourceMappingURL=bundle3a65db30fc374b600394.js.map
