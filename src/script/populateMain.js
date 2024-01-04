@@ -104,9 +104,22 @@ function createNewProject() {
     // Element classes
     formElement.classList.add('projectForm')
 
-    // Element ID's
-    
+    formProjectTitleLabelElement.classList.add('label')
+    formProjectDescLabelElement.classList.add('label')
+    formProjectDueDateLabelElement.classList.add('label')
+    formProjectPriorityLabelElement.classList.add('label')
 
+    formProjectTitleInputElement.classList.add('input')
+    formProjectDescInputElement.classList.add('input')
+    formProjectDueDateInputElement.classList.add('input')
+    formProjectPriorityInputElement.classList.add('input')
+    
+    // Element ID's
+    formProjectTitleInputElement.id = 'titleInput'
+    formProjectDescInputElement.id = 'descInput'
+    formProjectDueDateInputElement.id = 'dueDateInput'
+    formProjectPriorityInputElement.id = 'priorityInput'
+       
     // Adding content to elements
     formTitleElement.textContent = 'Create your new project.';
     formProjectTitleLabelElement.textContent = 'Project Title: ';
