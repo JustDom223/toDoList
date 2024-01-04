@@ -1,9 +1,9 @@
 import projects from "./projects.js";
 
 export default function populateMain(clickedElementId, projectTitle) {
-    const mainElement = document.createElement('main')
+    const mainElement = document.querySelector('main')
     // Clear main
-    mainElement.innerHTML = '';
+    mainElement.textContent = '';
 
     // Adding content to main elements
 
@@ -103,9 +103,7 @@ export function initializeProjects() {
 };
 
 export function initializeTasks(projectTitle) {
-    const project = projects.find(project => {
-        return project.title === projectTitle;
-    })
+    const project = projects.find(project => project.title === projectTitle)
     const taskCards = project.tasks.map(task =>  {
 
         // Create elements for Menupage
@@ -141,38 +139,4 @@ export function initializeTasks(projectTitle) {
 
     return taskCards
 };
-// export function initializeTasks(projectTitle) {
-//     const project = projects.find(project => {
-//         return project.title === projectTitle;
-//     });
 
-//     const taskCards = project.tasks.map(task => {
-//         // Create elements for Menupage
-//         const taskCardElement = document.createElement('div');
-//         const taskDescElement = document.createElement('p');
-//         const taskPriorityElement = document.createElement('p');
-//         const taskCompletionElement = document.createElement('input');
-
-//         // Adding a class to the card
-//         taskCardElement.classList.add('jobCard');
-//         taskPriorityElement.classList.add('jobPriority');
-
-//         // Choosing element type
-//         taskCompletionElement.type = 'checkbox';
-
-//         // Adding content to elements
-//         taskDescElement.innerHTML = task.description;
-//         taskPriorityElement.innerHTML = task.priority;
-
-//         // Creating event listeners to the Task button
-//         // Adding event listeners
-
-//         taskCardElement.appendChild(taskDescElement);
-//         taskCardElement.appendChild(taskPriorityElement);
-//         taskCardElement.appendChild(taskCompletionElement);
-
-//         return taskCardElement;
-//     });
-
-//     return taskCards;
-// }
