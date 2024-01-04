@@ -16,7 +16,7 @@ let newTask5 = createProject('Job 3', 'Description of Job 3', '2022-12-01', '202
 // let newTask12 = createProject('Job 10', 'Description of Job 10', '2023-08-25', '2023-09-10', 'Medium');
 
 newTask.createTask('This will be the first task', 'High')
-console.log(newTask)
+newTask.createTask('This will be the second task', 'Low')
 
 
 projects.push(newTask, newTask2, newTask3, newTask4, newTask5)

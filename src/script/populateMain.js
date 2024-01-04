@@ -1,6 +1,6 @@
 import projects from "./projects.js";
 
-export default function populateMain(clickedElementId) {
+export default function populateMain(clickedElementId, projectTitle) {
     const mainElement = document.createElement('main')
     // Clear main
     mainElement.innerHTML = '';
@@ -13,7 +13,7 @@ export default function populateMain(clickedElementId) {
             mainElement.appendChild(project)
         });
     } else if (clickedElementId === 'today') {
-        const toDoCards = initializeToday()
+        const toDoCards = initializeProjects()
         toDoCards.forEach(project => {
             mainElement.appendChild(project)
         });
@@ -35,9 +35,10 @@ export default function populateMain(clickedElementId) {
         });
 
     } else if (clickedElementId === 'taskButton') {
-        const taskCards = initializeTasks()
-        taskCards.forEach(task => {
+        const taskCards = initializeTasks(projectTitle)
+          taskCards.forEach(task => {
             mainElement.appendChild(task)
+            console.log(task)
         })
     };
     return mainElement;
@@ -85,17 +86,9 @@ export function initializeProjects() {
             // Creating event listeners to the Task button
                 // Adding event listeners
             projectTasksButtonElement.addEventListener('click', () => {
-                for (const project of projects){
-                    if(project.title === projectTitleElement.innerHTML){
-                        for(const task of project.tasks){
-                            initializeTask(task)
-
-                        }
-                    }
-                }
-                // initializeTasks()
+                populateMain('taskButton', project.title)
             });
-
+            // console.log(projectTasksButtonElement.id)
             projectCardElement.appendChild(projectTitleElement);
             projectCardElement.appendChild(projectDescElement);
             projectCardElement.appendChild(projectDueDateLabelElement);
@@ -109,45 +102,77 @@ export function initializeProjects() {
     return projectCards;
 };
 
-export function initializeTask(task) {
-    // Create elements for Menupage
-    const taskCardElement = document.createElement('div');
-    const taskDescElement = document.createElement('p');
-    const taskDueDateLabelElement = document.createElement('label')
-    const taskDueDateElement = document.createElement('input');
-    const taskPriorityElement = document.createElement('p');
-    const taskCompletionElement = document.createElement('input');
+export function initializeTasks(projectTitle) {
+    const project = projects.find(project => {
+        return project.title === projectTitle;
+    })
+    const taskCards = project.tasks.map(task =>  {
 
+        // Create elements for Menupage
+        const taskCardElement = document.createElement('div');
+        const taskDescElement = document.createElement('p');
+        const taskPriorityElement = document.createElement('p');
+        const taskCompletionElement = document.createElement('input');
+    
+    
+        // Adding a class to the card
+        taskCardElement.classList.add('jobCard');
+        taskPriorityElement.classList.add('jobPriority');
+    
+        // Adding ID to 
+    
+    
+        // Choosing element type
+        taskCompletionElement.type = 'checkbox';
+    
+        // Adding content to elements
+        taskDescElement.innerHTML = task.description;
+        taskPriorityElement.innerHTML = task.priority;
 
-    // Adding a class to the card
-    taskCardElement.classList.add('jobCard');
-    taskDueDateLabelElement.classList.add('jobDueDateLabel');
-    taskDueDateElement.classList.add('jobDueDate');
-    taskPriorityElement.classList.add('jobPriority');
+        // Creating event listeners to the Task button
+            // Adding event listeners
+    
+        taskCardElement.appendChild(taskDescElement);
+        taskCardElement.appendChild(taskPriorityElement);
+        taskCardElement.appendChild(taskCompletionElement);
+            console.log(taskCardElement)
+        return taskCardElement;
+    });
 
-    // Adding ID to 
-
-
-    // Choosing element type
-    taskDueDateElement.type = 'date';
-    taskCompletionElement.type = 'checkbox';
-
-    // Adding content to elements
-    taskDescElement.innerHTML = project.description;
-    taskDueDateLabelElement.innerHTML = 'Due Date: '
-    taskDueDateElement.value = project.dueDate;
-    taskPriorityElement.innerHTML = project.priority;
-
-
-    // Creating event listeners to the Task button
-        // Adding event listeners
-
-    taskCardElement.appendChild(taskDescElement);
-    taskCardElement.appendChild(taskDueDateLabelElement);
-    taskCardElement.appendChild(taskDueDateElement);
-    taskCardElement.appendChild(taskPriorityElement);
-    taskCardElement.appendChild(taskCompletionElement);
-
-
-    return taskCardElement;
+    return taskCards
 };
+// export function initializeTasks(projectTitle) {
+//     const project = projects.find(project => {
+//         return project.title === projectTitle;
+//     });
+
+//     const taskCards = project.tasks.map(task => {
+//         // Create elements for Menupage
+//         const taskCardElement = document.createElement('div');
+//         const taskDescElement = document.createElement('p');
+//         const taskPriorityElement = document.createElement('p');
+//         const taskCompletionElement = document.createElement('input');
+
+//         // Adding a class to the card
+//         taskCardElement.classList.add('jobCard');
+//         taskPriorityElement.classList.add('jobPriority');
+
+//         // Choosing element type
+//         taskCompletionElement.type = 'checkbox';
+
+//         // Adding content to elements
+//         taskDescElement.innerHTML = task.description;
+//         taskPriorityElement.innerHTML = task.priority;
+
+//         // Creating event listeners to the Task button
+//         // Adding event listeners
+
+//         taskCardElement.appendChild(taskDescElement);
+//         taskCardElement.appendChild(taskPriorityElement);
+//         taskCardElement.appendChild(taskCompletionElement);
+
+//         return taskCardElement;
+//     });
+
+//     return taskCards;
+// }
