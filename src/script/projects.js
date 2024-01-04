@@ -4,9 +4,9 @@ export default projects;
 
 let newTask = createProject('FirstJob', 'This will be the first job', '2023-12-26', '2024-04-30', 'High')
 let newTask2 = createProject('SecondJob', 'This will be the second job', '2023-12-27', '2024-08-30', 'High')
-let newTask3 = createProject('Job 1', 'Description of Job 1', '2024-01-01', '2023-01-15', 'Medium');
-let newTask4 = createProject('Job 2', 'Description of Job 2', '2023-03-20', '2023-04-01', 'Low');
-let newTask5 = createProject('Job 3', 'Description of Job 3', '2022-12-01', '2023-01-10', 'High');
+// let newTask3 = createProject('Job 1', 'Description of Job 1', '2024-01-01', '2023-01-15', 'Medium');
+// let newTask4 = createProject('Job 2', 'Description of Job 2', '2023-03-20', '2023-04-01', 'Low');
+// let newTask5 = createProject('Job 3', 'Description of Job 3', '2022-12-01', '2023-01-10', 'High');
 // let newTask6 = createProject('Job 4', 'Description of Job 4', '2023-07-15', '2023-08-20', 'Medium');
 // let newTask7 = createProject('Job 5', 'Description of Job 5', '2023-09-10', '2023-10-05', 'Low');
 // let newTask8 = createProject('Job 6', 'Description of Job 6', '2023-06-07', '2023-06-30', 'High');
@@ -19,6 +19,9 @@ newTask.createTask('This will be the first task', 'High')
 newTask.createTask('This will be the second task', 'Low')
 
 
-projects.push(newTask, newTask2, newTask3, newTask4, newTask5)
+newTask2.createTask('Project2 task 1', 'Low')
+newTask2.createTask('Project2 task 2', 'high')
+
+projects.push(newTask, newTask2)
 
 //  newTask6, newTask7, newTask8, newTask9, newTask10, newTask11, newTask12, 
