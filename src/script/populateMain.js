@@ -76,16 +76,23 @@ function createNewProject() {
     // Create form children
     const formTitleElement = document.createElement('h1');
 
-    const formProjectTitlelabelElement = document.createElement('label');
+    const titleInputContainer = document.createElement('div')
+    const formProjectTitleLabelElement = document.createElement('label');
     const formProjectTitleInputElement = document.createElement('input');
-
-    const formProjectDesclabelElement = document.createElement('label');
+    
+    
+    const descInputContainer = document.createElement('div')
+    const formProjectDescLabelElement = document.createElement('label');
     const formProjectDescInputElement = document.createElement('input');
-
-    const formProjectDueDatelabelElement = document.createElement('label');
+    
+    
+    const dueInputContainer = document.createElement('div')
+    const formProjectDueDateLabelElement = document.createElement('label');
     const formProjectDueDateInputElement = document.createElement('input');
-
-    const formProjectPrioritylabelElement = document.createElement('label');
+    
+    
+    const priInputContainer = document.createElement('div')
+    const formProjectPriorityLabelElement = document.createElement('label');
     const formProjectPriorityInputElement = document.createElement('input');
 
     const formSubmitButton = document.createElement('input');
@@ -94,33 +101,45 @@ function createNewProject() {
     formProjectDueDateInputElement.type = 'date';
     formSubmitButton.type = 'button';
 
+    // Element classes
+    formElement.classList.add('projectForm')
+
+    // Element ID's
+    
 
     // Adding content to elements
     formTitleElement.textContent = 'Create your new project.';
-    formProjectTitlelabelElement.textContent = 'Project Title: ';
-    formProjectDesclabelElement.textContent = 'Project Description: ';
-    formProjectDueDatelabelElement.textContent = 'Project Due Date: ';
-    formProjectPrioritylabelElement.textContent = 'Project Priority: ';
+    formProjectTitleLabelElement.textContent = 'Project Title: ';
+    formProjectDescLabelElement.textContent = 'Project Description: ';
+    formProjectDueDateLabelElement.textContent = 'Project Due Date: ';
+    formProjectPriorityLabelElement.textContent = 'Project Priority: ';
     formSubmitButton.value = 'Submit new project'
 
 
+    // Add children to containers
+    titleInputContainer.appendChild(formProjectTitleLabelElement)
+    titleInputContainer.appendChild(formProjectTitleInputElement)
+
+    descInputContainer.appendChild(formProjectDescLabelElement)
+    descInputContainer.appendChild(formProjectDescInputElement)
+
+    dueInputContainer.appendChild(formProjectDueDateLabelElement)
+    dueInputContainer.appendChild(formProjectDueDateInputElement)
+
+    priInputContainer.appendChild(formProjectPriorityLabelElement)
+    priInputContainer.appendChild(formProjectPriorityInputElement)
+
     // Add children to formElement
     formElement.appendChild(formTitleElement);
-
-    formElement.appendChild(formProjectTitlelabelElement);
-    formElement.appendChild(formProjectTitleInputElement);
-
-    formElement.appendChild(formProjectDesclabelElement);
-    formElement.appendChild(formProjectDescInputElement);
-
-    formElement.appendChild(formProjectDueDatelabelElement);
-    formElement.appendChild(formProjectDueDateInputElement);
-
-    formElement.appendChild(formProjectPrioritylabelElement);
-    formElement.appendChild(formProjectPriorityInputElement);
-
-    formElement.appendChild(formSubmitButton)
+    formElement.appendChild(titleInputContainer);
+    formElement.appendChild(descInputContainer);
+    formElement.appendChild(dueInputContainer);
+    formElement.appendChild(priInputContainer);
+    formElement.appendChild(formSubmitButton);
 
     return formElement;
+}
+
+function submitProject(){
 
 }
