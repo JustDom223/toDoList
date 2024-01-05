@@ -41,7 +41,6 @@ export default function populateMain(clickedElementId, projectTitle) {
         const taskCards = initializeTasks(projectTitle)
         taskCards.forEach(task => {
             mainElement.appendChild(task)
-            console.log(task)
         })
     };
     return mainElement;
@@ -49,7 +48,7 @@ export default function populateMain(clickedElementId, projectTitle) {
 
 export function createProjectButton() {
     // Access existing elements
-    const dialogElement = document.querySelector('dialog');
+    const dialogElement = document.querySelector('#dialog');
     // Create button element
     const projectButtonElement = document.createElement('input');
     // Choosing element type
@@ -63,13 +62,13 @@ export function createProjectButton() {
 
     projectButtonElement.addEventListener('click', () => {
         dialogElement.textContent = '';
-        dialogElement.appendChild(createNewProject());
+        dialogElement.appendChild(createNewProjectForm());
         dialogElement.showModal();
     });
     return projectButtonElement
 };
 
-function createNewProject() {
+function createNewProjectForm() {
 
     // Create form
     const formElement = document.createElement('form');
@@ -93,17 +92,18 @@ function createNewProject() {
     
     const priInputContainer = document.createElement('div')
     const formProjectPriorityLabelElement = document.createElement('label');
-    const formProjectPriorityInputElement = document.createElement('input');
+    const formProjectPriorityInputElement = document.createElement('select');
 
     const formSubmitButton = document.createElement('input');
 
     // Choosing element type
     formProjectDueDateInputElement.type = 'date';
-    formSubmitButton.type = 'button';
+    formSubmitButton.type = 'submit';
 
     // Element classes
     formElement.classList.add('projectForm')
 
+    // Label elements
     formProjectTitleLabelElement.classList.add('label')
     formProjectDescLabelElement.classList.add('label')
     formProjectDueDateLabelElement.classList.add('label')
@@ -115,6 +115,7 @@ function createNewProject() {
     formProjectPriorityInputElement.classList.add('input')
     
     // Element ID's
+    formElement.id = 'projectForm'
     formProjectTitleInputElement.id = 'titleInput'
     formProjectDescInputElement.id = 'descInput'
     formProjectDueDateInputElement.id = 'dueDateInput'
@@ -128,6 +129,22 @@ function createNewProject() {
     formProjectPriorityLabelElement.textContent = 'Project Priority: ';
     formSubmitButton.value = 'Submit new project'
 
+    // Logic for select options
+    const priorityOptions = ['High', 'Medium', 'Low'];
+    priorityOptions.forEach(option => {
+        const optionsElement = document.createElement('option');
+        optionsElement.value = option;
+        optionsElement.text = option;
+        
+        formProjectPriorityInputElement.appendChild(optionsElement)
+    })
+    
+    // Adding an event listener to the submit button
+    formSubmitButton.addEventListener('submit', function (event) {
+        event.preventDefault();
+        submitProject();
+    });
+    
 
     // Add children to containers
     titleInputContainer.appendChild(formProjectTitleLabelElement)
@@ -154,5 +171,6 @@ function createNewProject() {
 }
 
 function submitProject(){
-
+    const form = document.querySelector('#projectForm')
+    console.table('Form Data', new FormData(form))
 }

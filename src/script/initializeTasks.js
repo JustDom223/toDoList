@@ -31,7 +31,6 @@ export default function initializeTasks(projectTitle) {
         taskCardElement.appendChild(taskDescElement);
         taskCardElement.appendChild(taskPriorityElement);
         taskCardElement.appendChild(taskCompletionElement);
-            console.log(taskCardElement)
         return taskCardElement;
     });
 
