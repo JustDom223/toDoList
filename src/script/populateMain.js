@@ -1,5 +1,7 @@
 import initializeProjects from "./initializeProjects.js";
 import initializeTasks from "./initializeTasks.js";
+import { createProject } from "./constructors.js";
+import projects from "./projects.js";
 
 export default function populateMain(clickedElementId, projectTitle) {
     const mainElement = document.querySelector('main')
@@ -41,14 +43,37 @@ export default function populateMain(clickedElementId, projectTitle) {
         const taskCards = initializeTasks(projectTitle)
         taskCards.forEach(task => {
             mainElement.appendChild(task)
-        })
+        });
+        const newTaskButton = createTaskButton
     };
     return mainElement;
 };
 
+export function createTaskButton() {
+    // Access existing elements
+    const dialogElement = document.querySelector('dialog');
+    // Create button element
+    const projectButtonElement = document.createElement('input');
+    // Choosing element type
+    projectButtonElement.type = 'button';
+    // Adding content to button
+    projectButtonElement.value = 'Create new Project';
+    // Adding classes to element
+    projectButtonElement.classList.add('button');
+    // Adding ID's
+    projectButtonElement.id = 'projectButton';
+
+    projectButtonElement.addEventListener('click', () => {
+        dialogElement.textContent = '';
+        dialogElement.appendChild(createNewProjectForm());
+        dialogElement.showModal();
+    });
+    return projectButtonElement
+};
+
 export function createProjectButton() {
     // Access existing elements
-    const dialogElement = document.querySelector('#dialog');
+    const dialogElement = document.querySelector('dialog');
     // Create button element
     const projectButtonElement = document.createElement('input');
     // Choosing element type
@@ -98,7 +123,7 @@ function createNewProjectForm() {
 
     // Choosing element type
     formProjectDueDateInputElement.type = 'date';
-    formSubmitButton.type = 'submit';
+    formSubmitButton.type = 'button';
 
     // Element classes
     formElement.classList.add('projectForm')
@@ -120,6 +145,11 @@ function createNewProjectForm() {
     formProjectDescInputElement.id = 'descInput'
     formProjectDueDateInputElement.id = 'dueDateInput'
     formProjectPriorityInputElement.id = 'priorityInput'
+
+    formProjectTitleInputElement.name = 'titleInput'
+    formProjectDescInputElement.name = 'descInput'
+    formProjectDueDateInputElement.name = 'dueDateInput'
+    formProjectPriorityInputElement.name = 'priorityInput'
        
     // Adding content to elements
     formTitleElement.textContent = 'Create your new project.';
@@ -140,11 +170,14 @@ function createNewProjectForm() {
     })
     
     // Adding an event listener to the submit button
-    formSubmitButton.addEventListener('submit', function (event) {
+    formSubmitButton.addEventListener('click', function (event) {
+        const dialogElement = document.querySelector('dialog');
         event.preventDefault();
         submitProject();
+        dialogElement.close()
+        // Updating DOM
+        populateMain('projects');
     });
-    
 
     // Add children to containers
     titleInputContainer.appendChild(formProjectTitleLabelElement)
@@ -171,6 +204,17 @@ function createNewProjectForm() {
 }
 
 function submitProject(){
-    const form = document.querySelector('#projectForm')
-    console.table('Form Data', new FormData(form))
+    const form = document.querySelector('#projectForm');
+    const formData = new FormData(form);
+    const currentDate = new Date;
+    const newProject = createProject(
+        formData.get('titleInput'),
+        formData.get('descInput'),
+        currentDate,
+        formData.get('dueDateInput'),
+        formData.get('priorityInput')
+    );
+    projects.unshift(newProject)
+    form.style
+
 }
