@@ -926,7 +926,8 @@ function populateMain(clickedElementId, projectTitle) {
         taskCards.forEach(task => {
             mainElement.appendChild(task)
         });
-        const newTaskButton = createTaskButton
+        const newTaskButton = createTaskButton();
+        mainElement.appendChild(newTaskButton)
     };
     return mainElement;
 };
@@ -935,19 +936,19 @@ function createTaskButton() {
     // Access existing elements
     const dialogElement = document.querySelector('dialog');
     // Create button element
-    const projectButtonElement = document.createElement('input');
+    const taskButtonElement = document.createElement('input');
     // Choosing element type
-    projectButtonElement.type = 'button';
+    taskButtonElement.type = 'button';
     // Adding content to button
-    projectButtonElement.value = 'Create new Project';
+    taskButtonElement.value = 'Create new task';
     // Adding classes to element
-    projectButtonElement.classList.add('button');
+    taskButtonElement.classList.add('button');
     // Adding ID's
-    projectButtonElement.id = 'projectButton';
+    taskButtonElement.id = 'taskButton';
 
-    projectButtonElement.addEventListener('click', () => {
+    taskButtonElement.addEventListener('click', () => {
         dialogElement.textContent = '';
-        dialogElement.appendChild(createNewProjectForm());
+        dialogElement.appendChild(createNewTaskForm());
         dialogElement.showModal();
     });
     return projectButtonElement
@@ -1257,4 +1258,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle285a53c6b8d386135811.js.map
+//# sourceMappingURL=bundle5f10263d15dbf546014d.js.map
