@@ -2,6 +2,7 @@ import initializeProjects from "./initializeProjects.js";
 import initializeTasks from "./initializeTasks.js";
 import createNewProjectForm from "./createNewProject.js";
 import createNewTaskForm from "./createNewTask.js";
+import projects from "./projects.js";
 
 export default function populateMain(clickedElementId, projectTitle) {
     const mainElement = document.querySelector('main')
@@ -40,6 +41,8 @@ export default function populateMain(clickedElementId, projectTitle) {
         });
 
     } else if (clickedElementId === 'taskButton') {
+        const projectHeading = document.createElement('h1')
+        projectHeading.innerText = projectTitle
         const taskCards = initializeTasks(projectTitle)
         taskCards.forEach(task => {
             mainElement.appendChild(task)
@@ -52,6 +55,7 @@ export default function populateMain(clickedElementId, projectTitle) {
 
 export function createTaskButton(projectTitle) {
     // Access existing elements
+    const project = projects.find(project => project.title === projectTitle)
     const dialogElement = document.querySelector('dialog');
     // Create button element
     const taskButtonElement = document.createElement('input');
@@ -59,6 +63,8 @@ export function createTaskButton(projectTitle) {
     taskButtonElement.type = 'button';
     // Adding content to button
     taskButtonElement.value = 'Create new task';
+    // Add project title as data
+    taskButtonElement.dataset.projectTitle = project.title
     // Adding classes to element
     taskButtonElement.classList.add('button');
     // Adding ID's

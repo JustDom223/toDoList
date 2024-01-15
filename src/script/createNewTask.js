@@ -1,4 +1,6 @@
 import projects from "./projects";
+import populateMain from "./populateMain";
+import { createTask } from "./constructors";
 
 export default function createNewTaskForm() {
     // Create form
@@ -67,13 +69,16 @@ export default function createNewTaskForm() {
     
     // Adding an event listener to the submit button
     formSubmitButton.addEventListener('click', function (event) {
+        const taskFormButtonElement = document.querySelector('#taskButton')
+        const projectTitle = taskFormButtonElement.dataset.projectTitle;
         const dialogElement = document.querySelector('dialog');
         event.preventDefault();
-        submitTask();
+        console.log(projectTitle)
+        submitTask(projectTitle);
         dialogElement.close();
         // Updating DOM
-        // This needs to be changed TODO
-        populateMain('taskButton', projectsTitle);
+    // FIXME: change this so that it update to the correct projects tasks
+        populateMain('taskButton', projectTitle);
     });
 
     // Add children to containers
@@ -96,15 +101,22 @@ export default function createNewTaskForm() {
     return formElement;
 }
 
-export function submitTask(){
-    const form = document.querySelector('#projectForm');
-    const formData = new FormData(form);
-    const currentDate = new Date;
-    const newProject = createProject(
-        formData.get('descInput'),
-        currentDate,
-        formData.get('dueDateInput'),
-        formData.get('priorityInput'),
-    );
-    projects.unshift(newProject);
-};
+export function submitTask(projectTitle){
+    for (const project of projects){
+        if (project.title === projectTitle){
+        const form = document.querySelector('#taskForm');
+        const formData = new FormData(form);
+        const currentDate = new Date;
+        const newTask = createTask(
+            formData.get('descInput'),
+            formData.get('priorityInput'),
+            currentDate,
+            formData.get('dueDateInput'),
+            );
+            
+            project.tasks.unshift(newTask);
+       
+        console.log(project);
+        console.log('Im here')
+        break;
+}}};
