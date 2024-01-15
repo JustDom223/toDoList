@@ -1,6 +1,7 @@
-import projects from "./projects";
+import { getProjects } from "./projects";
 import populateMain from "./populateMain";
 import { createTask } from "./constructors";
+import { updateLocalStorage } from "./localStorage";
 
 export default function createNewTaskForm() {
     // Create form
@@ -55,7 +56,7 @@ export default function createNewTaskForm() {
     formTaskDescLabelElement.textContent = 'Task Description: ';
     formTaskDueDateLabelElement.textContent = 'Task Due Date: ';
     formTaskPriorityLabelElement.textContent = 'Task Priority: (1 being highest priority and 10 being lowest)';
-    formSubmitButton.value = 'Submit new project';
+    formSubmitButton.value = 'Submit new task';
 
     // Logic for select options
     const priorityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -102,6 +103,7 @@ export default function createNewTaskForm() {
 }
 
 export function submitTask(projectTitle){
+    const projects = getProjects()
     for (const project of projects){
         if (project.title === projectTitle){
         const form = document.querySelector('#taskForm');
@@ -115,8 +117,6 @@ export function submitTask(projectTitle){
             );
             
             project.tasks.unshift(newTask);
-       
-        console.log(project);
-        console.log('Im here')
-        break;
+            updateLocalStorage()
+            break;
 }}};

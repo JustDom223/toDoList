@@ -3,8 +3,10 @@ import createHeader from './pageManipulaton/header';
 import createSidebar from './pageManipulaton/sideBar';
 import createMain from './pageManipulaton/main';
 import createFooter from './pageManipulaton/footer';
+import { fetchLocalStorage } from './script/localStorage';
 
 document.addEventListener('DOMContentLoaded', function() {
+  fetchLocalStorage()
   // DOM is fully parsed and ready for manipulation
   
   const contentElement = document.querySelector('#content')

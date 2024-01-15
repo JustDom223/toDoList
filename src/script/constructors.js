@@ -25,10 +25,12 @@ export function createProject(title, description, startDate, dueDate, priority) 
 }
 
 // Function to create a task
-export function createTask(description, priority) {
+export function createTask(description, priority, dateCreated, dueDate) {
     return {
         description: description,
         priority: priority,
+        dateCreated: dateCreated,
+        dueDate: dueDate,
         complete: false,
         taskCompletion: function() {
             if(this.complete){

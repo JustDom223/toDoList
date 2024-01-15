@@ -1,6 +1,7 @@
 import { createProject } from "./constructors";
-import projects from "./projects";
+import { getProjects } from "./projects";
 import populateMain from "./populateMain";
+import { updateLocalStorage } from "./localStorage";
 
 
 export default function createNewProjectForm() {
@@ -123,5 +124,6 @@ export function submitProject(){
         formData.get('dueDateInput'),
         formData.get('priorityInput')
     );
-    projects.unshift(newProject);
+    getProjects().unshift(newProject);
+    updateLocalStorage()
 };

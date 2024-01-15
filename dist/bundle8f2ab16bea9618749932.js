@@ -714,10 +714,12 @@ function createProject(title, description, startDate, dueDate, priority) {
 }
 
 // Function to create a task
-function createTask(description, priority) {
+function createTask(description, priority, dateCreated, dueDate) {
     return {
         description: description,
         priority: priority,
+        dateCreated: dateCreated,
+        dueDate: dueDate,
         complete: false,
         taskCompletion: function() {
             if(this.complete){
@@ -735,249 +737,28 @@ function createTask(description, priority) {
 
 /***/ }),
 
-/***/ "./src/script/initializeProjects.js":
-/*!******************************************!*\
-  !*** ./src/script/initializeProjects.js ***!
-  \******************************************/
+/***/ "./src/script/createNewProject.js":
+/*!****************************************!*\
+  !*** ./src/script/createNewProject.js ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ initializeProjects)
+/* harmony export */   "default": () => (/* binding */ createNewProjectForm),
+/* harmony export */   submitProject: () => (/* binding */ submitProject)
 /* harmony export */ });
-/* harmony import */ var _projects_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects.js */ "./src/script/projects.js");
-/* harmony import */ var _populateMain_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./populateMain.js */ "./src/script/populateMain.js");
-
-
-
-
-function initializeProjects() {
-    const currentDate = new Date();
-    const projectCards = _projects_js__WEBPACK_IMPORTED_MODULE_0__["default"].filter(project => {
-        const startDate = new Date(project.startDate);
-        return startDate <= currentDate;
-    })
-        .map(project => {
-            // Create elements for Menupage
-            const projectCardElement = document.createElement('div');
-            const projectTitleElement = document.createElement('h2');
-            const projectDescElement = document.createElement('p');
-            const projectDueDateLabelElement = document.createElement('label')
-            const projectDueDateElement = document.createElement('input');
-            const projectPriorityElement = document.createElement('p');
-            const projectCompletionElement = document.createElement('input');
-            const projectTasksButtonElement = document.createElement('input')
-
-            // Adding a class to the card
-            projectCardElement.classList.add('jobCard');
-            projectTitleElement.classList.add('jobTitle');
-            projectDueDateLabelElement.classList.add('jobDueDateLabel');
-            projectDueDateElement.classList.add('jobDueDate');
-            projectPriorityElement.classList.add('jobPriority');
-            projectTasksButtonElement.classList.add('button')
-
-            // Adding ID to 
-            projectTasksButtonElement.id = 'taskButton'
-
-            // Choosing element type
-            projectDueDateElement.type = 'date';
-            projectCompletionElement.type = 'checkbox';
-            projectTasksButtonElement.type = 'button';
-            // Adding content to elements
-            projectTitleElement.innerHTML = project.title;
-            projectDescElement.innerHTML = project.description;
-            projectDueDateLabelElement.innerHTML = 'Due Date: '
-            projectDueDateElement.value = project.dueDate;
-            projectPriorityElement.innerHTML = project.priority;
-            projectTasksButtonElement.value = 'Project Tasks'
-
-            // Creating event listeners to the Task button
-                // Adding event listeners
-            projectTasksButtonElement.addEventListener('click', () => {
-                ;(0,_populateMain_js__WEBPACK_IMPORTED_MODULE_1__["default"])('taskButton', project.title)
-            });
-            // console.log(projectTasksButtonElement.id)
-            projectCardElement.appendChild(projectTitleElement);
-            projectCardElement.appendChild(projectDescElement);
-            projectCardElement.appendChild(projectDueDateLabelElement);
-            projectCardElement.appendChild(projectDueDateElement);
-            projectCardElement.appendChild(projectPriorityElement);
-            projectCardElement.appendChild(projectCompletionElement);
-            projectCardElement.appendChild(projectTasksButtonElement);
-
-            return projectCardElement;
-        });
-    return projectCards;
-};
-
-/***/ }),
-
-/***/ "./src/script/initializeTasks.js":
-/*!***************************************!*\
-  !*** ./src/script/initializeTasks.js ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ initializeTasks)
-/* harmony export */ });
-/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/script/projects.js");
-
-
-function initializeTasks(projectTitle) {
-    const project = _projects__WEBPACK_IMPORTED_MODULE_0__["default"].find(project => project.title === projectTitle)
-    const taskCards = project.tasks.map(task =>  {
-
-        // Create elements for Menupage
-        const taskCardElement = document.createElement('div');
-        const taskDescElement = document.createElement('p');
-        const taskPriorityElement = document.createElement('p');
-        const taskCompletionElement = document.createElement('input');
-    
-    
-        // Adding a class to the card
-        taskCardElement.classList.add('jobCard');
-        taskPriorityElement.classList.add('jobPriority');
-    
-        // Adding ID to 
-    
-    
-        // Choosing element type
-        taskCompletionElement.type = 'checkbox';
-    
-        // Adding content to elements
-        taskDescElement.innerHTML = task.description;
-        taskPriorityElement.innerHTML = task.priority;
-
-        // Creating event listeners to the Task button
-            // Adding event listeners
-    
-        taskCardElement.appendChild(taskDescElement);
-        taskCardElement.appendChild(taskPriorityElement);
-        taskCardElement.appendChild(taskCompletionElement);
-        return taskCardElement;
-    });
-
-    return taskCards
-};
-
-/***/ }),
-
-/***/ "./src/script/populateMain.js":
-/*!************************************!*\
-  !*** ./src/script/populateMain.js ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   createProjectButton: () => (/* binding */ createProjectButton),
-/* harmony export */   createTaskButton: () => (/* binding */ createTaskButton),
-/* harmony export */   "default": () => (/* binding */ populateMain)
-/* harmony export */ });
-/* harmony import */ var _initializeProjects_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./initializeProjects.js */ "./src/script/initializeProjects.js");
-/* harmony import */ var _initializeTasks_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./initializeTasks.js */ "./src/script/initializeTasks.js");
-/* harmony import */ var _constructors_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./constructors.js */ "./src/script/constructors.js");
-/* harmony import */ var _projects_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./projects.js */ "./src/script/projects.js");
+/* harmony import */ var _constructors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constructors */ "./src/script/constructors.js");
+/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./projects */ "./src/script/projects.js");
+/* harmony import */ var _populateMain__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./populateMain */ "./src/script/populateMain.js");
+/* harmony import */ var _localStorage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./localStorage */ "./src/script/localStorage.js");
 
 
 
 
 
-function populateMain(clickedElementId, projectTitle) {
-    const mainElement = document.querySelector('main')
-    // Clear main
-    mainElement.textContent = '';
-
-    // Adding content to main elements
-
-    if (clickedElementId === 'projects') {
-        const newProjectButton = createProjectButton()
-        mainElement.appendChild(newProjectButton)
-        const toDoCards = (0,_initializeProjects_js__WEBPACK_IMPORTED_MODULE_0__["default"])()
-        toDoCards.forEach(project => {
-            mainElement.appendChild(project)
-        });
-    } else if (clickedElementId === 'today') {
-        const toDoCards = (0,_initializeProjects_js__WEBPACK_IMPORTED_MODULE_0__["default"])()
-        toDoCards.forEach(project => {
-            mainElement.appendChild(project)
-        });
-    } else if (clickedElementId === 'week') {
-        const toDoCards = initializeWeek()
-        toDoCards.forEach(project => {
-            mainElement.appendChild(project)
-        });
-    } else if (clickedElementId === 'month') {
-        const toDoCards = initializeMonth()
-        toDoCards.forEach(project => {
-            mainElement.appendChild(project)
-        });
-
-    } else if (clickedElementId === 'quater') {
-        const toDoCards = initializeQuater()
-        toDoCards.forEach(project => {
-            mainElement.appendChild(project)
-        });
-
-    } else if (clickedElementId === 'taskButton') {
-        const taskCards = (0,_initializeTasks_js__WEBPACK_IMPORTED_MODULE_1__["default"])(projectTitle)
-        taskCards.forEach(task => {
-            mainElement.appendChild(task)
-        });
-        const newTaskButton = createTaskButton();
-        mainElement.appendChild(newTaskButton)
-    };
-    return mainElement;
-};
-
-function createTaskButton() {
-    // Access existing elements
-    const dialogElement = document.querySelector('dialog');
-    // Create button element
-    const taskButtonElement = document.createElement('input');
-    // Choosing element type
-    taskButtonElement.type = 'button';
-    // Adding content to button
-    taskButtonElement.value = 'Create new task';
-    // Adding classes to element
-    taskButtonElement.classList.add('button');
-    // Adding ID's
-    taskButtonElement.id = 'taskButton';
-
-    taskButtonElement.addEventListener('click', () => {
-        dialogElement.textContent = '';
-        dialogElement.appendChild(createNewTaskForm());
-        dialogElement.showModal();
-    });
-    return projectButtonElement
-};
-
-function createProjectButton() {
-    // Access existing elements
-    const dialogElement = document.querySelector('dialog');
-    // Create button element
-    const projectButtonElement = document.createElement('input');
-    // Choosing element type
-    projectButtonElement.type = 'button';
-    // Adding content to button
-    projectButtonElement.value = 'Create new Project';
-    // Adding classes to element
-    projectButtonElement.classList.add('button');
-    // Adding ID's
-    projectButtonElement.id = 'projectButton';
-
-    projectButtonElement.addEventListener('click', () => {
-        dialogElement.textContent = '';
-        dialogElement.appendChild(createNewProjectForm());
-        dialogElement.showModal();
-    });
-    return projectButtonElement
-};
 
 function createNewProjectForm() {
-
     // Create form
     const formElement = document.createElement('form');
     // Create form children
@@ -1050,16 +831,16 @@ function createNewProjectForm() {
         optionsElement.text = option;
         
         formProjectPriorityInputElement.appendChild(optionsElement)
-    })
+    });
     
     // Adding an event listener to the submit button
     formSubmitButton.addEventListener('click', function (event) {
         const dialogElement = document.querySelector('dialog');
         event.preventDefault();
         submitProject();
-        dialogElement.close()
+        dialogElement.close();
         // Updating DOM
-        populateMain('projects');
+        (0,_populateMain__WEBPACK_IMPORTED_MODULE_2__["default"])('projects');
     });
 
     // Add children to containers
@@ -1090,17 +871,445 @@ function submitProject(){
     const form = document.querySelector('#projectForm');
     const formData = new FormData(form);
     const currentDate = new Date;
-    const newProject = (0,_constructors_js__WEBPACK_IMPORTED_MODULE_2__.createProject)(
+    const newProject = (0,_constructors__WEBPACK_IMPORTED_MODULE_0__.createProject)(
         formData.get('titleInput'),
         formData.get('descInput'),
         currentDate,
         formData.get('dueDateInput'),
         formData.get('priorityInput')
     );
-    _projects_js__WEBPACK_IMPORTED_MODULE_3__["default"].unshift(newProject)
-    form.style
+    (0,_projects__WEBPACK_IMPORTED_MODULE_1__.getProjects)().unshift(newProject);
+    (0,_localStorage__WEBPACK_IMPORTED_MODULE_3__.updateLocalStorage)()
+};
 
+/***/ }),
+
+/***/ "./src/script/createNewTask.js":
+/*!*************************************!*\
+  !*** ./src/script/createNewTask.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ createNewTaskForm),
+/* harmony export */   submitTask: () => (/* binding */ submitTask)
+/* harmony export */ });
+/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/script/projects.js");
+/* harmony import */ var _populateMain__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./populateMain */ "./src/script/populateMain.js");
+/* harmony import */ var _constructors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./constructors */ "./src/script/constructors.js");
+/* harmony import */ var _localStorage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./localStorage */ "./src/script/localStorage.js");
+
+
+
+
+
+function createNewTaskForm() {
+    // Create form
+    const formElement = document.createElement('form');
+    // Create form children
+    const formTitleElement = document.createElement('h1');
+ 
+    const descInputContainer = document.createElement('div')
+    const formTaskDescLabelElement = document.createElement('label');
+    const formTaskDescInputElement = document.createElement('input');
+    
+    
+    const dueInputContainer = document.createElement('div')
+    const formTaskDueDateLabelElement = document.createElement('label');
+    const formTaskDueDateInputElement = document.createElement('input');
+    
+    
+    const priorityInputContainer = document.createElement('div')
+    const formTaskPriorityLabelElement = document.createElement('label');
+    const formTaskPriorityInputElement = document.createElement('select');
+
+    const formSubmitButton = document.createElement('input');
+
+    // Choosing element type
+    formTaskDueDateInputElement.type = 'date';
+    formSubmitButton.type = 'button';
+
+    // Element classes
+    formElement.classList.add('taskForm');
+
+    // Label elements
+    formTaskDescLabelElement.classList.add('label');
+    formTaskDueDateLabelElement.classList.add('label');
+    formTaskPriorityLabelElement.classList.add('label');
+
+    formTaskDescInputElement.classList.add('input');
+    formTaskDueDateInputElement.classList.add('input');
+    formTaskPriorityInputElement.classList.add('input');
+    
+    // Element ID's
+    formElement.id = 'taskForm';
+    formTaskDescInputElement.id = 'descInput';
+    formTaskDueDateInputElement.id = 'dueDateInput';
+    formTaskPriorityInputElement.id = 'priorityInput';
+
+    formTaskDescInputElement.name = 'descInput';
+    formTaskDueDateInputElement.name = 'dueDateInput';
+    formTaskPriorityInputElement.name = 'priorityInput';
+       
+    // Adding content to elements
+    formTitleElement.textContent = 'Add task';
+    formTaskDescLabelElement.textContent = 'Task Description: ';
+    formTaskDueDateLabelElement.textContent = 'Task Due Date: ';
+    formTaskPriorityLabelElement.textContent = 'Task Priority: (1 being highest priority and 10 being lowest)';
+    formSubmitButton.value = 'Submit new task';
+
+    // Logic for select options
+    const priorityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    priorityOptions.forEach(option => {
+        const optionsElement = document.createElement('option');
+        optionsElement.value = option;
+        optionsElement.text = option;
+        
+        formTaskPriorityInputElement.appendChild(optionsElement)
+    });
+    
+    // Adding an event listener to the submit button
+    formSubmitButton.addEventListener('click', function (event) {
+        const taskFormButtonElement = document.querySelector('#taskButton')
+        const projectTitle = taskFormButtonElement.dataset.projectTitle;
+        const dialogElement = document.querySelector('dialog');
+        event.preventDefault();
+        console.log(projectTitle)
+        submitTask(projectTitle);
+        dialogElement.close();
+        // Updating DOM
+    // FIXME: change this so that it update to the correct projects tasks
+        (0,_populateMain__WEBPACK_IMPORTED_MODULE_1__["default"])('taskButton', projectTitle);
+    });
+
+    // Add children to containers
+
+    descInputContainer.appendChild(formTaskDescLabelElement);
+    descInputContainer.appendChild(formTaskDescInputElement);
+
+    dueInputContainer.appendChild(formTaskDueDateLabelElement);
+    dueInputContainer.appendChild(formTaskDueDateInputElement);
+
+    priorityInputContainer.appendChild(formTaskPriorityLabelElement);
+    priorityInputContainer.appendChild(formTaskPriorityInputElement);
+
+    // Add children to formElement
+    formElement.appendChild(formTitleElement); formElement.appendChild(descInputContainer);
+    formElement.appendChild(dueInputContainer);
+    formElement.appendChild(priorityInputContainer);
+    formElement.appendChild(formSubmitButton);
+
+    return formElement;
 }
+
+function submitTask(projectTitle){
+    const projects = (0,_projects__WEBPACK_IMPORTED_MODULE_0__.getProjects)()
+    for (const project of projects){
+        if (project.title === projectTitle){
+        const form = document.querySelector('#taskForm');
+        const formData = new FormData(form);
+        const currentDate = new Date;
+        const newTask = (0,_constructors__WEBPACK_IMPORTED_MODULE_2__.createTask)(
+            formData.get('descInput'),
+            formData.get('priorityInput'),
+            currentDate,
+            formData.get('dueDateInput'),
+            );
+            
+            project.tasks.unshift(newTask);
+            (0,_localStorage__WEBPACK_IMPORTED_MODULE_3__.updateLocalStorage)()
+            break;
+}}};
+
+
+/***/ }),
+
+/***/ "./src/script/initializeProjects.js":
+/*!******************************************!*\
+  !*** ./src/script/initializeProjects.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ initializeProjects)
+/* harmony export */ });
+/* harmony import */ var _projects_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects.js */ "./src/script/projects.js");
+/* harmony import */ var _populateMain_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./populateMain.js */ "./src/script/populateMain.js");
+
+
+
+
+function initializeProjects() {
+    const currentDate = new Date();
+    const projectCards = (0,_projects_js__WEBPACK_IMPORTED_MODULE_0__.getProjects)().filter(project => {
+        const startDate = new Date(project.startDate);
+        return startDate <= currentDate;
+    })
+        .map(project => {
+            // Create elements for Menupage
+            const projectCardElement = document.createElement('div');
+            const projectTitleElement = document.createElement('h2');
+            const projectDescElement = document.createElement('p');
+            const projectDueDateLabelElement = document.createElement('label')
+            const projectDueDateElement = document.createElement('input');
+            const projectPriorityElement = document.createElement('p');
+            const projectCompletionElement = document.createElement('input');
+            const projectTasksButtonElement = document.createElement('input')
+
+            // Adding a class to the card
+            projectCardElement.classList.add('jobCard');
+            projectTitleElement.classList.add('jobTitle');
+            projectDueDateLabelElement.classList.add('jobDueDateLabel');
+            projectDueDateElement.classList.add('jobDueDate');
+            projectPriorityElement.classList.add('jobPriority');
+            projectTasksButtonElement.classList.add('button')
+
+            // Adding ID to 
+            projectTasksButtonElement.id = 'taskButton'
+
+            // Choosing element type
+            projectDueDateElement.type = 'date';
+            projectCompletionElement.type = 'checkbox';
+            projectTasksButtonElement.type = 'button';
+            // Adding content to elements
+            projectTitleElement.innerHTML = project.title;
+            projectDescElement.innerHTML = project.description;
+            projectDueDateLabelElement.innerHTML = 'Due Date: '
+            projectDueDateElement.value = project.dueDate;
+            projectPriorityElement.innerHTML = project.priority;
+            projectTasksButtonElement.value = 'Project Tasks'
+
+            // Creating event listeners to the Task button
+                // Adding event listeners
+            projectTasksButtonElement.addEventListener('click', () => {
+                ;(0,_populateMain_js__WEBPACK_IMPORTED_MODULE_1__["default"])('taskButton', project.title)
+            });
+            // console.log(projectTasksButtonElement.id)
+            projectCardElement.appendChild(projectTitleElement);
+            projectCardElement.appendChild(projectDescElement);
+            projectCardElement.appendChild(projectDueDateLabelElement);
+            projectCardElement.appendChild(projectDueDateElement);
+            projectCardElement.appendChild(projectPriorityElement);
+            projectCardElement.appendChild(projectCompletionElement);
+            projectCardElement.appendChild(projectTasksButtonElement);
+
+            return projectCardElement;
+        });
+    return projectCards;
+};
+
+/***/ }),
+
+/***/ "./src/script/initializeTasks.js":
+/*!***************************************!*\
+  !*** ./src/script/initializeTasks.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ initializeTasks)
+/* harmony export */ });
+/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/script/projects.js");
+
+
+function initializeTasks(projectTitle) {
+    const project = (0,_projects__WEBPACK_IMPORTED_MODULE_0__.getProjects)().find(project => project.title === projectTitle)
+    const taskCards = project.tasks.map(task =>  {
+
+        // Create elements for Menupage
+        const taskCardElement = document.createElement('div');
+        const taskDescElement = document.createElement('p');
+        const taskPriorityElement = document.createElement('p');
+        const taskCompletionElement = document.createElement('input');
+    
+    
+        // Adding a class to the card
+        taskCardElement.classList.add('jobCard');
+        taskPriorityElement.classList.add('jobPriority');
+    
+        // Adding ID to 
+    
+    
+        // Choosing element type
+        taskCompletionElement.type = 'checkbox';
+    
+        // Adding content to elements
+        taskDescElement.innerHTML = task.description;
+        taskPriorityElement.innerHTML = task.priority;
+
+        // Creating event listeners to the Task button
+            // Adding event listeners
+    
+        taskCardElement.appendChild(taskDescElement);
+        taskCardElement.appendChild(taskPriorityElement);
+        taskCardElement.appendChild(taskCompletionElement);
+        return taskCardElement;
+    });
+
+    return taskCards
+};
+
+/***/ }),
+
+/***/ "./src/script/localStorage.js":
+/*!************************************!*\
+  !*** ./src/script/localStorage.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   fetchLocalStorage: () => (/* binding */ fetchLocalStorage),
+/* harmony export */   updateLocalStorage: () => (/* binding */ updateLocalStorage)
+/* harmony export */ });
+/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/script/projects.js");
+
+
+
+function updateLocalStorage(){
+    const projectsString = JSON.stringify((0,_projects__WEBPACK_IMPORTED_MODULE_0__.getProjects)()) 
+    localStorage.setItem('myProjects', projectsString)
+}
+
+function fetchLocalStorage(){
+    const retrievedProjectsString = localStorage.getItem('myProjects');
+
+    if (retrievedProjectsString) {
+        const retrievedProjects = JSON.parse(retrievedProjectsString);
+        console.log(retrievedProjects)
+        ;(0,_projects__WEBPACK_IMPORTED_MODULE_0__.setProjects)(retrievedProjects);
+    }
+}
+
+/***/ }),
+
+/***/ "./src/script/populateMain.js":
+/*!************************************!*\
+  !*** ./src/script/populateMain.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createProjectButton: () => (/* binding */ createProjectButton),
+/* harmony export */   createTaskButton: () => (/* binding */ createTaskButton),
+/* harmony export */   "default": () => (/* binding */ populateMain)
+/* harmony export */ });
+/* harmony import */ var _initializeProjects_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./initializeProjects.js */ "./src/script/initializeProjects.js");
+/* harmony import */ var _initializeTasks_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./initializeTasks.js */ "./src/script/initializeTasks.js");
+/* harmony import */ var _createNewProject_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./createNewProject.js */ "./src/script/createNewProject.js");
+/* harmony import */ var _createNewTask_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./createNewTask.js */ "./src/script/createNewTask.js");
+/* harmony import */ var _projects_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./projects.js */ "./src/script/projects.js");
+
+
+
+
+
+
+
+
+function populateMain(clickedElementId, projectTitle) {
+    const mainElement = document.querySelector('main')
+    // Clear main
+    mainElement.textContent = '';
+
+    // Adding content to main elements
+
+    if (clickedElementId === 'projects') {
+        const newProjectButton = createProjectButton()
+        mainElement.appendChild(newProjectButton)
+        const toDoCards = (0,_initializeProjects_js__WEBPACK_IMPORTED_MODULE_0__["default"])()
+        toDoCards.forEach(project => {
+            mainElement.appendChild(project)
+        });
+    } else if (clickedElementId === 'today') {
+        const toDoCards = (0,_initializeProjects_js__WEBPACK_IMPORTED_MODULE_0__["default"])()
+        toDoCards.forEach(project => {
+            mainElement.appendChild(project)
+        });
+    } else if (clickedElementId === 'week') {
+        const toDoCards = initializeWeek()
+        toDoCards.forEach(project => {
+            mainElement.appendChild(project)
+        });
+    } else if (clickedElementId === 'month') {
+        const toDoCards = initializeMonth()
+        toDoCards.forEach(project => {
+            mainElement.appendChild(project)
+        });
+
+    } else if (clickedElementId === 'quater') {
+        const toDoCards = initializeQuater()
+        toDoCards.forEach(project => {
+            mainElement.appendChild(project)
+        });
+
+    } else if (clickedElementId === 'taskButton') {
+        const projectHeading = document.createElement('h1')
+        projectHeading.innerText = projectTitle
+        const taskCards = (0,_initializeTasks_js__WEBPACK_IMPORTED_MODULE_1__["default"])(projectTitle)
+        taskCards.forEach(task => {
+            mainElement.appendChild(task)
+        });
+        const newTaskButton = createTaskButton(projectTitle);
+        mainElement.appendChild(newTaskButton)
+    };
+    return mainElement;
+};
+
+function createTaskButton(projectTitle) {
+    // Access existing elements
+    const project = (0,_projects_js__WEBPACK_IMPORTED_MODULE_4__.getProjects)().find(project => project.title === projectTitle)
+    const dialogElement = document.querySelector('dialog');
+    // Create button element
+    const taskButtonElement = document.createElement('input');
+    // Choosing element type
+    taskButtonElement.type = 'button';
+    // Adding content to button
+    taskButtonElement.value = 'Create new task';
+    // Add project title as data
+    taskButtonElement.dataset.projectTitle = project.title
+    // Adding classes to element
+    taskButtonElement.classList.add('button');
+    // Adding ID's
+    taskButtonElement.id = 'taskButton';
+
+    taskButtonElement.addEventListener('click', () => {
+        dialogElement.textContent = '';
+        dialogElement.appendChild((0,_createNewTask_js__WEBPACK_IMPORTED_MODULE_3__["default"])());
+        dialogElement.showModal();
+    });
+    return taskButtonElement
+};
+
+function createProjectButton() {
+    // Access existing elements
+    const dialogElement = document.querySelector('dialog');
+    // Create button element
+    const projectButtonElement = document.createElement('input');
+    // Choosing element type
+    projectButtonElement.type = 'button';
+    // Adding content to button
+    projectButtonElement.value = 'Create new Project';
+    // Adding classes to element
+    projectButtonElement.classList.add('button');
+    // Adding ID's
+    projectButtonElement.id = 'projectButton';
+
+    projectButtonElement.addEventListener('click', () => {
+        dialogElement.textContent = '';
+        dialogElement.appendChild((0,_createNewProject_js__WEBPACK_IMPORTED_MODULE_2__["default"])());
+        dialogElement.showModal();
+    });
+    return projectButtonElement
+};
+
+
+
+
 
 /***/ }),
 
@@ -1112,36 +1321,24 @@ function submitProject(){
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   getProjects: () => (/* binding */ getProjects),
+/* harmony export */   setProjects: () => (/* binding */ setProjects)
 /* harmony export */ });
 /* harmony import */ var _constructors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constructors */ "./src/script/constructors.js");
 
-const projects = []
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (projects);
+let projects = [];
 
-let newTask = (0,_constructors__WEBPACK_IMPORTED_MODULE_0__.createProject)('FirstJob', 'This will be the first job', '2023-12-26', '2024-04-30', 'High')
-let newTask2 = (0,_constructors__WEBPACK_IMPORTED_MODULE_0__.createProject)('SecondJob', 'This will be the second job', '2023-12-27', '2024-08-30', 'High')
-// let newTask3 = createProject('Job 1', 'Description of Job 1', '2024-01-01', '2023-01-15', 'Medium');
-// let newTask4 = createProject('Job 2', 'Description of Job 2', '2023-03-20', '2023-04-01', 'Low');
-// let newTask5 = createProject('Job 3', 'Description of Job 3', '2022-12-01', '2023-01-10', 'High');
-// let newTask6 = createProject('Job 4', 'Description of Job 4', '2023-07-15', '2023-08-20', 'Medium');
-// let newTask7 = createProject('Job 5', 'Description of Job 5', '2023-09-10', '2023-10-05', 'Low');
-// let newTask8 = createProject('Job 6', 'Description of Job 6', '2023-06-07', '2023-06-30', 'High');
-// let newTask9 = createProject('Job 7', 'Description of Job 7', '2023-11-12', '2023-12-15', 'Medium');
-// let newTask10 = createProject('Job 8', 'Description of Job 8', '2023-05-05', '2023-05-20', 'Low');
-// let newTask11 = createProject('Job 9', 'Description of Job 9', '2023-02-14', '2023-03-01', 'High');
-// let newTask12 = createProject('Job 10', 'Description of Job 10', '2023-08-25', '2023-09-10', 'Medium');
+function getProjects() {
+    return projects;
+}
 
-newTask.createTask('This will be the first task', 'High')
-newTask.createTask('This will be the second task', 'Low')
+function setProjects(newProjects) {
+    projects = newProjects;
+}
 
 
-newTask2.createTask('Project2 task 1', 'Low')
-newTask2.createTask('Project2 task 2', 'high')
 
-projects.push(newTask, newTask2)
 
-//  newTask6, newTask7, newTask8, newTask9, newTask10, newTask11, newTask12, 
 
 /***/ })
 
@@ -1230,6 +1427,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pageManipulaton_sideBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pageManipulaton/sideBar */ "./src/pageManipulaton/sideBar.js");
 /* harmony import */ var _pageManipulaton_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pageManipulaton/main */ "./src/pageManipulaton/main.js");
 /* harmony import */ var _pageManipulaton_footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pageManipulaton/footer */ "./src/pageManipulaton/footer.js");
+/* harmony import */ var _script_localStorage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./script/localStorage */ "./src/script/localStorage.js");
+
 
 
 
@@ -1237,6 +1436,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 document.addEventListener('DOMContentLoaded', function() {
+  (0,_script_localStorage__WEBPACK_IMPORTED_MODULE_5__.fetchLocalStorage)()
   // DOM is fully parsed and ready for manipulation
   
   const contentElement = document.querySelector('#content')
@@ -1258,4 +1458,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle5f10263d15dbf546014d.js.map
+//# sourceMappingURL=bundle8f2ab16bea9618749932.js.map

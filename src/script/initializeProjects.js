@@ -1,10 +1,10 @@
-import projects from "./projects.js";
+import { getProjects } from "./projects.js";
 import populateMain from "./populateMain.js";
 
 
 export default function initializeProjects() {
     const currentDate = new Date();
-    const projectCards = projects.filter(project => {
+    const projectCards = getProjects().filter(project => {
         const startDate = new Date(project.startDate);
         return startDate <= currentDate;
     })
@@ -18,6 +18,7 @@ export default function initializeProjects() {
             const projectPriorityElement = document.createElement('p');
             const projectCompletionElement = document.createElement('input');
             const projectTasksButtonElement = document.createElement('input')
+            const projectDeleteButtonElement = document.createElement('input')
 
             // Adding a class to the card
             projectCardElement.classList.add('jobCard');
@@ -26,9 +27,11 @@ export default function initializeProjects() {
             projectDueDateElement.classList.add('jobDueDate');
             projectPriorityElement.classList.add('jobPriority');
             projectTasksButtonElement.classList.add('button')
+            projectDeleteButtonElement.classList.add('button')
 
             // Adding ID to 
             projectTasksButtonElement.id = 'taskButton'
+            // projectDeleteButtonElement
 
             // Choosing element type
             projectDueDateElement.type = 'date';

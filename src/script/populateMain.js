@@ -2,7 +2,9 @@ import initializeProjects from "./initializeProjects.js";
 import initializeTasks from "./initializeTasks.js";
 import createNewProjectForm from "./createNewProject.js";
 import createNewTaskForm from "./createNewTask.js";
-import projects from "./projects.js";
+import { getProjects } from "./projects.js";
+
+
 
 export default function populateMain(clickedElementId, projectTitle) {
     const mainElement = document.querySelector('main')
@@ -55,7 +57,7 @@ export default function populateMain(clickedElementId, projectTitle) {
 
 export function createTaskButton(projectTitle) {
     // Access existing elements
-    const project = projects.find(project => project.title === projectTitle)
+    const project = getProjects().find(project => project.title === projectTitle)
     const dialogElement = document.querySelector('dialog');
     // Create button element
     const taskButtonElement = document.createElement('input');

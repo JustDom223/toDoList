@@ -1,7 +1,7 @@
-import projects from "./projects";
+import { getProjects } from "./projects";
 
 export default function initializeTasks(projectTitle) {
-    const project = projects.find(project => project.title === projectTitle)
+    const project = getProjects().find(project => project.title === projectTitle)
     const taskCards = project.tasks.map(task =>  {
 
         // Create elements for Menupage
