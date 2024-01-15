@@ -31,12 +31,17 @@ export default function initializeProjects() {
 
             // Adding ID to 
             projectTasksButtonElement.id = 'taskButton'
+            projectDeleteButtonElement.id = 'deleteButton'
+
             // projectDeleteButtonElement
+            projectDeleteButtonElement.dataset.projectTitle = project.title
+
 
             // Choosing element type
             projectDueDateElement.type = 'date';
             projectCompletionElement.type = 'checkbox';
             projectTasksButtonElement.type = 'button';
+            projectDeleteButtonElement.type = 'button';
             // Adding content to elements
             projectTitleElement.innerHTML = project.title;
             projectDescElement.innerHTML = project.description;
@@ -44,11 +49,17 @@ export default function initializeProjects() {
             projectDueDateElement.value = project.dueDate;
             projectPriorityElement.innerHTML = project.priority;
             projectTasksButtonElement.value = 'Project Tasks'
+            projectDeleteButtonElement.value = 'Delete Project'
 
             // Creating event listeners to the Task button
                 // Adding event listeners
             projectTasksButtonElement.addEventListener('click', () => {
-                populateMain('taskButton', project.title)
+                populateMain('taskButton', project.title);
+            });
+
+
+            projectDeleteButtonElement.addEventListener('click', () => {
+                // deleteProject();
             });
             // console.log(projectTasksButtonElement.id)
             projectCardElement.appendChild(projectTitleElement);
@@ -58,8 +69,14 @@ export default function initializeProjects() {
             projectCardElement.appendChild(projectPriorityElement);
             projectCardElement.appendChild(projectCompletionElement);
             projectCardElement.appendChild(projectTasksButtonElement);
+            projectCardElement.appendChild(projectDeleteButtonElement);
 
             return projectCardElement;
         });
     return projectCards;
 };
+
+function deleteProject() {
+
+
+}

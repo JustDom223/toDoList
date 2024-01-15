@@ -1,4 +1,3 @@
-import { createProject } from "./constructors"
 let projects = [];
 
 export function getProjects() {

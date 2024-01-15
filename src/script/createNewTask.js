@@ -74,11 +74,9 @@ export default function createNewTaskForm() {
         const projectTitle = taskFormButtonElement.dataset.projectTitle;
         const dialogElement = document.querySelector('dialog');
         event.preventDefault();
-        console.log(projectTitle)
         submitTask(projectTitle);
         dialogElement.close();
         // Updating DOM
-    // FIXME: change this so that it update to the correct projects tasks
         populateMain('taskButton', projectTitle);
     });
 
