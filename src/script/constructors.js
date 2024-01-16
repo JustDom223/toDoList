@@ -8,6 +8,7 @@ export function createProject(title, description, startDate, dueDate, priority) 
         dueDate: dueDate,
         priority: priority,
         tasks: [],
+        today: false,
         complete: false,
         taskCompletion: function() {
             if(this.complete){
@@ -31,6 +32,7 @@ export function createTask(description, priority, dateCreated, dueDate) {
         priority: priority,
         dateCreated: dateCreated,
         dueDate: dueDate,
+
         complete: false,
         taskCompletion: function() {
             if(this.complete){
