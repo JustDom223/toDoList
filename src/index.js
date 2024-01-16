@@ -4,6 +4,7 @@ import createSidebar from './pageManipulaton/sideBar';
 import createMain from './pageManipulaton/main';
 import createFooter from './pageManipulaton/footer';
 import { fetchLocalStorage } from './script/localStorage';
+import populateMain from './script/populateMain';
 
 document.addEventListener('DOMContentLoaded', function() {
   fetchLocalStorage()
@@ -17,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
   contentElement.appendChild(createSidebar())
   contentElement.appendChild(createMain());
   contentElement.appendChild(createFooter());
+
+  populateMain('projects')
 
   
 }

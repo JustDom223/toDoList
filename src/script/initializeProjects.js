@@ -1,6 +1,6 @@
 import { getProjects } from "./projects.js";
 import populateMain from "./populateMain.js";
-
+import { deleteProject } from "./projects.js";
 
 export default function initializeProjects() {
     const currentDate = new Date();
@@ -59,7 +59,9 @@ export default function initializeProjects() {
 
 
             projectDeleteButtonElement.addEventListener('click', () => {
-                // deleteProject();
+                const projectTitle = projectDeleteButtonElement.dataset.projectTitle;
+                deleteProject(projectTitle);
+                populateMain('projects');
             });
             // console.log(projectTasksButtonElement.id)
             projectCardElement.appendChild(projectTitleElement);
@@ -76,7 +78,3 @@ export default function initializeProjects() {
     return projectCards;
 };
 
-function deleteProject() {
-
-
-}
