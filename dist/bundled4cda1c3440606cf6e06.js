@@ -21,7 +21,13 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `*{
+___CSS_LOADER_EXPORT___.push([module.id, `:root{
+    --main-color: rgb(39, 39, 39);
+    --font-color: rgb(0, 153, 255);
+
+}
+
+*{
     border: solid red 1px;
 }
 
@@ -33,11 +39,15 @@ ___CSS_LOADER_EXPORT___.push([module.id, `*{
 }
 
 header{
+    background-color: var(--main-color);
+    color: var(--font-color);
     grid-column: 1/3;
     grid-row: 1/2;
 }
 
 #sidebar{
+    background-color: var(--main-color);
+    color: var(--font-color);
     grid-column: 1/2;
     grid-row: 2/3;
 }
@@ -48,20 +58,29 @@ main{
 }
 
 footer{
+    background-color: var(--main-color);
+    color: var(--font-color);
     grid-column: 1/3;
     grid-row: 3/4;
 }
 
 /* Main content */
-main {
-    display: flex;
-    flex-direction: column;
+main{
+    background-color: var(--main-color);
+    color: var(--font-color);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* flex-direction: column; */
 }
 
 .jobCard{
+    border-radius: 12px;
+    box-shadow: 10px;
+    justify-self: center;
     margin: 20px;
     padding: 20px;
     min-height: 150px;
+    max-width: 200px;
     width: 1fr;
 }
 
@@ -71,7 +90,7 @@ main {
     width: 600px;
     flex-direction: column;
     justify-content: space-around;
-}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,qBAAqB;AACzB;;AAEA;IACI,mBAAmB;IACnB,aAAa;IACb,8BAA8B;IAC9B,mCAAmC;AACvC;;AAEA;IACI,gBAAgB;IAChB,aAAa;AACjB;;AAEA;IACI,gBAAgB;IAChB,aAAa;AACjB;;AAEA;IACI,gBAAgB;IAChB,aAAa;AACjB;;AAEA;IACI,gBAAgB;IAChB,aAAa;AACjB;;AAEA,iBAAiB;AACjB;IACI,aAAa;IACb,sBAAsB;AAC1B;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,iBAAiB;IACjB,UAAU;AACd;;AAEA;IACI,aAAa;IACb,aAAa;IACb,YAAY;IACZ,sBAAsB;IACtB,6BAA6B;AACjC","sourcesContent":["*{\n    border: solid red 1px;\n}\n\n#content{\n    height: fit-content;\n    display: grid;\n    grid-template-columns: 1fr 6fr;\n    grid-template-rows: 100px 12fr 50px;\n}\n\nheader{\n    grid-column: 1/3;\n    grid-row: 1/2;\n}\n\n#sidebar{\n    grid-column: 1/2;\n    grid-row: 2/3;\n}\n\nmain{\n    grid-column: 2/3;\n    grid-row: 2/3;\n}\n\nfooter{\n    grid-column: 1/3;\n    grid-row: 3/4;\n}\n\n/* Main content */\nmain {\n    display: flex;\n    flex-direction: column;\n}\n\n.jobCard{\n    margin: 20px;\n    padding: 20px;\n    min-height: 150px;\n    width: 1fr;\n}\n\n.projectForm{\n    display: flex;\n    height: 600px;\n    width: 600px;\n    flex-direction: column;\n    justify-content: space-around;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,8BAA8B;;AAElC;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,mBAAmB;IACnB,aAAa;IACb,8BAA8B;IAC9B,mCAAmC;AACvC;;AAEA;IACI,mCAAmC;IACnC,wBAAwB;IACxB,gBAAgB;IAChB,aAAa;AACjB;;AAEA;IACI,mCAAmC;IACnC,wBAAwB;IACxB,gBAAgB;IAChB,aAAa;AACjB;;AAEA;IACI,gBAAgB;IAChB,aAAa;AACjB;;AAEA;IACI,mCAAmC;IACnC,wBAAwB;IACxB,gBAAgB;IAChB,aAAa;AACjB;;AAEA,iBAAiB;AACjB;IACI,mCAAmC;IACnC,wBAAwB;IACxB,aAAa;IACb,sCAAsC;IACtC,4BAA4B;AAChC;;AAEA;IACI,mBAAmB;IACnB,gBAAgB;IAChB,oBAAoB;IACpB,YAAY;IACZ,aAAa;IACb,iBAAiB;IACjB,gBAAgB;IAChB,UAAU;AACd;;AAEA;IACI,aAAa;IACb,aAAa;IACb,YAAY;IACZ,sBAAsB;IACtB,6BAA6B;AACjC","sourcesContent":[":root{\n    --main-color: rgb(39, 39, 39);\n    --font-color: rgb(0, 153, 255);\n\n}\n\n*{\n    border: solid red 1px;\n}\n\n#content{\n    height: fit-content;\n    display: grid;\n    grid-template-columns: 1fr 6fr;\n    grid-template-rows: 100px 12fr 50px;\n}\n\nheader{\n    background-color: var(--main-color);\n    color: var(--font-color);\n    grid-column: 1/3;\n    grid-row: 1/2;\n}\n\n#sidebar{\n    background-color: var(--main-color);\n    color: var(--font-color);\n    grid-column: 1/2;\n    grid-row: 2/3;\n}\n\nmain{\n    grid-column: 2/3;\n    grid-row: 2/3;\n}\n\nfooter{\n    background-color: var(--main-color);\n    color: var(--font-color);\n    grid-column: 1/3;\n    grid-row: 3/4;\n}\n\n/* Main content */\nmain{\n    background-color: var(--main-color);\n    color: var(--font-color);\n    display: grid;\n    grid-template-columns: 1fr 1fr 1fr 1fr;\n    /* flex-direction: column; */\n}\n\n.jobCard{\n    border-radius: 12px;\n    box-shadow: 10px;\n    justify-self: center;\n    margin: 20px;\n    padding: 20px;\n    min-height: 150px;\n    max-width: 200px;\n    width: 1fr;\n}\n\n.projectForm{\n    display: flex;\n    height: 600px;\n    width: 600px;\n    flex-direction: column;\n    justify-content: space-around;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -554,7 +573,7 @@ function createHeader(){
     // Create children for header element
     const headingElement = document.createElement('h1')
     // Add content to children
-    headingElement.innerHTML = `Dom's Todo List`
+    headingElement.innerHTML = `It's time to get things done`
     // Populate main
     headerElement.appendChild(headingElement)
     return headerElement
@@ -697,6 +716,7 @@ function createProject(title, description, startDate, dueDate, priority) {
         dueDate: dueDate,
         priority: priority,
         tasks: [],
+        today: false,
         complete: false,
         taskCompletion: function() {
             if(this.complete){
@@ -720,6 +740,7 @@ function createTask(description, priority, dateCreated, dueDate) {
         priority: priority,
         dateCreated: dateCreated,
         dueDate: dueDate,
+
         complete: false,
         taskCompletion: function() {
             if(this.complete){
@@ -879,7 +900,8 @@ function submitProject(){
         formData.get('priorityInput')
     );
     (0,_projects__WEBPACK_IMPORTED_MODULE_1__.getProjects)().unshift(newProject);
-    (0,_localStorage__WEBPACK_IMPORTED_MODULE_3__.updateLocalStorage)()
+    (0,_localStorage__WEBPACK_IMPORTED_MODULE_3__.updateLocalStorage)();
+    
 };
 
 /***/ }),
@@ -975,11 +997,9 @@ function createNewTaskForm() {
         const projectTitle = taskFormButtonElement.dataset.projectTitle;
         const dialogElement = document.querySelector('dialog');
         event.preventDefault();
-        console.log(projectTitle)
         submitTask(projectTitle);
         dialogElement.close();
         // Updating DOM
-    // FIXME: change this so that it update to the correct projects tasks
         (0,_populateMain__WEBPACK_IMPORTED_MODULE_1__["default"])('taskButton', projectTitle);
     });
 
@@ -1057,6 +1077,7 @@ function initializeProjects() {
             const projectPriorityElement = document.createElement('p');
             const projectCompletionElement = document.createElement('input');
             const projectTasksButtonElement = document.createElement('input')
+            const projectDeleteButtonElement = document.createElement('input')
 
             // Adding a class to the card
             projectCardElement.classList.add('jobCard');
@@ -1065,14 +1086,21 @@ function initializeProjects() {
             projectDueDateElement.classList.add('jobDueDate');
             projectPriorityElement.classList.add('jobPriority');
             projectTasksButtonElement.classList.add('button')
+            projectDeleteButtonElement.classList.add('button')
 
             // Adding ID to 
             projectTasksButtonElement.id = 'taskButton'
+            projectDeleteButtonElement.id = 'deleteButton'
+
+            // projectDeleteButtonElement
+            projectDeleteButtonElement.dataset.projectTitle = project.title
+
 
             // Choosing element type
             projectDueDateElement.type = 'date';
             projectCompletionElement.type = 'checkbox';
             projectTasksButtonElement.type = 'button';
+            projectDeleteButtonElement.type = 'button';
             // Adding content to elements
             projectTitleElement.innerHTML = project.title;
             projectDescElement.innerHTML = project.description;
@@ -1080,11 +1108,19 @@ function initializeProjects() {
             projectDueDateElement.value = project.dueDate;
             projectPriorityElement.innerHTML = project.priority;
             projectTasksButtonElement.value = 'Project Tasks'
+            projectDeleteButtonElement.value = 'Delete Project'
 
             // Creating event listeners to the Task button
                 // Adding event listeners
             projectTasksButtonElement.addEventListener('click', () => {
-                ;(0,_populateMain_js__WEBPACK_IMPORTED_MODULE_1__["default"])('taskButton', project.title)
+                ;(0,_populateMain_js__WEBPACK_IMPORTED_MODULE_1__["default"])('taskButton', project.title);
+            });
+
+
+            projectDeleteButtonElement.addEventListener('click', () => {
+                const projectTitle = projectDeleteButtonElement.dataset.projectTitle;
+                (0,_projects_js__WEBPACK_IMPORTED_MODULE_0__.deleteProject)(projectTitle);
+                (0,_populateMain_js__WEBPACK_IMPORTED_MODULE_1__["default"])('projects');
             });
             // console.log(projectTasksButtonElement.id)
             projectCardElement.appendChild(projectTitleElement);
@@ -1094,11 +1130,14 @@ function initializeProjects() {
             projectCardElement.appendChild(projectPriorityElement);
             projectCardElement.appendChild(projectCompletionElement);
             projectCardElement.appendChild(projectTasksButtonElement);
+            projectCardElement.appendChild(projectDeleteButtonElement);
 
             return projectCardElement;
         });
     return projectCards;
 };
+
+
 
 /***/ }),
 
@@ -1321,23 +1360,28 @@ function createProjectButton() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   deleteProject: () => (/* binding */ deleteProject),
 /* harmony export */   getProjects: () => (/* binding */ getProjects),
 /* harmony export */   setProjects: () => (/* binding */ setProjects)
 /* harmony export */ });
-/* harmony import */ var _constructors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constructors */ "./src/script/constructors.js");
-
 let projects = [];
 
 function getProjects() {
     return projects;
-}
+};
 
 function setProjects(newProjects) {
     projects = newProjects;
-}
+};
 
 
-
+function deleteProject(projectTitle) {
+    const isConfirmed = confirm('Are you sure you want to delete this project?')
+    if (isConfirmed){
+        const newProjects = projects.filter(project => project.title !== projectTitle)
+        projects = newProjects;
+    }
+};
 
 
 /***/ })
@@ -1428,6 +1472,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pageManipulaton_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pageManipulaton/main */ "./src/pageManipulaton/main.js");
 /* harmony import */ var _pageManipulaton_footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pageManipulaton/footer */ "./src/pageManipulaton/footer.js");
 /* harmony import */ var _script_localStorage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./script/localStorage */ "./src/script/localStorage.js");
+/* harmony import */ var _script_populateMain__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./script/populateMain */ "./src/script/populateMain.js");
+
 
 
 
@@ -1448,6 +1494,8 @@ document.addEventListener('DOMContentLoaded', function() {
   contentElement.appendChild((0,_pageManipulaton_main__WEBPACK_IMPORTED_MODULE_3__["default"])());
   contentElement.appendChild((0,_pageManipulaton_footer__WEBPACK_IMPORTED_MODULE_4__["default"])());
 
+  (0,_script_populateMain__WEBPACK_IMPORTED_MODULE_6__["default"])('projects')
+
   
 }
 
@@ -1458,4 +1506,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle8f2ab16bea9618749932.js.map
+//# sourceMappingURL=bundled4cda1c3440606cf6e06.js.map

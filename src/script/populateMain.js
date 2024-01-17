@@ -15,11 +15,11 @@ export default function populateMain(clickedElementId, projectTitle) {
 
     if (clickedElementId === 'projects') {
         const newProjectButton = createProjectButton()
-        mainElement.appendChild(newProjectButton)
         const toDoCards = initializeProjects()
         toDoCards.forEach(project => {
             mainElement.appendChild(project)
         });
+        mainElement.appendChild(newProjectButton);
     } else if (clickedElementId === 'today') {
         const toDoCards = initializeProjects()
         toDoCards.forEach(project => {
@@ -88,7 +88,7 @@ export function createProjectButton() {
     // Choosing element type
     projectButtonElement.type = 'button';
     // Adding content to button
-    projectButtonElement.value = 'Create new Project';
+    projectButtonElement.value = 'New Project';
     // Adding classes to element
     projectButtonElement.classList.add('button');
     // Adding ID's

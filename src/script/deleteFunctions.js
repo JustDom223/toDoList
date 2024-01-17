@@ -1,1 +1,0 @@
-import { getProjects } from "./projects";

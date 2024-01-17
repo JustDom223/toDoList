@@ -1,6 +1,7 @@
 import { getProjects } from "./projects.js";
 import populateMain from "./populateMain.js";
 import { deleteProject } from "./projects.js";
+import { updateLocalStorage } from "./localStorage.js";
 
 export default function initializeProjects() {
     const currentDate = new Date();
@@ -61,6 +62,7 @@ export default function initializeProjects() {
             projectDeleteButtonElement.addEventListener('click', () => {
                 const projectTitle = projectDeleteButtonElement.dataset.projectTitle;
                 deleteProject(projectTitle);
+                updateLocalStorage()
                 populateMain('projects');
             });
             // console.log(projectTasksButtonElement.id)

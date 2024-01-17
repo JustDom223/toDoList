@@ -125,5 +125,6 @@ export function submitProject(){
         formData.get('priorityInput')
     );
     getProjects().unshift(newProject);
-    updateLocalStorage()
+    updateLocalStorage();
+    
 };
