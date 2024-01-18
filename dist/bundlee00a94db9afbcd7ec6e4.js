@@ -22,14 +22,22 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `:root{
-    --main-color: rgb(39, 39, 39);
-    --font-color: rgb(0, 153, 255);
+    --main-color-darkmode: rgb(39, 39, 39);
+    --font-color-darkmode: rgb(109, 197, 255);
+    --card-color-darkmode: rgb(95, 94, 94);
 
 }
 
+:root.special{
+    --main-color-darkmode: rgb(255, 255, 255);
+    --font-color-darkmode: rgb(0, 0, 0);
+    --card-color-darkmode: rgb(221, 221, 221);
+
+}
+/* 
 *{
     border: solid red 1px;
-}
+} */
 
 #content{
     height: fit-content;
@@ -39,15 +47,15 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root{
 }
 
 header{
-    background-color: var(--main-color);
-    color: var(--font-color);
+    background-color: var(--main-color-darkmode);
+    color: var(--font-color-darkmode);
     grid-column: 1/3;
     grid-row: 1/2;
 }
 
 #sidebar{
-    background-color: var(--main-color);
-    color: var(--font-color);
+    background-color: var(--main-color-darkmode);
+    color: var(--font-color-darkmode);
     grid-column: 1/2;
     grid-row: 2/3;
 }
@@ -58,22 +66,23 @@ main{
 }
 
 footer{
-    background-color: var(--main-color);
-    color: var(--font-color);
+    background-color: var(--main-color-darkmode);
+    color: var(--font-color-darkmode);
     grid-column: 1/3;
     grid-row: 3/4;
 }
 
 /* Main content */
 main{
-    background-color: var(--main-color);
-    color: var(--font-color);
+    background-color: var(--main-color-darkmode);
+    color: var(--font-color-darkmode);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     /* flex-direction: column; */
 }
 
 .jobCard{
+    background-color: var(--card-color-darkmode);
     border-radius: 12px;
     box-shadow: 10px;
     justify-self: center;
@@ -90,7 +99,17 @@ main{
     width: 600px;
     flex-direction: column;
     justify-content: space-around;
-}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,8BAA8B;;AAElC;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,mBAAmB;IACnB,aAAa;IACb,8BAA8B;IAC9B,mCAAmC;AACvC;;AAEA;IACI,mCAAmC;IACnC,wBAAwB;IACxB,gBAAgB;IAChB,aAAa;AACjB;;AAEA;IACI,mCAAmC;IACnC,wBAAwB;IACxB,gBAAgB;IAChB,aAAa;AACjB;;AAEA;IACI,gBAAgB;IAChB,aAAa;AACjB;;AAEA;IACI,mCAAmC;IACnC,wBAAwB;IACxB,gBAAgB;IAChB,aAAa;AACjB;;AAEA,iBAAiB;AACjB;IACI,mCAAmC;IACnC,wBAAwB;IACxB,aAAa;IACb,sCAAsC;IACtC,4BAA4B;AAChC;;AAEA;IACI,mBAAmB;IACnB,gBAAgB;IAChB,oBAAoB;IACpB,YAAY;IACZ,aAAa;IACb,iBAAiB;IACjB,gBAAgB;IAChB,UAAU;AACd;;AAEA;IACI,aAAa;IACb,aAAa;IACb,YAAY;IACZ,sBAAsB;IACtB,6BAA6B;AACjC","sourcesContent":[":root{\n    --main-color: rgb(39, 39, 39);\n    --font-color: rgb(0, 153, 255);\n\n}\n\n*{\n    border: solid red 1px;\n}\n\n#content{\n    height: fit-content;\n    display: grid;\n    grid-template-columns: 1fr 6fr;\n    grid-template-rows: 100px 12fr 50px;\n}\n\nheader{\n    background-color: var(--main-color);\n    color: var(--font-color);\n    grid-column: 1/3;\n    grid-row: 1/2;\n}\n\n#sidebar{\n    background-color: var(--main-color);\n    color: var(--font-color);\n    grid-column: 1/2;\n    grid-row: 2/3;\n}\n\nmain{\n    grid-column: 2/3;\n    grid-row: 2/3;\n}\n\nfooter{\n    background-color: var(--main-color);\n    color: var(--font-color);\n    grid-column: 1/3;\n    grid-row: 3/4;\n}\n\n/* Main content */\nmain{\n    background-color: var(--main-color);\n    color: var(--font-color);\n    display: grid;\n    grid-template-columns: 1fr 1fr 1fr 1fr;\n    /* flex-direction: column; */\n}\n\n.jobCard{\n    border-radius: 12px;\n    box-shadow: 10px;\n    justify-self: center;\n    margin: 20px;\n    padding: 20px;\n    min-height: 150px;\n    max-width: 200px;\n    width: 1fr;\n}\n\n.projectForm{\n    display: flex;\n    height: 600px;\n    width: 600px;\n    flex-direction: column;\n    justify-content: space-around;\n}"],"sourceRoot":""}]);
+}
+
+.button{
+   max-width: 100px; 
+   max-height: 100px;
+}
+
+#projectButton{
+    justify-self: center;
+    align-self: center;
+}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,sCAAsC;IACtC,yCAAyC;IACzC,sCAAsC;;AAE1C;;AAEA;IACI,yCAAyC;IACzC,mCAAmC;IACnC,yCAAyC;;AAE7C;AACA;;;GAGG;;AAEH;IACI,mBAAmB;IACnB,aAAa;IACb,8BAA8B;IAC9B,mCAAmC;AACvC;;AAEA;IACI,4CAA4C;IAC5C,iCAAiC;IACjC,gBAAgB;IAChB,aAAa;AACjB;;AAEA;IACI,4CAA4C;IAC5C,iCAAiC;IACjC,gBAAgB;IAChB,aAAa;AACjB;;AAEA;IACI,gBAAgB;IAChB,aAAa;AACjB;;AAEA;IACI,4CAA4C;IAC5C,iCAAiC;IACjC,gBAAgB;IAChB,aAAa;AACjB;;AAEA,iBAAiB;AACjB;IACI,4CAA4C;IAC5C,iCAAiC;IACjC,aAAa;IACb,sCAAsC;IACtC,4BAA4B;AAChC;;AAEA;IACI,4CAA4C;IAC5C,mBAAmB;IACnB,gBAAgB;IAChB,oBAAoB;IACpB,YAAY;IACZ,aAAa;IACb,iBAAiB;IACjB,gBAAgB;IAChB,UAAU;AACd;;AAEA;IACI,aAAa;IACb,aAAa;IACb,YAAY;IACZ,sBAAsB;IACtB,6BAA6B;AACjC;;AAEA;GACG,gBAAgB;GAChB,iBAAiB;AACpB;;AAEA;IACI,oBAAoB;IACpB,kBAAkB;AACtB","sourcesContent":[":root{\n    --main-color-darkmode: rgb(39, 39, 39);\n    --font-color-darkmode: rgb(109, 197, 255);\n    --card-color-darkmode: rgb(95, 94, 94);\n\n}\n\n:root.special{\n    --main-color-darkmode: rgb(255, 255, 255);\n    --font-color-darkmode: rgb(0, 0, 0);\n    --card-color-darkmode: rgb(221, 221, 221);\n\n}\n/* \n*{\n    border: solid red 1px;\n} */\n\n#content{\n    height: fit-content;\n    display: grid;\n    grid-template-columns: 1fr 6fr;\n    grid-template-rows: 100px 12fr 50px;\n}\n\nheader{\n    background-color: var(--main-color-darkmode);\n    color: var(--font-color-darkmode);\n    grid-column: 1/3;\n    grid-row: 1/2;\n}\n\n#sidebar{\n    background-color: var(--main-color-darkmode);\n    color: var(--font-color-darkmode);\n    grid-column: 1/2;\n    grid-row: 2/3;\n}\n\nmain{\n    grid-column: 2/3;\n    grid-row: 2/3;\n}\n\nfooter{\n    background-color: var(--main-color-darkmode);\n    color: var(--font-color-darkmode);\n    grid-column: 1/3;\n    grid-row: 3/4;\n}\n\n/* Main content */\nmain{\n    background-color: var(--main-color-darkmode);\n    color: var(--font-color-darkmode);\n    display: grid;\n    grid-template-columns: 1fr 1fr 1fr 1fr;\n    /* flex-direction: column; */\n}\n\n.jobCard{\n    background-color: var(--card-color-darkmode);\n    border-radius: 12px;\n    box-shadow: 10px;\n    justify-self: center;\n    margin: 20px;\n    padding: 20px;\n    min-height: 150px;\n    max-width: 200px;\n    width: 1fr;\n}\n\n.projectForm{\n    display: flex;\n    height: 600px;\n    width: 600px;\n    flex-direction: column;\n    justify-content: space-around;\n}\n\n.button{\n   max-width: 100px; \n   max-height: 100px;\n}\n\n#projectButton{\n    justify-self: center;\n    align-self: center;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -572,12 +591,24 @@ function createHeader(){
     const headerElement = document.createElement('header');
     // Create children for header element
     const headingElement = document.createElement('h1')
+    const themeToggle = document.createElement('button')
     // Add content to children
     headingElement.innerHTML = `It's time to get things done`
+    themeToggle.value = 'theme'
+    // Add event listener to button
+    themeToggle.addEventListener('click', () =>{
+        toggleTheme()
+    })
+
     // Populate main
     headerElement.appendChild(headingElement)
+    headerElement.appendChild(themeToggle)
     return headerElement
 };
+
+function toggleTheme (){
+    document.documentElement.classList.toggle("special")
+}
 
 /***/ }),
 
@@ -1057,6 +1088,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _projects_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects.js */ "./src/script/projects.js");
 /* harmony import */ var _populateMain_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./populateMain.js */ "./src/script/populateMain.js");
+/* harmony import */ var _localStorage_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./localStorage.js */ "./src/script/localStorage.js");
+
 
 
 
@@ -1120,7 +1153,8 @@ function initializeProjects() {
             projectDeleteButtonElement.addEventListener('click', () => {
                 const projectTitle = projectDeleteButtonElement.dataset.projectTitle;
                 (0,_projects_js__WEBPACK_IMPORTED_MODULE_0__.deleteProject)(projectTitle);
-                (0,_populateMain_js__WEBPACK_IMPORTED_MODULE_1__["default"])('projects');
+                (0,_localStorage_js__WEBPACK_IMPORTED_MODULE_2__.updateLocalStorage)()
+                ;(0,_populateMain_js__WEBPACK_IMPORTED_MODULE_1__["default"])('projects');
             });
             // console.log(projectTasksButtonElement.id)
             projectCardElement.appendChild(projectTitleElement);
@@ -1207,7 +1241,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/script/projects.js");
 
 
-
 function updateLocalStorage(){
     const projectsString = JSON.stringify((0,_projects__WEBPACK_IMPORTED_MODULE_0__.getProjects)()) 
     localStorage.setItem('myProjects', projectsString)
@@ -1218,10 +1251,40 @@ function fetchLocalStorage(){
 
     if (retrievedProjectsString) {
         const retrievedProjects = JSON.parse(retrievedProjectsString);
+        for(const project of retrievedProjects){
+            project.taskCompletion = function(){
+                if(this.complete){
+                    this.complete = false;
+                }else{
+                    this.complete = true;
+                };
+            };
+            project.createTask = function (description, priority, dateCreated, dueDate){
+                return {
+                    description: description,
+                    priority: priority,
+                    dateCreated: dateCreated,
+                    dueDate: dueDate,
+            
+                    complete: false,
+                    taskCompletion: function() {
+                        if(this.complete){
+                            this.complete = false;
+                        }else{
+                            this.complete = true;
+                        }
+                    },
+            
+                };
+            };
+        };
         console.log(retrievedProjects)
         ;(0,_projects__WEBPACK_IMPORTED_MODULE_0__.setProjects)(retrievedProjects);
     }
 }
+
+
+
 
 /***/ }),
 
@@ -1259,11 +1322,11 @@ function populateMain(clickedElementId, projectTitle) {
 
     if (clickedElementId === 'projects') {
         const newProjectButton = createProjectButton()
-        mainElement.appendChild(newProjectButton)
         const toDoCards = (0,_initializeProjects_js__WEBPACK_IMPORTED_MODULE_0__["default"])()
         toDoCards.forEach(project => {
             mainElement.appendChild(project)
         });
+        mainElement.appendChild(newProjectButton);
     } else if (clickedElementId === 'today') {
         const toDoCards = (0,_initializeProjects_js__WEBPACK_IMPORTED_MODULE_0__["default"])()
         toDoCards.forEach(project => {
@@ -1332,7 +1395,7 @@ function createProjectButton() {
     // Choosing element type
     projectButtonElement.type = 'button';
     // Adding content to button
-    projectButtonElement.value = 'Create new Project';
+    projectButtonElement.value = 'New Project';
     // Adding classes to element
     projectButtonElement.classList.add('button');
     // Adding ID's
@@ -1383,6 +1446,9 @@ function deleteProject(projectTitle) {
     }
 };
 
+function replaceConstructorFunctions() {
+    
+}
 
 /***/ })
 
@@ -1506,4 +1572,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /******/ })()
 ;
-//# sourceMappingURL=bundled4cda1c3440606cf6e06.js.map
+//# sourceMappingURL=bundlee00a94db9afbcd7ec6e4.js.map

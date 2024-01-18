@@ -11,10 +11,10 @@
     --card-color-darkmode: rgb(221, 221, 221);
 
 }
-
+/* 
 *{
-    /* border: solid red 1px; */
-}
+    border: solid red 1px;
+} */
 
 #content{
     height: fit-content;
