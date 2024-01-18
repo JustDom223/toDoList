@@ -1,5 +1,4 @@
 import { getProjects, setProjects } from "./projects";
-import { createTask } from "./constructors";
 
 export function updateLocalStorage(){
     const projectsString = JSON.stringify(getProjects()) 
@@ -19,7 +18,7 @@ export function fetchLocalStorage(){
                     this.complete = true;
                 };
             };
-            project.createTask = function createTask(description, priority, dateCreated, dueDate){
+            project.createTask = function (description, priority, dateCreated, dueDate){
                 return {
                     description: description,
                     priority: priority,
