@@ -1,48 +1,45 @@
-
 // Function to create a project
 export function createProject(title, description, startDate, dueDate, priority) {
-    return {
-        title: title,
-        description: description,
-        startDate: startDate,
-        dueDate: dueDate,
-        priority: priority,
-        tasks: [],
-        today: false,
-        complete: false,
-        taskCompletion: function() {
-            if(this.complete){
-                this.complete = false;
-            }else{
-                this.complete = true;
-            }
-        },
-        createTask: function(taskDescription, taskPriority) {
-            const newTask = createTask(taskDescription, taskPriority);
-            this.tasks.push(newTask);
-            return newTask;
-        },
-    };
+  return {
+    title,
+    description,
+    startDate,
+    dueDate,
+    priority,
+    tasks: [],
+    today: false,
+    complete: false,
+    taskCompletion() {
+      if (this.complete) {
+        this.complete = false;
+      } else {
+        this.complete = true;
+      }
+    },
+    createTask(taskDescription, taskPriority) {
+      const newTask = createTask(taskDescription, taskPriority);
+      this.tasks.push(newTask);
+      return newTask;
+    },
+  };
 }
 
 // Function to create a task
 export function createTask(description, priority, dateCreated, dueDate) {
-    return {
-        description: description,
-        priority: priority,
-        dateCreated: dateCreated,
-        dueDate: dueDate,
+  return {
+    description,
+    priority,
+    dateCreated,
+    dueDate,
 
-        complete: false,
-        taskCompletion: function() {
-            if(this.complete){
-                this.complete = false;
-            }else{
-                this.complete = true;
-            }
-        },
+    complete: false,
+    taskCompletion() {
+      if (this.complete) {
+        this.complete = false;
+      } else {
+        this.complete = true;
+      }
+    },
 
-    };
+  };
 }
-
-
