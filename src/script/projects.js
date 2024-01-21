@@ -9,13 +9,13 @@ export function setProjects(newProjects) {
 }
 
 export function deleteProject(projectTitle) {
-  const isConfirmed = confirm('Are you sure you want to delete this project?');
+  const isConfirmed = confirm("Are you sure you want to delete this project?");
   if (isConfirmed) {
-    const newProjects = projects.filter((project) => project.title !== projectTitle);
+    const newProjects = projects.filter(
+      (project) => project.title !== projectTitle,
+    );
     projects = newProjects;
   }
 }
 
-function replaceConstructorFunctions() {
-
-}
+function replaceConstructorFunctions() {}

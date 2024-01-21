@@ -1,5 +1,11 @@
 // Function to create a project
-export function createProject(title, description, startDate, dueDate, priority) {
+export function createProject(
+  title,
+  description,
+  startDate,
+  dueDate,
+  priority,
+) {
   return {
     title,
     description,
@@ -40,6 +46,5 @@ export function createTask(description, priority, dateCreated, dueDate) {
         this.complete = true;
       }
     },
-
   };
 }

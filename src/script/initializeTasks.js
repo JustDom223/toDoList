@@ -1,22 +1,24 @@
-import { getProjects } from './projects';
+import { getProjects } from "./projects";
 
 export default function initializeTasks(projectTitle) {
-  const project = getProjects().find((project) => project.title === projectTitle);
+  const project = getProjects().find(
+    (project) => project.title === projectTitle,
+  );
   const taskCards = project.tasks.map((task) => {
     // Create elements for Menupage
-    const taskCardElement = document.createElement('div');
-    const taskDescElement = document.createElement('p');
-    const taskPriorityElement = document.createElement('p');
-    const taskCompletionElement = document.createElement('input');
+    const taskCardElement = document.createElement("div");
+    const taskDescElement = document.createElement("p");
+    const taskPriorityElement = document.createElement("p");
+    const taskCompletionElement = document.createElement("input");
 
     // Adding a class to the card
-    taskCardElement.classList.add('jobCard');
-    taskPriorityElement.classList.add('jobPriority');
+    taskCardElement.classList.add("jobCard");
+    taskPriorityElement.classList.add("jobPriority");
 
     // Adding ID to
 
     // Choosing element type
-    taskCompletionElement.type = 'checkbox';
+    taskCompletionElement.type = "checkbox";
 
     // Adding content to elements
     taskDescElement.innerHTML = task.description;
