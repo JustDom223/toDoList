@@ -1,5 +1,5 @@
 import cogSVG from "../assets/svg/settings-svgrepo-com.svg"
-import getFirstChildHeight from "../script/getFirstChildHeight";
+// import getFirstChildHeight from "../script/getFirstChildHeight";
 import toggleDropDown from "../script/initializeDropDown";
 
 function toggleTheme() {
@@ -30,7 +30,7 @@ export default function activateHeader() {
     toggleTheme();
   });
 
-  settingsDropDown.addEventListener("click", () =>{
+  dropDownButtonElement.addEventListener("click", () =>{
     toggleDropDown(settingsDropDown)
   })
 }
