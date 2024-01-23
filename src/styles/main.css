@@ -130,7 +130,7 @@ header h1{
   transition: height 500ms ease-in-out;
 }
 
-.settingsDropDown.clicked {
+.clicked {
   height: 100px;
 }
 
