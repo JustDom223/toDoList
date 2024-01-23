@@ -1,27 +1,36 @@
+import cogSVG from "../assets/svg/settings-svgrepo-com.svg"
+import getFirstChildHeight from "../script/getFirstChildHeight";
+import toggleDropDown from "../script/initializeDropDown";
+
 function toggleTheme() {
   document.documentElement.classList.toggle("special");
 }
+// Children for tabs
+function createTabImg() {
+  const settingsSvg = new Image();
+  settingsSvg.src = cogSVG;
+  settingsSvg.classList.add("cogSVG");
 
-export default function createHeader() {
-  // create Header element
-  const headerElement = document.createElement("header");
-  // Create children for header element
-  const headingElement = document.createElement("h1");
-  const themeToggleElement = document.createElement("input");
-  //   Choosing element type
-  themeToggleElement.type = "button";
-  // Add content to children
-  headingElement.innerHTML = "It's time to get things done";
-  themeToggleElement.value = "Light/Dark";
-  //   Add classes to elements
-  themeToggleElement.classList.add("button");
+  return settingsSvg;
+}
+
+
+export default function activateHeader() {
+  // Find elements
+  const settingsDropDown = document.querySelector(".settingsDropDown")
+  const dropDownButtonElement = document.querySelector(".dropDownButton")
+  const lightDarkButton = document.querySelector("#theme")
+  // Add the image to our existing div.
+  dropDownButtonElement.appendChild(createTabImg())
+  // Change the parent elements size to match the first child
+  // settingsDropDown.style.height = `${getFirstChildHeight(settingsDropDown)}px`;
+
   // Add event listener to button
-  themeToggleElement.addEventListener("click", () => {
+  lightDarkButton.addEventListener("click", () => {
     toggleTheme();
   });
 
-  // Populate main
-  headerElement.appendChild(headingElement);
-  headerElement.appendChild(themeToggleElement);
-  return headerElement;
+  settingsDropDown.addEventListener("click", () =>{
+    toggleDropDown(settingsDropDown)
+  })
 }
