@@ -3,6 +3,26 @@ import populateMain from "./populateMain";
 import { createTask } from "./constructors";
 import { updateLocalStorage } from "./localStorage";
 
+export function submitTask(projectTitle) {
+  const projects = getProjects();
+  for (const project of projects) {
+    if (project.title === projectTitle) {
+      const form = document.querySelector("#taskForm");
+      const formData = new FormData(form);
+      const currentDate = new Date();
+      const newTask = createTask(
+        formData.get("descInput"),
+        formData.get("priorityInput"),
+        currentDate,
+        formData.get("dueDateInput"),
+      );
+
+      project.tasks.unshift(newTask);
+      updateLocalStorage();
+      break;
+    }
+  }
+}
 export default function createNewTaskForm() {
   // Create form
   const formElement = document.createElement("form");
@@ -98,25 +118,4 @@ export default function createNewTaskForm() {
   formElement.appendChild(formSubmitButton);
 
   return formElement;
-}
-
-export function submitTask(projectTitle) {
-  const projects = getProjects();
-  for (const project of projects) {
-    if (project.title === projectTitle) {
-      const form = document.querySelector("#taskForm");
-      const formData = new FormData(form);
-      const currentDate = new Date();
-      const newTask = createTask(
-        formData.get("descInput"),
-        formData.get("priorityInput"),
-        currentDate,
-        formData.get("dueDateInput"),
-      );
-
-      project.tasks.unshift(newTask);
-      updateLocalStorage();
-      break;
-    }
-  }
 }

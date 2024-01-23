@@ -1,3 +1,21 @@
+// Function to create a task
+export function createTask(description, priority, dateCreated, dueDate) {
+  return {
+    description,
+    priority,
+    dateCreated,
+    dueDate,
+
+    complete: false,
+    taskCompletion() {
+      if (this.complete) {
+        this.complete = false;
+      } else {
+        this.complete = true;
+      }
+    },
+  };
+}
 // Function to create a project
 export function createProject(
   title,
@@ -26,25 +44,6 @@ export function createProject(
       const newTask = createTask(taskDescription, taskPriority);
       this.tasks.push(newTask);
       return newTask;
-    },
-  };
-}
-
-// Function to create a task
-export function createTask(description, priority, dateCreated, dueDate) {
-  return {
-    description,
-    priority,
-    dateCreated,
-    dueDate,
-
-    complete: false,
-    taskCompletion() {
-      if (this.complete) {
-        this.complete = false;
-      } else {
-        this.complete = true;
-      }
     },
   };
 }

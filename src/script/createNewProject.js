@@ -3,6 +3,20 @@ import { getProjects } from "./projects";
 import populateMain from "./populateMain";
 import { updateLocalStorage } from "./localStorage";
 
+export function submitProject() {
+  const form = document.querySelector("#projectForm");
+  const formData = new FormData(form);
+  const currentDate = new Date();
+  const newProject = createProject(
+    formData.get("titleInput"),
+    formData.get("descInput"),
+    currentDate,
+    formData.get("dueDateInput"),
+    formData.get("priorityInput"),
+  );
+  getProjects().unshift(newProject);
+  updateLocalStorage();
+}
 export default function createNewProjectForm() {
   // Create form
   const formElement = document.createElement("form");
@@ -107,19 +121,4 @@ export default function createNewProjectForm() {
   formElement.appendChild(formSubmitButton);
 
   return formElement;
-}
-
-export function submitProject() {
-  const form = document.querySelector("#projectForm");
-  const formData = new FormData(form);
-  const currentDate = new Date();
-  const newProject = createProject(
-    formData.get("titleInput"),
-    formData.get("descInput"),
-    currentDate,
-    formData.get("dueDateInput"),
-    formData.get("priorityInput"),
-  );
-  getProjects().unshift(newProject);
-  updateLocalStorage();
 }
