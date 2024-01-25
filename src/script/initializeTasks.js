@@ -1,5 +1,7 @@
 import { getProjects } from "./projects";
 
+
+
 export default function initializeTasks(projectTitle) {
   const selectedProject = getProjects().find(
     (project) => project.title === projectTitle,

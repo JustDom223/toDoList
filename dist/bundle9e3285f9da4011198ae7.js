@@ -169,8 +169,7 @@ video {
 }
 /* Header content */
 header {
-  display: flex;
-  justify-content: space-between;
+  height: fit-content;
   background-color: var(--main-color-darkmode);
   color: var(--font-color-darkmode);
   grid-column: 1/3;
@@ -179,6 +178,7 @@ header {
 
 header h1{
   font-size: 32px;
+  height: fit-content;
 }
 
 
@@ -263,7 +263,17 @@ main {
   /* transition: all 0.3s ease; Smooth transition for all properties */
 }
 
-@keyframes shake {
+#projectTasksSVG{
+  max-width: 40px;
+  max-height: 40px;
+}
+
+#projectDeleteSVG{
+  max-width: 40px;
+  max-height: 40px;
+}
+
+@keyframes takeOff {
   0% { transform: translateY(2px); }
   25% { transform: translateY(-2px); }
   50% { transform: translateX(2px); }
@@ -273,11 +283,12 @@ main {
 }
 
 #projectSVG{
-  width: 150px;
+  max-width: 150px;
+  max-height: 150px;
 }
 
 #projectSVG:hover{
-  animation: shake 0.5s infinite alternate; /* Apply the shake animation */
+  animation: takeOff 0.5s infinite alternate; /* Apply the takeOff animation */
 }
 
 .projectForm {
@@ -288,20 +299,13 @@ main {
   justify-content: space-around;
 }
 
-.button {
-  max-width: 100px;
-  max-height: 100px;
-}
-
-
-
 /* Footer content */
 footer {
   background-color: var(--main-color-darkmode);
   color: var(--font-color-darkmode);
   grid-column: 1/3;
   grid-row: 3/4;
-}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"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","sourcesContent":[":root.dark {\n  --main-color-darkmode: rgb(39, 39, 39);\n  --font-color-darkmode: rgb(109, 197, 255);\n  --card-color-darkmode: rgb(95, 94, 94);\n}\n\n:root {\n  --main-color-darkmode: rgb(255, 255, 255);\n  --font-color-darkmode: rgb(0, 0, 0);\n  --card-color-darkmode: rgb(221, 221, 221);\n\n  --color-pair-1-bg: #3498db; /* Background color for pair 1 */\n  --color-pair-1-text: #ffffff; /* Text color for pair 1 */\n  \n  --color-pair-2-bg: #2ecc71; /* Background color for pair 2 */\n  --color-pair-2-text: #ffffff; /* Text color for pair 2 */\n\n  --color-pair-3-bg: #9b59b6; /* Background color for pair 3 */\n  --color-pair-3-text: #ffffff; /* Text color for pair 3 */\n\n  --color-pair-4-bg: #f39c12; /* Background color for pair 4 */\n  --color-pair-4-text: #ffffff; /* Text color for pair 4 */\n\n  --color-pair-5-bg: #e74c3c; /* Background color for pair 5 */\n  --color-pair-5-text: #ffffff; /* Text color for pair 5 */\n\n  --color-pair-6-bg: #2c3e50; /* Background color for pair 6 */\n  --color-pair-6-text: #ffffff; /* Text color for pair 6 */\n\n  --color-pair-7-bg: #1abc9c; /* Background color for pair 7 */\n  --color-pair-7-text: #ffffff; /* Text color for pair 7 */\n\n  --color-pair-8-bg: #3498db; /* Background color for pair 8 */\n  --color-pair-8-text: #2c3e50; /* Text color for pair 8 */\n\n  --color-pair-9-bg: #34495e; /* Background color for pair 9 */\n  --color-pair-9-text: #ecf0f1; /* Text color for pair 9 */\n\n  --color-pair-10-bg: #2980b9; /* Background color for pair 10 */\n  --color-pair-10-text: #ffffff; /* Text color for pair 10 */\n\n\n}\n\n/* CSS Reset */\nhtml,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n\n}\n/* Global */\n#content {\n  height: 100svh;\n  display: grid;\n  grid-template-columns:auto 1fr;\n  /* transition: all 0.3s ease; Smooth transition for all properties */\n\n}\n\n.customCursor{\n  cursor: pointer;\n}\n/* Header content */\nheader {\n  display: flex;\n  justify-content: space-between;\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/3;\n  grid-row: 1/2;\n}\n\nheader h1{\n  font-size: 32px;\n}\n\n\n/* Sidebar content */\n#sidebar {\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/2;\n  grid-row: 2/3;\n  display: flex;\n  flex-direction: column;\n  width: fit-content;\n}\n\nul{\n  list-style: none;\n}\n\n\n#magGlassSVG{\n  width: 40px;\n  height: 40px;\n  transition: transform 500ms ease-in-out;\n}\n\n#cogSVG{\n  width: 40px;\n  height: 40px;\n  transition: transform 500ms ease-in-out;\n}\n\n.rotate{\n  transform: rotate(360deg);\n}\n#filterBar{\n  display: flex;\n}\n#settingsBar{\n  display: flex;\n}\n.sidebarList{\n  width: 0px;\n  height: 0px;\n  border-radius: 12px;\n  background-color: var(--card-color-darkmode);\n  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);\n  margin-bottom: 10px;\n  margin-right: 10px;\n  overflow: hidden;\n  transition: width 500ms ease-in-out, height 500ms ease-in-out, padding 500ms ease-in-out;\n}\n.sidebarListItem{\n  width: 100px;\n}\n\n.sidebarReveal{\n  width: 100px;\n  height: 70px;\n  padding: 10px;\n}\n\n/* Main content */\nmain {\n  grid-column: 2/3;\n  grid-row: 2/3;\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  display: flex;\n  flex-wrap: wrap;\n}\n\n\n.jobCard {\n  background-color: var(--card-color-darkmode);\n  border-radius: 12px;\n  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);\n  justify-self: center;\n  margin: 20px;\n  padding: 20px;\n  height: auto;\n  max-width: 300px;\n  /* transition: all 0.3s ease; Smooth transition for all properties */\n}\n\n@keyframes shake {\n  0% { transform: translateY(2px); }\n  25% { transform: translateY(-2px); }\n  50% { transform: translateX(2px); }\n  75% { transform: translateX(-2px); }\n  90% { transform: translateX(-2px); }\n  100% { transform: translateY(-2px); }\n}\n\n#projectSVG{\n  width: 150px;\n}\n\n#projectSVG:hover{\n  animation: shake 0.5s infinite alternate; /* Apply the shake animation */\n}\n\n.projectForm {\n  display: flex;\n  height: 600px;\n  width: 600px;\n  flex-direction: column;\n  justify-content: space-around;\n}\n\n.button {\n  max-width: 100px;\n  max-height: 100px;\n}\n\n\n\n/* Footer content */\nfooter {\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/3;\n  grid-row: 3/4;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"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","sourcesContent":[":root.dark {\n  --main-color-darkmode: rgb(39, 39, 39);\n  --font-color-darkmode: rgb(109, 197, 255);\n  --card-color-darkmode: rgb(95, 94, 94);\n}\n\n:root {\n  --main-color-darkmode: rgb(255, 255, 255);\n  --font-color-darkmode: rgb(0, 0, 0);\n  --card-color-darkmode: rgb(221, 221, 221);\n\n  --color-pair-1-bg: #3498db; /* Background color for pair 1 */\n  --color-pair-1-text: #ffffff; /* Text color for pair 1 */\n  \n  --color-pair-2-bg: #2ecc71; /* Background color for pair 2 */\n  --color-pair-2-text: #ffffff; /* Text color for pair 2 */\n\n  --color-pair-3-bg: #9b59b6; /* Background color for pair 3 */\n  --color-pair-3-text: #ffffff; /* Text color for pair 3 */\n\n  --color-pair-4-bg: #f39c12; /* Background color for pair 4 */\n  --color-pair-4-text: #ffffff; /* Text color for pair 4 */\n\n  --color-pair-5-bg: #e74c3c; /* Background color for pair 5 */\n  --color-pair-5-text: #ffffff; /* Text color for pair 5 */\n\n  --color-pair-6-bg: #2c3e50; /* Background color for pair 6 */\n  --color-pair-6-text: #ffffff; /* Text color for pair 6 */\n\n  --color-pair-7-bg: #1abc9c; /* Background color for pair 7 */\n  --color-pair-7-text: #ffffff; /* Text color for pair 7 */\n\n  --color-pair-8-bg: #3498db; /* Background color for pair 8 */\n  --color-pair-8-text: #2c3e50; /* Text color for pair 8 */\n\n  --color-pair-9-bg: #34495e; /* Background color for pair 9 */\n  --color-pair-9-text: #ecf0f1; /* Text color for pair 9 */\n\n  --color-pair-10-bg: #2980b9; /* Background color for pair 10 */\n  --color-pair-10-text: #ffffff; /* Text color for pair 10 */\n\n\n}\n\n/* CSS Reset */\nhtml,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n\n}\n/* Global */\n#content {\n  height: 100svh;\n  display: grid;\n  grid-template-columns:auto 1fr;\n  /* transition: all 0.3s ease; Smooth transition for all properties */\n\n}\n\n.customCursor{\n  cursor: pointer;\n}\n/* Header content */\nheader {\n  height: fit-content;\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/3;\n  grid-row: 1/2;\n}\n\nheader h1{\n  font-size: 32px;\n  height: fit-content;\n}\n\n\n/* Sidebar content */\n#sidebar {\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/2;\n  grid-row: 2/3;\n  display: flex;\n  flex-direction: column;\n  width: fit-content;\n}\n\nul{\n  list-style: none;\n}\n\n\n#magGlassSVG{\n  width: 40px;\n  height: 40px;\n  transition: transform 500ms ease-in-out;\n}\n\n#cogSVG{\n  width: 40px;\n  height: 40px;\n  transition: transform 500ms ease-in-out;\n}\n\n.rotate{\n  transform: rotate(360deg);\n}\n#filterBar{\n  display: flex;\n}\n#settingsBar{\n  display: flex;\n}\n.sidebarList{\n  width: 0px;\n  height: 0px;\n  border-radius: 12px;\n  background-color: var(--card-color-darkmode);\n  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);\n  margin-bottom: 10px;\n  margin-right: 10px;\n  overflow: hidden;\n  transition: width 500ms ease-in-out, height 500ms ease-in-out, padding 500ms ease-in-out;\n}\n.sidebarListItem{\n  width: 100px;\n}\n\n.sidebarReveal{\n  width: 100px;\n  height: 70px;\n  padding: 10px;\n}\n\n/* Main content */\nmain {\n  grid-column: 2/3;\n  grid-row: 2/3;\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  display: flex;\n  flex-wrap: wrap;\n}\n\n\n.jobCard {\n  background-color: var(--card-color-darkmode);\n  border-radius: 12px;\n  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);\n  justify-self: center;\n  margin: 20px;\n  padding: 20px;\n  height: auto;\n  max-width: 300px;\n  /* transition: all 0.3s ease; Smooth transition for all properties */\n}\n\n#projectTasksSVG{\n  max-width: 40px;\n  max-height: 40px;\n}\n\n#projectDeleteSVG{\n  max-width: 40px;\n  max-height: 40px;\n}\n\n@keyframes takeOff {\n  0% { transform: translateY(2px); }\n  25% { transform: translateY(-2px); }\n  50% { transform: translateX(2px); }\n  75% { transform: translateX(-2px); }\n  90% { transform: translateX(-2px); }\n  100% { transform: translateY(-2px); }\n}\n\n#projectSVG{\n  max-width: 150px;\n  max-height: 150px;\n}\n\n#projectSVG:hover{\n  animation: takeOff 0.5s infinite alternate; /* Apply the takeOff animation */\n}\n\n.projectForm {\n  display: flex;\n  height: 600px;\n  width: 600px;\n  flex-direction: column;\n  justify-content: space-around;\n}\n\n/* Footer content */\nfooter {\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/3;\n  grid-row: 3/4;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1284,7 +1288,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/script/projects.js");
 /* harmony import */ var _populateMain__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./populateMain */ "./src/script/populateMain.js");
 /* harmony import */ var _localStorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./localStorage */ "./src/script/localStorage.js");
+/* harmony import */ var _createSVGImg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./createSVGImg */ "./src/script/createSVGImg.js");
+/* harmony import */ var _assets_svg_recycle_bin_trash_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/svg/recycle-bin-trash-svgrepo-com.svg */ "./src/assets/svg/recycle-bin-trash-svgrepo-com.svg");
+/* harmony import */ var _assets_svg_tasks_tick_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/svg/tasks-tick-svgrepo-com.svg */ "./src/assets/svg/tasks-tick-svgrepo-com.svg");
 
+
+
+
+// import SVG files
 
 
 
@@ -1304,8 +1315,8 @@ function initializeProjects() {
       const projectDueDateElement = document.createElement("input");
       const projectPriorityElement = document.createElement("p");
       const projectCompletionElement = document.createElement("input");
-      const projectTasksButtonElement = document.createElement("input");
-      const projectDeleteButtonElement = document.createElement("input");
+      const projectTasksButtonElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_3__["default"])(_assets_svg_tasks_tick_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_5__, "customCursor", "projectTasksSVG");
+      const projectDeleteButtonElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_3__["default"])(_assets_svg_recycle_bin_trash_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_4__, "customCursor", "projectDeleteSVG");
 
       // Adding a class to the card
       projectCardElement.classList.add("jobCard");
@@ -1313,12 +1324,6 @@ function initializeProjects() {
       projectDueDateLabelElement.classList.add("jobDueDateLabel");
       projectDueDateElement.classList.add("jobDueDate");
       projectPriorityElement.classList.add("jobPriority");
-      projectTasksButtonElement.classList.add("button");
-      projectDeleteButtonElement.classList.add("button");
-
-      // Adding ID to
-      projectTasksButtonElement.id = "taskButton";
-      projectDeleteButtonElement.id = "deleteButton";
 
       // projectDeleteButtonElement
       projectDeleteButtonElement.dataset.projectTitle = project.title;
@@ -1326,16 +1331,13 @@ function initializeProjects() {
       // Choosing element type
       projectDueDateElement.type = "date";
       projectCompletionElement.type = "checkbox";
-      projectTasksButtonElement.type = "button";
-      projectDeleteButtonElement.type = "button";
+
       // Adding content to elements
       projectTitleElement.innerHTML = project.title;
       projectDescElement.innerHTML = project.description;
       projectDueDateLabelElement.innerHTML = "Due Date: ";
       projectDueDateElement.value = project.dueDate;
       projectPriorityElement.innerHTML = project.priority;
-      projectTasksButtonElement.value = "Project Tasks";
-      projectDeleteButtonElement.value = "Delete Project";
 
       // Creating event listeners to the Task button
       // Adding event listeners
@@ -1378,6 +1380,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ initializeTasks)
 /* harmony export */ });
 /* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/script/projects.js");
+
+
 
 
 function initializeTasks(projectTitle) {
@@ -1500,7 +1504,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _createNewTask__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./createNewTask */ "./src/script/createNewTask.js");
 /* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./projects */ "./src/script/projects.js");
 /* harmony import */ var _createSVGImg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./createSVGImg */ "./src/script/createSVGImg.js");
-/* harmony import */ var _assets_svg_rocket_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/svg/rocket-svgrepo-com.svg */ "./src/assets/svg/rocket-svgrepo-com.svg");
+/* harmony import */ var _assets_svg_clipboard_add_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/svg/clipboard-add-svgrepo-com.svg */ "./src/assets/svg/clipboard-add-svgrepo-com.svg");
+/* harmony import */ var _assets_svg_rocket_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../assets/svg/rocket-svgrepo-com.svg */ "./src/assets/svg/rocket-svgrepo-com.svg");
+
 
 
 
@@ -1516,28 +1522,20 @@ function createTaskButton(projectTitle) {
   );
   const dialogElement = document.querySelector("dialog");
   // Create button element
-  const taskButtonElement = document.createElement("input");
-  // Choosing element type
-  taskButtonElement.type = "button";
-  // Adding content to button
-  taskButtonElement.value = "Create new task";
+  const taskButtonSVGElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_5__["default"])(_assets_svg_clipboard_add_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_6__, "customCursor", "taskButtonSVG");
   // Add project title as data
-  taskButtonElement.dataset.projectTitle = selectedProject.title;
-  // Adding classes to element
-  taskButtonElement.classList.add("button");
-  // Adding ID's
-  taskButtonElement.id = "taskButton";
+  taskButtonSVGElement.dataset.projectTitle = selectedProject.title;
 
-  taskButtonElement.addEventListener("click", () => {
+  taskButtonSVGElement.addEventListener("click", () => {
     dialogElement.textContent = "";
     dialogElement.appendChild((0,_createNewTask__WEBPACK_IMPORTED_MODULE_3__["default"])());
     dialogElement.showModal();
   });
-  return taskButtonElement;
+  return taskButtonSVGElement;
 }
 
 function createProjectButton() {
-  const projectSVGElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_5__["default"])(_assets_svg_rocket_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_6__, "customCursor", "projectSVG");
+  const projectSVGElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_5__["default"])(_assets_svg_rocket_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_7__, "customCursor", "projectSVG");
   // Access existing elements
   const dialogElement = document.querySelector("dialog");
   // Create button element
@@ -1671,6 +1669,16 @@ function toggleDynamicBar(element, direction) {
 
 /***/ }),
 
+/***/ "./src/assets/svg/clipboard-add-svgrepo-com.svg":
+/*!******************************************************!*\
+  !*** ./src/assets/svg/clipboard-add-svgrepo-com.svg ***!
+  \******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "clipboard-add-svgrepo-com.svg";
+
+/***/ }),
+
 /***/ "./src/assets/svg/magnifier-glass-svgrepo-com.svg":
 /*!********************************************************!*\
   !*** ./src/assets/svg/magnifier-glass-svgrepo-com.svg ***!
@@ -1678,6 +1686,16 @@ function toggleDynamicBar(element, direction) {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__.p + "magnifier-glass-svgrepo-com.svg";
+
+/***/ }),
+
+/***/ "./src/assets/svg/recycle-bin-trash-svgrepo-com.svg":
+/*!**********************************************************!*\
+  !*** ./src/assets/svg/recycle-bin-trash-svgrepo-com.svg ***!
+  \**********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "recycle-bin-trash-svgrepo-com.svg";
 
 /***/ }),
 
@@ -1698,6 +1716,16 @@ module.exports = __webpack_require__.p + "rocket-svgrepo-com.svg";
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__.p + "sunflower-flower-svgrepo-com.svg";
+
+/***/ }),
+
+/***/ "./src/assets/svg/tasks-tick-svgrepo-com.svg":
+/*!***************************************************!*\
+  !*** ./src/assets/svg/tasks-tick-svgrepo-com.svg ***!
+  \***************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "tasks-tick-svgrepo-com.svg";
 
 /***/ })
 
@@ -1842,4 +1870,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle1a62eecd3b8b80d22dbd.js.map
+//# sourceMappingURL=bundle9e3285f9da4011198ae7.js.map

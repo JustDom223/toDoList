@@ -146,8 +146,7 @@ video {
 }
 /* Header content */
 header {
-  display: flex;
-  justify-content: space-between;
+  height: fit-content;
   background-color: var(--main-color-darkmode);
   color: var(--font-color-darkmode);
   grid-column: 1/3;
@@ -156,6 +155,7 @@ header {
 
 header h1{
   font-size: 32px;
+  height: fit-content;
 }
 
 
@@ -240,7 +240,17 @@ main {
   /* transition: all 0.3s ease; Smooth transition for all properties */
 }
 
-@keyframes shake {
+#projectTasksSVG{
+  max-width: 40px;
+  max-height: 40px;
+}
+
+#projectDeleteSVG{
+  max-width: 40px;
+  max-height: 40px;
+}
+
+@keyframes takeOff {
   0% { transform: translateY(2px); }
   25% { transform: translateY(-2px); }
   50% { transform: translateX(2px); }
@@ -250,11 +260,12 @@ main {
 }
 
 #projectSVG{
-  width: 150px;
+  max-width: 150px;
+  max-height: 150px;
 }
 
 #projectSVG:hover{
-  animation: shake 0.5s infinite alternate; /* Apply the shake animation */
+  animation: takeOff 0.5s infinite alternate; /* Apply the takeOff animation */
 }
 
 .projectForm {
@@ -264,13 +275,6 @@ main {
   flex-direction: column;
   justify-content: space-around;
 }
-
-.button {
-  max-width: 100px;
-  max-height: 100px;
-}
-
-
 
 /* Footer content */
 footer {

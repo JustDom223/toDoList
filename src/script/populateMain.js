@@ -4,6 +4,7 @@ import createNewProjectForm from "./createNewProject";
 import createNewTaskForm from "./createNewTask";
 import { getProjects } from "./projects";
 import createSVGImg from "./createSVGImg";
+import tasksSVG from "../assets/svg/clipboard-add-svgrepo-com.svg";
 import projectSVG from "../assets/svg/rocket-svgrepo-com.svg";
 
 export function createTaskButton(projectTitle) {
@@ -13,24 +14,16 @@ export function createTaskButton(projectTitle) {
   );
   const dialogElement = document.querySelector("dialog");
   // Create button element
-  const taskButtonElement = document.createElement("input");
-  // Choosing element type
-  taskButtonElement.type = "button";
-  // Adding content to button
-  taskButtonElement.value = "Create new task";
+  const taskButtonSVGElement = createSVGImg(tasksSVG, "customCursor", "taskButtonSVG");
   // Add project title as data
-  taskButtonElement.dataset.projectTitle = selectedProject.title;
-  // Adding classes to element
-  taskButtonElement.classList.add("button");
-  // Adding ID's
-  taskButtonElement.id = "taskButton";
+  taskButtonSVGElement.dataset.projectTitle = selectedProject.title;
 
-  taskButtonElement.addEventListener("click", () => {
+  taskButtonSVGElement.addEventListener("click", () => {
     dialogElement.textContent = "";
     dialogElement.appendChild(createNewTaskForm());
     dialogElement.showModal();
   });
-  return taskButtonElement;
+  return taskButtonSVGElement;
 }
 
 export function createProjectButton() {

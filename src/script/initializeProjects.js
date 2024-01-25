@@ -1,6 +1,10 @@
 import { getProjects, deleteProject } from "./projects";
 import populateMain from "./populateMain";
 import { updateLocalStorage } from "./localStorage";
+import createSVGImg from "./createSVGImg";
+// import SVG files
+import deleteSVG from "../assets/svg/recycle-bin-trash-svgrepo-com.svg";
+import taskSVG from "../assets/svg/tasks-tick-svgrepo-com.svg";
 
 export default function initializeProjects() {
   const currentDate = new Date();
@@ -18,8 +22,8 @@ export default function initializeProjects() {
       const projectDueDateElement = document.createElement("input");
       const projectPriorityElement = document.createElement("p");
       const projectCompletionElement = document.createElement("input");
-      const projectTasksButtonElement = document.createElement("input");
-      const projectDeleteButtonElement = document.createElement("input");
+      const projectTasksButtonElement = createSVGImg(taskSVG, "customCursor", "projectTasksSVG");
+      const projectDeleteButtonElement = createSVGImg(deleteSVG, "customCursor", "projectDeleteSVG");
 
       // Adding a class to the card
       projectCardElement.classList.add("jobCard");
@@ -27,12 +31,6 @@ export default function initializeProjects() {
       projectDueDateLabelElement.classList.add("jobDueDateLabel");
       projectDueDateElement.classList.add("jobDueDate");
       projectPriorityElement.classList.add("jobPriority");
-      projectTasksButtonElement.classList.add("button");
-      projectDeleteButtonElement.classList.add("button");
-
-      // Adding ID to
-      projectTasksButtonElement.id = "taskButton";
-      projectDeleteButtonElement.id = "deleteButton";
 
       // projectDeleteButtonElement
       projectDeleteButtonElement.dataset.projectTitle = project.title;
@@ -40,16 +38,13 @@ export default function initializeProjects() {
       // Choosing element type
       projectDueDateElement.type = "date";
       projectCompletionElement.type = "checkbox";
-      projectTasksButtonElement.type = "button";
-      projectDeleteButtonElement.type = "button";
+
       // Adding content to elements
       projectTitleElement.innerHTML = project.title;
       projectDescElement.innerHTML = project.description;
       projectDueDateLabelElement.innerHTML = "Due Date: ";
       projectDueDateElement.value = project.dueDate;
       projectPriorityElement.innerHTML = project.priority;
-      projectTasksButtonElement.value = "Project Tasks";
-      projectDeleteButtonElement.value = "Delete Project";
 
       // Creating event listeners to the Task button
       // Adding event listeners
