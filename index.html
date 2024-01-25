@@ -4,31 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ToDo List App</title>
-  <script defer src="bundlec09f50090da8212ea179.js"></script></head>
+  <script defer src="bundledf1f1cf180330803d74b.js"></script></head>
   <body>
     <dialog id="contentForm"></dialog>
     <div id="content">
       <header>
         <h1>Its time do get things done</h1>
-        <div class="settingsDropDown">
-          <button class="dropDownButton"></button>
-          <ul class="dropDownContent">
-            <li id="theme">Light/Dark</li>
-            <li>Option2</li>
-            <li>Option3</li>
-          </ul>
-        </div>
       </header>
       <div id="sidebar">
-        <div class="filterBar">
-          <ul class="sidebarList">
+        <div id="filterBar">
+          <ul class="sidebarList" id="filterBarList">
             <li class="sidebarListItem" id="projects">Projects</li>
             <li class="sidebarListItem" id="today">Today's Tasks</li>
             <li class="sidebarListItem" id="week">Week's Tasks</li>
             <li class="sidebarListItem" id="month">Month's Tasks</li>
           </ul>
         </div>
+        <div id="settingsBar">
+          <ul class="sidebarList" id="settingsBarList">
+            <li class="sidebarListItem" id="theme">Day/Night</li>
+          </ul>
         </div>
+        </div>
+        <footer>this is the footer</footer>
     </div>
   </body>
 </html>
