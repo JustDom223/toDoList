@@ -5,8 +5,8 @@ import toggleDynamicBar from "../script/toggleDynamicBar";
 import rotateElement from "../script/rotateElement";
 
 // importing SVG files
-import magGlassSVG from "../assets/svg/magnifier-glass-svgrepo-com.svg"
-import cogSVG from "../assets/svg/settings-svgrepo-com.svg"
+import magGlassSVG from "../assets/svg/magnifier-glass-svgrepo-com.svg";
+import cogSVG from "../assets/svg/sunflower-flower-svgrepo-com.svg";
 
 // export default function createSidebar() {
 //   // Create Sidebar
@@ -94,19 +94,19 @@ export default function activateSidebar(){
   });
 
   // Activating settings menu
-  const settingsBarElement = document.querySelector("#settingsBar")
-  const settingsBarCogElement = createSVGImg(cogSVG, "customCursor" ,"cogSVG")
-  const settingsBarListElement = document.querySelector("#settingsBarList")
-  settingsBarElement.appendChild(settingsBarCogElement)
+  const settingsBarElement = document.querySelector("#settingsBar");
+  const settingsBarCogElement = createSVGImg(cogSVG, "customCursor" ,"cogSVG");
+  const settingsBarListElement = document.querySelector("#settingsBarList");
+  settingsBarElement.appendChild(settingsBarCogElement);
   settingsBarCogElement.addEventListener("click", ()=> {
     toggleDynamicBar(settingsBarListElement, "side");
-    rotateElement(settingsBarCogElement)
-  })
+    rotateElement(settingsBarCogElement);
+  });
 
-  const themeToggleElement = document.querySelector("#theme")
-  themeToggleElement.classList.add("customCursor")
+  const themeToggleElement = document.querySelector("#theme");
+  themeToggleElement.classList.add("customCursor");
   themeToggleElement.addEventListener("click", ()=>{
-    toggleTheme()
-  })
+    toggleTheme();
+  });
 
 }

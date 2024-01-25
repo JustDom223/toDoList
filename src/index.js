@@ -9,13 +9,8 @@ import populateMain from "./script/populateMain";
 document.addEventListener("DOMContentLoaded", () => {
   fetchLocalStorage();
   // DOM is fully parsed and ready for manipulation
-
   const contentElement = document.querySelector("#content");
-
-  // activateHeader()
-  activateSidebar()
-  // contentElement.appendChild(createSidebar());
   contentElement.appendChild(createMain());
-
+  activateSidebar();
   populateMain("projects");
 });

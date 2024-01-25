@@ -8,6 +8,38 @@
   --main-color-darkmode: rgb(255, 255, 255);
   --font-color-darkmode: rgb(0, 0, 0);
   --card-color-darkmode: rgb(221, 221, 221);
+
+  --color-pair-1-bg: #3498db; /* Background color for pair 1 */
+  --color-pair-1-text: #ffffff; /* Text color for pair 1 */
+  
+  --color-pair-2-bg: #2ecc71; /* Background color for pair 2 */
+  --color-pair-2-text: #ffffff; /* Text color for pair 2 */
+
+  --color-pair-3-bg: #9b59b6; /* Background color for pair 3 */
+  --color-pair-3-text: #ffffff; /* Text color for pair 3 */
+
+  --color-pair-4-bg: #f39c12; /* Background color for pair 4 */
+  --color-pair-4-text: #ffffff; /* Text color for pair 4 */
+
+  --color-pair-5-bg: #e74c3c; /* Background color for pair 5 */
+  --color-pair-5-text: #ffffff; /* Text color for pair 5 */
+
+  --color-pair-6-bg: #2c3e50; /* Background color for pair 6 */
+  --color-pair-6-text: #ffffff; /* Text color for pair 6 */
+
+  --color-pair-7-bg: #1abc9c; /* Background color for pair 7 */
+  --color-pair-7-text: #ffffff; /* Text color for pair 7 */
+
+  --color-pair-8-bg: #3498db; /* Background color for pair 8 */
+  --color-pair-8-text: #2c3e50; /* Text color for pair 8 */
+
+  --color-pair-9-bg: #34495e; /* Background color for pair 9 */
+  --color-pair-9-text: #ecf0f1; /* Text color for pair 9 */
+
+  --color-pair-10-bg: #2980b9; /* Background color for pair 10 */
+  --color-pair-10-text: #ffffff; /* Text color for pair 10 */
+
+
 }
 
 /* CSS Reset */
@@ -98,11 +130,15 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+
 }
 /* Global */
 #content {
   height: 100svh;
   display: grid;
+  grid-template-columns:auto 1fr;
+  /* transition: all 0.3s ease; Smooth transition for all properties */
+
 }
 
 .customCursor{
@@ -132,6 +168,10 @@ header h1{
   display: flex;
   flex-direction: column;
   width: fit-content;
+}
+
+ul{
+  list-style: none;
 }
 
 
@@ -195,9 +235,26 @@ main {
   justify-self: center;
   margin: 20px;
   padding: 20px;
-  height: 250px;
+  height: auto;
   max-width: 300px;
-  transition: all 0.3s ease; /* Smooth transition for all properties */
+  /* transition: all 0.3s ease; Smooth transition for all properties */
+}
+
+@keyframes shake {
+  0% { transform: translateY(2px); }
+  25% { transform: translateY(-2px); }
+  50% { transform: translateX(2px); }
+  75% { transform: translateX(-2px); }
+  90% { transform: translateX(-2px); }
+  100% { transform: translateY(-2px); }
+}
+
+#projectSVG{
+  width: 150px;
+}
+
+#projectSVG:hover{
+  animation: shake 0.5s infinite alternate; /* Apply the shake animation */
 }
 
 .projectForm {
@@ -213,10 +270,7 @@ main {
   max-height: 100px;
 }
 
-#projectButton {
-  justify-self: center;
-  align-self: center;
-}
+
 
 /* Footer content */
 footer {

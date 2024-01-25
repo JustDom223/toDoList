@@ -3,6 +3,8 @@ import initializeTasks from "./initializeTasks";
 import createNewProjectForm from "./createNewProject";
 import createNewTaskForm from "./createNewTask";
 import { getProjects } from "./projects";
+import createSVGImg from "./createSVGImg";
+import projectSVG from "../assets/svg/rocket-svgrepo-com.svg";
 
 export function createTaskButton(projectTitle) {
   // Access existing elements
@@ -32,25 +34,16 @@ export function createTaskButton(projectTitle) {
 }
 
 export function createProjectButton() {
+  const projectSVGElement = createSVGImg(projectSVG, "customCursor", "projectSVG");
   // Access existing elements
   const dialogElement = document.querySelector("dialog");
   // Create button element
-  const projectButtonElement = document.createElement("input");
-  // Choosing element type
-  projectButtonElement.type = "button";
-  // Adding content to button
-  projectButtonElement.value = "New Project";
-  // Adding classes to element
-  projectButtonElement.classList.add("button");
-  // Adding ID's
-  projectButtonElement.id = "projectButton";
-
-  projectButtonElement.addEventListener("click", () => {
+  projectSVGElement.addEventListener("click", () => {
     dialogElement.textContent = "";
     dialogElement.appendChild(createNewProjectForm());
     dialogElement.showModal();
   });
-  return projectButtonElement;
+  return projectSVGElement;
 }
 
 export default function populateMain(clickedElementId, projectTitle) {
