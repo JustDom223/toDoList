@@ -127,7 +127,7 @@ video {
   height: 100svh;
   display: grid;
 }
-
+/* Header content */
 header {
   display: flex;
   justify-content: space-between;
@@ -169,7 +169,7 @@ header h1{
 
 }
 
-
+/* Sidebar content */
 #sidebar {
   background-color: var(--main-color-darkmode);
   color: var(--font-color-darkmode);
@@ -180,36 +180,32 @@ header h1{
 }
 
 
-.arrowSVG{
+.magGlassSVG{
   width: 40px;
   height: 40px;
-  transition: transform 300ms ease-in-out;
+  transition: transform 500ms ease-in-out;
 }
 
 .rotate{
-  transform: rotate(180deg);
+  transform: rotate(360deg);
 }
-
+.filterBar{
+  display: flex;
+}
 .sidebarList{
   /* border: 1px red solid; */
   width: 0px;
+  height: 0px;
   overflow: hidden;
-  transition: width 500ms ease-in-out;
+  transition: width 500ms ease-in-out, height 500ms ease-in-out;
 }
-
 .sidebarListItem{
   width: 100px;
 }
 
 .sidebarReveal{
   width: 100px;
-}
-
-footer {
-  background-color: var(--main-color-darkmode);
-  color: var(--font-color-darkmode);
-  grid-column: 1/3;
-  grid-row: 3/4;
+  height: 100px;
 }
 
 /* Main content */
@@ -231,8 +227,7 @@ main {
   margin: 20px;
   padding: 20px;
   height: 250px;
-  width: 300px;
-  width: 1fr;
+  max-width: 300px;
 }
 
 .projectForm {
@@ -252,7 +247,14 @@ main {
   justify-self: center;
   align-self: center;
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;EACE,sCAAsC;EACtC,yCAAyC;EACzC,sCAAsC;AACxC;;AAEA;EACE,yCAAyC;EACzC,mCAAmC;EACnC,yCAAyC;AAC3C;;AAEA,cAAc;AACd;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAiFE,SAAS;EACT,UAAU;EACV,SAAS;EACT,eAAe;EACf,aAAa;EACb,wBAAwB;AAC1B;;AAEA;EACE,cAAc;EACd,aAAa;AACf;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,4CAA4C;EAC5C,iCAAiC;EACjC,gBAAgB;EAChB,aAAa;AACf;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,kBAAkB;EAClB,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,gBAAgB;EAChB,YAAY;EACZ,oCAAoC;AACtC;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,mBAAmB;EACnB,YAAY;EACZ,4CAA4C;AAC9C;;AAEA;EACE,aAAa;EACb,YAAY;EACZ,YAAY;EACZ,gBAAgB;;AAElB;;;AAGA;EACE,4CAA4C;EAC5C,iCAAiC;EACjC,gBAAgB;EAChB,aAAa;EACb,aAAa;EACb,kBAAkB;AACpB;;;AAGA;EACE,WAAW;EACX,YAAY;EACZ,uCAAuC;AACzC;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,2BAA2B;EAC3B,UAAU;EACV,gBAAgB;EAChB,mCAAmC;AACrC;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,4CAA4C;EAC5C,iCAAiC;EACjC,gBAAgB;EAChB,aAAa;AACf;;AAEA,iBAAiB;AACjB;EACE,gBAAgB;EAChB,aAAa;EACb,4CAA4C;EAC5C,iCAAiC;EACjC,aAAa;EACb,eAAe;AACjB;;;AAGA;EACE,4CAA4C;EAC5C,mBAAmB;EACnB,+CAA+C;EAC/C,oBAAoB;EACpB,YAAY;EACZ,aAAa;EACb,aAAa;EACb,YAAY;EACZ,UAAU;AACZ;;AAEA;EACE,aAAa;EACb,aAAa;EACb,YAAY;EACZ,sBAAsB;EACtB,6BAA6B;AAC/B;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;AACnB;;AAEA;EACE,oBAAoB;EACpB,kBAAkB;AACpB","sourcesContent":[":root.dark {\n  --main-color-darkmode: rgb(39, 39, 39);\n  --font-color-darkmode: rgb(109, 197, 255);\n  --card-color-darkmode: rgb(95, 94, 94);\n}\n\n:root {\n  --main-color-darkmode: rgb(255, 255, 255);\n  --font-color-darkmode: rgb(0, 0, 0);\n  --card-color-darkmode: rgb(221, 221, 221);\n}\n\n/* CSS Reset */\nhtml,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\n\n#content {\n  height: 100svh;\n  display: grid;\n}\n\nheader {\n  display: flex;\n  justify-content: space-between;\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/3;\n  grid-row: 1/2;\n}\n\nheader h1{\n  font-size: 32px;\n}\n\n.settingsDropDown {\n  margin-right: 20px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  overflow: hidden;\n  height: 40px;\n  transition: height 500ms ease-in-out;\n}\n\n.dropdownReveal {\n  height: 100px;\n}\n\n.dropDownContent{\n  border-radius: 12px;\n  padding: 4px;\n  background-color: var(--card-color-darkmode);\n}\n\n.dropDownButton{\n  display: flex;\n  height: 40px;\n  border: none;\n  background: none;\n\n}\n\n\n#sidebar {\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/2;\n  grid-row: 2/3;\n  display: flex;\n  width: fit-content;\n}\n\n\n.arrowSVG{\n  width: 40px;\n  height: 40px;\n  transition: transform 300ms ease-in-out;\n}\n\n.rotate{\n  transform: rotate(180deg);\n}\n\n.sidebarList{\n  /* border: 1px red solid; */\n  width: 0px;\n  overflow: hidden;\n  transition: width 500ms ease-in-out;\n}\n\n.sidebarListItem{\n  width: 100px;\n}\n\n.sidebarReveal{\n  width: 100px;\n}\n\nfooter {\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/3;\n  grid-row: 3/4;\n}\n\n/* Main content */\nmain {\n  grid-column: 2/3;\n  grid-row: 2/3;\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  display: flex;\n  flex-wrap: wrap;\n}\n\n\n.jobCard {\n  background-color: var(--card-color-darkmode);\n  border-radius: 12px;\n  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);\n  justify-self: center;\n  margin: 20px;\n  padding: 20px;\n  height: 250px;\n  width: 300px;\n  width: 1fr;\n}\n\n.projectForm {\n  display: flex;\n  height: 600px;\n  width: 600px;\n  flex-direction: column;\n  justify-content: space-around;\n}\n\n.button {\n  max-width: 100px;\n  max-height: 100px;\n}\n\n#projectButton {\n  justify-self: center;\n  align-self: center;\n}\n"],"sourceRoot":""}]);
+
+/* Footer content */
+footer {
+  background-color: var(--main-color-darkmode);
+  color: var(--font-color-darkmode);
+  grid-column: 1/3;
+  grid-row: 3/4;
+}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;EACE,sCAAsC;EACtC,yCAAyC;EACzC,sCAAsC;AACxC;;AAEA;EACE,yCAAyC;EACzC,mCAAmC;EACnC,yCAAyC;AAC3C;;AAEA,cAAc;AACd;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAiFE,SAAS;EACT,UAAU;EACV,SAAS;EACT,eAAe;EACf,aAAa;EACb,wBAAwB;AAC1B;;AAEA;EACE,cAAc;EACd,aAAa;AACf;AACA,mBAAmB;AACnB;EACE,aAAa;EACb,8BAA8B;EAC9B,4CAA4C;EAC5C,iCAAiC;EACjC,gBAAgB;EAChB,aAAa;AACf;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,kBAAkB;EAClB,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,gBAAgB;EAChB,YAAY;EACZ,oCAAoC;AACtC;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,mBAAmB;EACnB,YAAY;EACZ,4CAA4C;AAC9C;;AAEA;EACE,aAAa;EACb,YAAY;EACZ,YAAY;EACZ,gBAAgB;;AAElB;;AAEA,oBAAoB;AACpB;EACE,4CAA4C;EAC5C,iCAAiC;EACjC,gBAAgB;EAChB,aAAa;EACb,aAAa;EACb,kBAAkB;AACpB;;;AAGA;EACE,WAAW;EACX,YAAY;EACZ,uCAAuC;AACzC;;AAEA;EACE,yBAAyB;AAC3B;AACA;EACE,aAAa;AACf;AACA;EACE,2BAA2B;EAC3B,UAAU;EACV,WAAW;EACX,gBAAgB;EAChB,6DAA6D;AAC/D;AACA;EACE,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,aAAa;AACf;;AAEA,iBAAiB;AACjB;EACE,gBAAgB;EAChB,aAAa;EACb,4CAA4C;EAC5C,iCAAiC;EACjC,aAAa;EACb,eAAe;AACjB;;;AAGA;EACE,4CAA4C;EAC5C,mBAAmB;EACnB,+CAA+C;EAC/C,oBAAoB;EACpB,YAAY;EACZ,aAAa;EACb,aAAa;EACb,gBAAgB;AAClB;;AAEA;EACE,aAAa;EACb,aAAa;EACb,YAAY;EACZ,sBAAsB;EACtB,6BAA6B;AAC/B;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;AACnB;;AAEA;EACE,oBAAoB;EACpB,kBAAkB;AACpB;;AAEA,mBAAmB;AACnB;EACE,4CAA4C;EAC5C,iCAAiC;EACjC,gBAAgB;EAChB,aAAa;AACf","sourcesContent":[":root.dark {\n  --main-color-darkmode: rgb(39, 39, 39);\n  --font-color-darkmode: rgb(109, 197, 255);\n  --card-color-darkmode: rgb(95, 94, 94);\n}\n\n:root {\n  --main-color-darkmode: rgb(255, 255, 255);\n  --font-color-darkmode: rgb(0, 0, 0);\n  --card-color-darkmode: rgb(221, 221, 221);\n}\n\n/* CSS Reset */\nhtml,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\n\n#content {\n  height: 100svh;\n  display: grid;\n}\n/* Header content */\nheader {\n  display: flex;\n  justify-content: space-between;\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/3;\n  grid-row: 1/2;\n}\n\nheader h1{\n  font-size: 32px;\n}\n\n.settingsDropDown {\n  margin-right: 20px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  overflow: hidden;\n  height: 40px;\n  transition: height 500ms ease-in-out;\n}\n\n.dropdownReveal {\n  height: 100px;\n}\n\n.dropDownContent{\n  border-radius: 12px;\n  padding: 4px;\n  background-color: var(--card-color-darkmode);\n}\n\n.dropDownButton{\n  display: flex;\n  height: 40px;\n  border: none;\n  background: none;\n\n}\n\n/* Sidebar content */\n#sidebar {\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/2;\n  grid-row: 2/3;\n  display: flex;\n  width: fit-content;\n}\n\n\n.magGlassSVG{\n  width: 40px;\n  height: 40px;\n  transition: transform 500ms ease-in-out;\n}\n\n.rotate{\n  transform: rotate(360deg);\n}\n.filterBar{\n  display: flex;\n}\n.sidebarList{\n  /* border: 1px red solid; */\n  width: 0px;\n  height: 0px;\n  overflow: hidden;\n  transition: width 500ms ease-in-out, height 500ms ease-in-out;\n}\n.sidebarListItem{\n  width: 100px;\n}\n\n.sidebarReveal{\n  width: 100px;\n  height: 100px;\n}\n\n/* Main content */\nmain {\n  grid-column: 2/3;\n  grid-row: 2/3;\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  display: flex;\n  flex-wrap: wrap;\n}\n\n\n.jobCard {\n  background-color: var(--card-color-darkmode);\n  border-radius: 12px;\n  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);\n  justify-self: center;\n  margin: 20px;\n  padding: 20px;\n  height: 250px;\n  max-width: 300px;\n}\n\n.projectForm {\n  display: flex;\n  height: 600px;\n  width: 600px;\n  flex-direction: column;\n  justify-content: space-around;\n}\n\n.button {\n  max-width: 100px;\n  max-height: 100px;\n}\n\n#projectButton {\n  justify-self: center;\n  align-self: center;\n}\n\n/* Footer content */\nfooter {\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/3;\n  grid-row: 3/4;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -796,15 +798,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ activateSidebar)
 /* harmony export */ });
-/* harmony import */ var _script_populateMain__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../script/populateMain */ "./src/script/populateMain.js");
-/* harmony import */ var _script_createSVGImg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../script/createSVGImg */ "./src/script/createSVGImg.js");
-/* harmony import */ var _assets_svg_arrow_left_r_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/svg/arrow-left-r-svgrepo-com.svg */ "./src/assets/svg/arrow-left-r-svgrepo-com.svg");
-/* harmony import */ var _script_toggleDynamicBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../script/toggleDynamicBar */ "./src/script/toggleDynamicBar.js");
-/* harmony import */ var _script_rotateElement__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../script/rotateElement */ "./src/script/rotateElement.js");
+/* harmony import */ var _script_createSVGImg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../script/createSVGImg */ "./src/script/createSVGImg.js");
+/* harmony import */ var _script_toggleDynamicBar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../script/toggleDynamicBar */ "./src/script/toggleDynamicBar.js");
+/* harmony import */ var _script_rotateElement__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../script/rotateElement */ "./src/script/rotateElement.js");
+/* harmony import */ var _assets_svg_magnifier_glass_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/svg/magnifier-glass-svgrepo-com.svg */ "./src/assets/svg/magnifier-glass-svgrepo-com.svg");
+// Importing functions
+// import populateMain from "../script/populateMain";
 
 
 
 
+// importing SVG files
 
 
 // export default function createSidebar() {
@@ -879,13 +883,13 @@ __webpack_require__.r(__webpack_exports__);
 // }
 
 function activateSidebar(){
-  const sidebarElement = document.querySelector("#sidebar")
-  const sidebarArrowElement = (0,_script_createSVGImg__WEBPACK_IMPORTED_MODULE_1__["default"])(_assets_svg_arrow_left_r_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_2__, "arrowSVG")
+  const filterBarElement = document.querySelector(".filterBar")
+  const sidebarMagGlassElement = (0,_script_createSVGImg__WEBPACK_IMPORTED_MODULE_0__["default"])(_assets_svg_magnifier_glass_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_3__, "magGlassSVG")
   const sidebarListElement = document.querySelector(".sidebarList")
-  sidebarElement.appendChild(sidebarArrowElement)
-  sidebarArrowElement.addEventListener("click", () => {
-    ;(0,_script_toggleDynamicBar__WEBPACK_IMPORTED_MODULE_3__["default"])(sidebarListElement, "side")
-    ;(0,_script_rotateElement__WEBPACK_IMPORTED_MODULE_4__["default"])(sidebarArrowElement)
+  filterBarElement.appendChild(sidebarMagGlassElement)
+  sidebarMagGlassElement.addEventListener("click", () => {
+    ;(0,_script_toggleDynamicBar__WEBPACK_IMPORTED_MODULE_1__["default"])(sidebarListElement, "side")
+    ;(0,_script_rotateElement__WEBPACK_IMPORTED_MODULE_2__["default"])(sidebarMagGlassElement)
   })
 
 }
@@ -1663,13 +1667,13 @@ function toggleDynamicBar(element, direction) {
 
 /***/ }),
 
-/***/ "./src/assets/svg/arrow-left-r-svgrepo-com.svg":
-/*!*****************************************************!*\
-  !*** ./src/assets/svg/arrow-left-r-svgrepo-com.svg ***!
-  \*****************************************************/
+/***/ "./src/assets/svg/magnifier-glass-svgrepo-com.svg":
+/*!********************************************************!*\
+  !*** ./src/assets/svg/magnifier-glass-svgrepo-com.svg ***!
+  \********************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "arrow-left-r-svgrepo-com.svg";
+module.exports = __webpack_require__.p + "magnifier-glass-svgrepo-com.svg";
 
 /***/ }),
 
@@ -1835,4 +1839,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle6ab1b9c0df6853009bf5.js.map
+//# sourceMappingURL=bundlec09f50090da8212ea179.js.map
