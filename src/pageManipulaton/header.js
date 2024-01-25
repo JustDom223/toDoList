@@ -1,18 +1,12 @@
 import cogSVG from "../assets/svg/settings-svgrepo-com.svg"
-// import getFirstChildHeight from "../script/getFirstChildHeight";
-import toggleDropDown from "../script/initializeDropDown";
+import toggleDynamicBar from "../script/toggleDynamicBar";
+import createSVGImg from "../script/createSVGImg";
 
 function toggleTheme() {
-  document.documentElement.classList.toggle("special");
+  document.documentElement.classList.toggle("dark");
 }
 // Children for tabs
-function createTabImg() {
-  const settingsSvg = new Image();
-  settingsSvg.src = cogSVG;
-  settingsSvg.classList.add("cogSVG");
 
-  return settingsSvg;
-}
 
 
 export default function activateHeader() {
@@ -21,16 +15,12 @@ export default function activateHeader() {
   const dropDownButtonElement = document.querySelector(".dropDownButton")
   const lightDarkButton = document.querySelector("#theme")
   // Add the image to our existing div.
-  dropDownButtonElement.appendChild(createTabImg())
-  // Change the parent elements size to match the first child
-  // settingsDropDown.style.height = `${getFirstChildHeight(settingsDropDown)}px`;
-
-  // Add event listener to button
+  dropDownButtonElement.appendChild(createSVGImg(cogSVG, "cogSVG"))
   lightDarkButton.addEventListener("click", () => {
     toggleTheme();
   });
 
   dropDownButtonElement.addEventListener("click", () =>{
-    toggleDropDown(settingsDropDown)
+    toggleDynamicBar(settingsDropDown, "down")
   })
 }

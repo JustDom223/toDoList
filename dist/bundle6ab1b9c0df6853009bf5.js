@@ -21,13 +21,13 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `:root {
+___CSS_LOADER_EXPORT___.push([module.id, `:root.dark {
   --main-color-darkmode: rgb(39, 39, 39);
   --font-color-darkmode: rgb(109, 197, 255);
   --card-color-darkmode: rgb(95, 94, 94);
 }
 
-:root.special {
+:root {
   --main-color-darkmode: rgb(255, 255, 255);
   --font-color-darkmode: rgb(0, 0, 0);
   --card-color-darkmode: rgb(221, 221, 221);
@@ -126,8 +126,6 @@ video {
 #content {
   height: 100svh;
   display: grid;
-  grid-template-columns: 1fr 6fr;
-  grid-template-rows: 100px 12fr 50px;
 }
 
 header {
@@ -153,7 +151,7 @@ header h1{
   transition: height 500ms ease-in-out;
 }
 
-.settingsDropDown.clicked {
+.dropdownReveal {
   height: 100px;
 }
 
@@ -177,6 +175,34 @@ header h1{
   color: var(--font-color-darkmode);
   grid-column: 1/2;
   grid-row: 2/3;
+  display: flex;
+  width: fit-content;
+}
+
+
+.arrowSVG{
+  width: 40px;
+  height: 40px;
+  transition: transform 300ms ease-in-out;
+}
+
+.rotate{
+  transform: rotate(180deg);
+}
+
+.sidebarList{
+  /* border: 1px red solid; */
+  width: 0px;
+  overflow: hidden;
+  transition: width 500ms ease-in-out;
+}
+
+.sidebarListItem{
+  width: 100px;
+}
+
+.sidebarReveal{
+  width: 100px;
 }
 
 footer {
@@ -195,6 +221,7 @@ main {
   display: flex;
   flex-wrap: wrap;
 }
+
 
 .jobCard {
   background-color: var(--card-color-darkmode);
@@ -225,7 +252,7 @@ main {
   justify-self: center;
   align-self: center;
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;EACE,sCAAsC;EACtC,yCAAyC;EACzC,sCAAsC;AACxC;;AAEA;EACE,yCAAyC;EACzC,mCAAmC;EACnC,yCAAyC;AAC3C;;AAEA,cAAc;AACd;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAiFE,SAAS;EACT,UAAU;EACV,SAAS;EACT,eAAe;EACf,aAAa;EACb,wBAAwB;AAC1B;;AAEA;EACE,cAAc;EACd,aAAa;EACb,8BAA8B;EAC9B,mCAAmC;AACrC;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,4CAA4C;EAC5C,iCAAiC;EACjC,gBAAgB;EAChB,aAAa;AACf;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,kBAAkB;EAClB,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,gBAAgB;EAChB,YAAY;EACZ,oCAAoC;AACtC;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,mBAAmB;EACnB,YAAY;EACZ,4CAA4C;AAC9C;;AAEA;EACE,aAAa;EACb,YAAY;EACZ,YAAY;EACZ,gBAAgB;;AAElB;;;AAGA;EACE,4CAA4C;EAC5C,iCAAiC;EACjC,gBAAgB;EAChB,aAAa;AACf;;AAEA;EACE,4CAA4C;EAC5C,iCAAiC;EACjC,gBAAgB;EAChB,aAAa;AACf;;AAEA,iBAAiB;AACjB;EACE,gBAAgB;EAChB,aAAa;EACb,4CAA4C;EAC5C,iCAAiC;EACjC,aAAa;EACb,eAAe;AACjB;;AAEA;EACE,4CAA4C;EAC5C,mBAAmB;EACnB,+CAA+C;EAC/C,oBAAoB;EACpB,YAAY;EACZ,aAAa;EACb,aAAa;EACb,YAAY;EACZ,UAAU;AACZ;;AAEA;EACE,aAAa;EACb,aAAa;EACb,YAAY;EACZ,sBAAsB;EACtB,6BAA6B;AAC/B;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;AACnB;;AAEA;EACE,oBAAoB;EACpB,kBAAkB;AACpB","sourcesContent":[":root {\n  --main-color-darkmode: rgb(39, 39, 39);\n  --font-color-darkmode: rgb(109, 197, 255);\n  --card-color-darkmode: rgb(95, 94, 94);\n}\n\n:root.special {\n  --main-color-darkmode: rgb(255, 255, 255);\n  --font-color-darkmode: rgb(0, 0, 0);\n  --card-color-darkmode: rgb(221, 221, 221);\n}\n\n/* CSS Reset */\nhtml,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\n\n#content {\n  height: 100svh;\n  display: grid;\n  grid-template-columns: 1fr 6fr;\n  grid-template-rows: 100px 12fr 50px;\n}\n\nheader {\n  display: flex;\n  justify-content: space-between;\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/3;\n  grid-row: 1/2;\n}\n\nheader h1{\n  font-size: 32px;\n}\n\n.settingsDropDown {\n  margin-right: 20px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  overflow: hidden;\n  height: 40px;\n  transition: height 500ms ease-in-out;\n}\n\n.settingsDropDown.clicked {\n  height: 100px;\n}\n\n.dropDownContent{\n  border-radius: 12px;\n  padding: 4px;\n  background-color: var(--card-color-darkmode);\n}\n\n.dropDownButton{\n  display: flex;\n  height: 40px;\n  border: none;\n  background: none;\n\n}\n\n\n#sidebar {\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/2;\n  grid-row: 2/3;\n}\n\nfooter {\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/3;\n  grid-row: 3/4;\n}\n\n/* Main content */\nmain {\n  grid-column: 2/3;\n  grid-row: 2/3;\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  display: flex;\n  flex-wrap: wrap;\n}\n\n.jobCard {\n  background-color: var(--card-color-darkmode);\n  border-radius: 12px;\n  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);\n  justify-self: center;\n  margin: 20px;\n  padding: 20px;\n  height: 250px;\n  width: 300px;\n  width: 1fr;\n}\n\n.projectForm {\n  display: flex;\n  height: 600px;\n  width: 600px;\n  flex-direction: column;\n  justify-content: space-around;\n}\n\n.button {\n  max-width: 100px;\n  max-height: 100px;\n}\n\n#projectButton {\n  justify-self: center;\n  align-self: center;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;EACE,sCAAsC;EACtC,yCAAyC;EACzC,sCAAsC;AACxC;;AAEA;EACE,yCAAyC;EACzC,mCAAmC;EACnC,yCAAyC;AAC3C;;AAEA,cAAc;AACd;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAiFE,SAAS;EACT,UAAU;EACV,SAAS;EACT,eAAe;EACf,aAAa;EACb,wBAAwB;AAC1B;;AAEA;EACE,cAAc;EACd,aAAa;AACf;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,4CAA4C;EAC5C,iCAAiC;EACjC,gBAAgB;EAChB,aAAa;AACf;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,kBAAkB;EAClB,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,gBAAgB;EAChB,YAAY;EACZ,oCAAoC;AACtC;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,mBAAmB;EACnB,YAAY;EACZ,4CAA4C;AAC9C;;AAEA;EACE,aAAa;EACb,YAAY;EACZ,YAAY;EACZ,gBAAgB;;AAElB;;;AAGA;EACE,4CAA4C;EAC5C,iCAAiC;EACjC,gBAAgB;EAChB,aAAa;EACb,aAAa;EACb,kBAAkB;AACpB;;;AAGA;EACE,WAAW;EACX,YAAY;EACZ,uCAAuC;AACzC;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,2BAA2B;EAC3B,UAAU;EACV,gBAAgB;EAChB,mCAAmC;AACrC;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,4CAA4C;EAC5C,iCAAiC;EACjC,gBAAgB;EAChB,aAAa;AACf;;AAEA,iBAAiB;AACjB;EACE,gBAAgB;EAChB,aAAa;EACb,4CAA4C;EAC5C,iCAAiC;EACjC,aAAa;EACb,eAAe;AACjB;;;AAGA;EACE,4CAA4C;EAC5C,mBAAmB;EACnB,+CAA+C;EAC/C,oBAAoB;EACpB,YAAY;EACZ,aAAa;EACb,aAAa;EACb,YAAY;EACZ,UAAU;AACZ;;AAEA;EACE,aAAa;EACb,aAAa;EACb,YAAY;EACZ,sBAAsB;EACtB,6BAA6B;AAC/B;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;AACnB;;AAEA;EACE,oBAAoB;EACpB,kBAAkB;AACpB","sourcesContent":[":root.dark {\n  --main-color-darkmode: rgb(39, 39, 39);\n  --font-color-darkmode: rgb(109, 197, 255);\n  --card-color-darkmode: rgb(95, 94, 94);\n}\n\n:root {\n  --main-color-darkmode: rgb(255, 255, 255);\n  --font-color-darkmode: rgb(0, 0, 0);\n  --card-color-darkmode: rgb(221, 221, 221);\n}\n\n/* CSS Reset */\nhtml,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\n\n#content {\n  height: 100svh;\n  display: grid;\n}\n\nheader {\n  display: flex;\n  justify-content: space-between;\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/3;\n  grid-row: 1/2;\n}\n\nheader h1{\n  font-size: 32px;\n}\n\n.settingsDropDown {\n  margin-right: 20px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  overflow: hidden;\n  height: 40px;\n  transition: height 500ms ease-in-out;\n}\n\n.dropdownReveal {\n  height: 100px;\n}\n\n.dropDownContent{\n  border-radius: 12px;\n  padding: 4px;\n  background-color: var(--card-color-darkmode);\n}\n\n.dropDownButton{\n  display: flex;\n  height: 40px;\n  border: none;\n  background: none;\n\n}\n\n\n#sidebar {\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/2;\n  grid-row: 2/3;\n  display: flex;\n  width: fit-content;\n}\n\n\n.arrowSVG{\n  width: 40px;\n  height: 40px;\n  transition: transform 300ms ease-in-out;\n}\n\n.rotate{\n  transform: rotate(180deg);\n}\n\n.sidebarList{\n  /* border: 1px red solid; */\n  width: 0px;\n  overflow: hidden;\n  transition: width 500ms ease-in-out;\n}\n\n.sidebarListItem{\n  width: 100px;\n}\n\n.sidebarReveal{\n  width: 100px;\n}\n\nfooter {\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/3;\n  grid-row: 3/4;\n}\n\n/* Main content */\nmain {\n  grid-column: 2/3;\n  grid-row: 2/3;\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  display: flex;\n  flex-wrap: wrap;\n}\n\n\n.jobCard {\n  background-color: var(--card-color-darkmode);\n  border-radius: 12px;\n  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);\n  justify-self: center;\n  margin: 20px;\n  padding: 20px;\n  height: 250px;\n  width: 300px;\n  width: 1fr;\n}\n\n.projectForm {\n  display: flex;\n  height: 600px;\n  width: 600px;\n  flex-direction: column;\n  justify-content: space-around;\n}\n\n.button {\n  max-width: 100px;\n  max-height: 100px;\n}\n\n#projectButton {\n  justify-self: center;\n  align-self: center;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -702,22 +729,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ activateHeader)
 /* harmony export */ });
 /* harmony import */ var _assets_svg_settings_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/svg/settings-svgrepo-com.svg */ "./src/assets/svg/settings-svgrepo-com.svg");
-/* harmony import */ var _script_initializeDropDown__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../script/initializeDropDown */ "./src/script/initializeDropDown.js");
+/* harmony import */ var _script_toggleDynamicBar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../script/toggleDynamicBar */ "./src/script/toggleDynamicBar.js");
+/* harmony import */ var _script_createSVGImg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../script/createSVGImg */ "./src/script/createSVGImg.js");
 
-// import getFirstChildHeight from "../script/getFirstChildHeight";
+
 
 
 function toggleTheme() {
-  document.documentElement.classList.toggle("special");
+  document.documentElement.classList.toggle("dark");
 }
 // Children for tabs
-function createTabImg() {
-  const settingsSvg = new Image();
-  settingsSvg.src = _assets_svg_settings_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_0__;
-  settingsSvg.classList.add("cogSVG");
 
-  return settingsSvg;
-}
 
 
 function activateHeader() {
@@ -726,17 +748,13 @@ function activateHeader() {
   const dropDownButtonElement = document.querySelector(".dropDownButton")
   const lightDarkButton = document.querySelector("#theme")
   // Add the image to our existing div.
-  dropDownButtonElement.appendChild(createTabImg())
-  // Change the parent elements size to match the first child
-  // settingsDropDown.style.height = `${getFirstChildHeight(settingsDropDown)}px`;
-
-  // Add event listener to button
+  dropDownButtonElement.appendChild((0,_script_createSVGImg__WEBPACK_IMPORTED_MODULE_2__["default"])(_assets_svg_settings_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_0__, "cogSVG"))
   lightDarkButton.addEventListener("click", () => {
     toggleTheme();
   });
 
   dropDownButtonElement.addEventListener("click", () =>{
-    (0,_script_initializeDropDown__WEBPACK_IMPORTED_MODULE_1__["default"])(settingsDropDown)
+    (0,_script_toggleDynamicBar__WEBPACK_IMPORTED_MODULE_1__["default"])(settingsDropDown, "down")
   })
 }
 
@@ -776,82 +794,101 @@ function createMain() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ createSidebar)
+/* harmony export */   "default": () => (/* binding */ activateSidebar)
 /* harmony export */ });
 /* harmony import */ var _script_populateMain__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../script/populateMain */ "./src/script/populateMain.js");
+/* harmony import */ var _script_createSVGImg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../script/createSVGImg */ "./src/script/createSVGImg.js");
+/* harmony import */ var _assets_svg_arrow_left_r_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/svg/arrow-left-r-svgrepo-com.svg */ "./src/assets/svg/arrow-left-r-svgrepo-com.svg");
+/* harmony import */ var _script_toggleDynamicBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../script/toggleDynamicBar */ "./src/script/toggleDynamicBar.js");
+/* harmony import */ var _script_rotateElement__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../script/rotateElement */ "./src/script/rotateElement.js");
 
 
-function createSidebar() {
-  // Create Sidebar
-  const sideBarElement = document.createElement("div");
-  sideBarElement.id = "sidebar";
 
-  const sideBarHeadingElement = document.createElement("h1");
-  sideBarHeadingElement.textContent = "Timeline";
 
-  // Sidebar children
-  const sideBarTabs = document.createElement("ul");
 
-  // Create list items
-  const tabProjects = document.createElement("li");
-  const tabToday = document.createElement("li");
-  const tabThisWeek = document.createElement("li");
-  const tabThisMonth = document.createElement("li");
-  const tabThisQuater = document.createElement("li");
 
-  // Create Tabchildren
-  tabProjects.textContent = "Projects";
-  tabToday.textContent = "Today";
-  tabThisWeek.textContent = "This Week";
-  tabThisMonth.textContent = "This Month";
-  tabThisQuater.textContent = "This Quater";
+// export default function createSidebar() {
+//   // Create Sidebar
+//   const sideBarElement = document.createElement("div");
+//   sideBarElement.id = "sidebar";
 
-  // Tab ID's
-  sideBarTabs.id = "tabs";
-  tabProjects.id = "projects";
-  tabToday.id = "today";
-  tabThisWeek.id = "week";
-  tabThisMonth.id = "month";
-  tabThisQuater.id = "quater";
+//   const sideBarHeadingElement = document.createElement("h1");
+//   sideBarHeadingElement.textContent = "Timeline";
 
-  // Tab classes
-  sideBarTabs.classList.add("tabs");
-  tabProjects.classList.add("tab");
-  tabToday.classList.add("tab");
-  tabThisWeek.classList.add("tab");
-  tabThisMonth.classList.add("tab");
-  tabThisQuater.classList.add("tab");
+//   // Sidebar children
+//   const sideBarTabs = document.createElement("ul");
 
-  // Adding event listeners
-  sideBarTabs.addEventListener("click", (event) => {
-    const contentElement = document.querySelector("#content");
-    const clickedTab = event.target.closest("li");
-    if (clickedTab.classList.contains("tab")) {
-      console.log(`You clicked ${clickedTab.id}`);
-      const clickedElementId = clickedTab.id;
+//   // Create list items
+//   const tabProjects = document.createElement("li");
+//   const tabToday = document.createElement("li");
+//   const tabThisWeek = document.createElement("li");
+//   const tabThisMonth = document.createElement("li");
+//   const tabThisQuater = document.createElement("li");
 
-      const newMainContent = (0,_script_populateMain__WEBPACK_IMPORTED_MODULE_0__["default"])(clickedElementId);
+//   // Create Tabchildren
+//   tabProjects.textContent = "Projects";
+//   tabToday.textContent = "Today";
+//   tabThisWeek.textContent = "This Week";
+//   tabThisMonth.textContent = "This Month";
+//   tabThisQuater.textContent = "This Quater";
 
-      // Replace the existing main content with the new one
-      const existingMainElement = document.querySelector("main");
-      contentElement.replaceChild(newMainContent, existingMainElement);
-      // setActiveTab(clickedElementId)
-    }
-  });
+//   // Tab ID's
+//   sideBarTabs.id = "tabs";
+//   tabProjects.id = "projects";
+//   tabToday.id = "today";
+//   tabThisWeek.id = "week";
+//   tabThisMonth.id = "month";
+//   tabThisQuater.id = "quater";
 
-  // Add items to list
-  sideBarTabs.appendChild(tabProjects);
-  sideBarTabs.appendChild(tabToday);
-  sideBarTabs.appendChild(tabThisWeek);
-  sideBarTabs.appendChild(tabThisMonth);
-  sideBarTabs.appendChild(tabThisQuater);
+//   // Tab classes
+//   sideBarTabs.classList.add("tabs");
+//   tabProjects.classList.add("tab");
+//   tabToday.classList.add("tab");
+//   tabThisWeek.classList.add("tab");
+//   tabThisMonth.classList.add("tab");
+//   tabThisQuater.classList.add("tab");
 
-  // Add content to elements
-  sideBarElement.appendChild(sideBarHeadingElement);
-  sideBarElement.appendChild(sideBarTabs);
-  return sideBarElement;
+//   // Adding event listeners
+//   sideBarTabs.addEventListener("click", (event) => {
+//     const contentElement = document.querySelector("#content");
+//     const clickedTab = event.target.closest("li");
+//     if (clickedTab.classList.contains("tab")) {
+//       console.log(`You clicked ${clickedTab.id}`);
+//       const clickedElementId = clickedTab.id;
+
+//       const newMainContent = populateMain(clickedElementId);
+
+//       // Replace the existing main content with the new one
+//       const existingMainElement = document.querySelector("main");
+//       contentElement.replaceChild(newMainContent, existingMainElement);
+//       // setActiveTab(clickedElementId)
+//     }
+//   });
+
+//   // Add items to list
+//   sideBarTabs.appendChild(tabProjects);
+//   sideBarTabs.appendChild(tabToday);
+//   sideBarTabs.appendChild(tabThisWeek);
+//   sideBarTabs.appendChild(tabThisMonth);
+//   sideBarTabs.appendChild(tabThisQuater);
+
+//   // Add content to elements
+//   sideBarElement.appendChild(sideBarHeadingElement);
+//   sideBarElement.appendChild(sideBarTabs);
+//   return sideBarElement;
+// }
+
+function activateSidebar(){
+  const sidebarElement = document.querySelector("#sidebar")
+  const sidebarArrowElement = (0,_script_createSVGImg__WEBPACK_IMPORTED_MODULE_1__["default"])(_assets_svg_arrow_left_r_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_2__, "arrowSVG")
+  const sidebarListElement = document.querySelector(".sidebarList")
+  sidebarElement.appendChild(sidebarArrowElement)
+  sidebarArrowElement.addEventListener("click", () => {
+    ;(0,_script_toggleDynamicBar__WEBPACK_IMPORTED_MODULE_3__["default"])(sidebarListElement, "side")
+    ;(0,_script_rotateElement__WEBPACK_IMPORTED_MODULE_4__["default"])(sidebarArrowElement)
+  })
+
 }
-
 
 /***/ }),
 
@@ -1202,18 +1239,21 @@ function createNewTaskForm() {
 
 /***/ }),
 
-/***/ "./src/script/initializeDropDown.js":
-/*!******************************************!*\
-  !*** ./src/script/initializeDropDown.js ***!
-  \******************************************/
+/***/ "./src/script/createSVGImg.js":
+/*!************************************!*\
+  !*** ./src/script/createSVGImg.js ***!
+  \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ toggleDropDown)
+/* harmony export */   "default": () => (/* binding */ createSVGImg)
 /* harmony export */ });
-function toggleDropDown(element) {
-    element.classList.toggle("clicked");
+function createSVGImg(importedSVG, assignedClass) {
+    const svgImage = new Image();
+    svgImage.src = importedSVG;
+    svgImage.classList.add(assignedClass);
+    return svgImage;
   }
 
 /***/ }),
@@ -1588,6 +1628,51 @@ function replaceConstructorFunctions() {}
 
 /***/ }),
 
+/***/ "./src/script/rotateElement.js":
+/*!*************************************!*\
+  !*** ./src/script/rotateElement.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ rotateElement)
+/* harmony export */ });
+function rotateElement(element){
+    element.classList.toggle("rotate")
+}
+
+/***/ }),
+
+/***/ "./src/script/toggleDynamicBar.js":
+/*!****************************************!*\
+  !*** ./src/script/toggleDynamicBar.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ toggleDynamicBar)
+/* harmony export */ });
+function toggleDynamicBar(element, direction) {
+  if(direction === "down"){
+    element.classList.toggle("dropdownReveal");
+  }else if(direction === "side"){
+    element.classList.toggle("sidebarReveal")
+  }}
+
+/***/ }),
+
+/***/ "./src/assets/svg/arrow-left-r-svgrepo-com.svg":
+/*!*****************************************************!*\
+  !*** ./src/assets/svg/arrow-left-r-svgrepo-com.svg ***!
+  \*****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "arrow-left-r-svgrepo-com.svg";
+
+/***/ }),
+
 /***/ "./src/assets/svg/settings-svgrepo-com.svg":
 /*!*************************************************!*\
   !*** ./src/assets/svg/settings-svgrepo-com.svg ***!
@@ -1723,7 +1808,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // import createHeader from "./pageManipulaton/header";
-
+// import createSidebar from "./pageManipulaton/sideBar";
 
 
 
@@ -1738,7 +1823,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const contentElement = document.querySelector("#content");
 
   (0,_pageManipulaton_header__WEBPACK_IMPORTED_MODULE_6__["default"])()
-  contentElement.appendChild((0,_pageManipulaton_sideBar__WEBPACK_IMPORTED_MODULE_1__["default"])());
+  ;(0,_pageManipulaton_sideBar__WEBPACK_IMPORTED_MODULE_1__["default"])()
+  // contentElement.appendChild(createSidebar());
   contentElement.appendChild((0,_pageManipulaton_main__WEBPACK_IMPORTED_MODULE_2__["default"])());
   contentElement.appendChild((0,_pageManipulaton_footer__WEBPACK_IMPORTED_MODULE_3__["default"])());
 
@@ -1749,4 +1835,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle04fdf942f84b496f52ce.js.map
+//# sourceMappingURL=bundle6ab1b9c0df6853009bf5.js.map

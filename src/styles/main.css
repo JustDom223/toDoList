@@ -1,10 +1,10 @@
-:root {
+:root.dark {
   --main-color-darkmode: rgb(39, 39, 39);
   --font-color-darkmode: rgb(109, 197, 255);
   --card-color-darkmode: rgb(95, 94, 94);
 }
 
-:root.special {
+:root {
   --main-color-darkmode: rgb(255, 255, 255);
   --font-color-darkmode: rgb(0, 0, 0);
   --card-color-darkmode: rgb(221, 221, 221);
@@ -103,8 +103,6 @@ video {
 #content {
   height: 100svh;
   display: grid;
-  grid-template-columns: 1fr 6fr;
-  grid-template-rows: 100px 12fr 50px;
 }
 
 header {
@@ -130,18 +128,9 @@ header h1{
   transition: height 500ms ease-in-out;
 }
 
-.clicked {
+.dropdownReveal {
   height: 100px;
 }
-
-/* .cogSVG{
-  stroke: aqua;
-} */
-
-.custom-svg.custom-stroke {
-  stroke: red; /* Change this to your desired color */
-}
-
 
 .dropDownContent{
   border-radius: 12px;
@@ -163,6 +152,34 @@ header h1{
   color: var(--font-color-darkmode);
   grid-column: 1/2;
   grid-row: 2/3;
+  display: flex;
+  width: fit-content;
+}
+
+
+.arrowSVG{
+  width: 40px;
+  height: 40px;
+  transition: transform 300ms ease-in-out;
+}
+
+.rotate{
+  transform: rotate(180deg);
+}
+
+.sidebarList{
+  /* border: 1px red solid; */
+  width: 0px;
+  overflow: hidden;
+  transition: width 500ms ease-in-out;
+}
+
+.sidebarListItem{
+  width: 100px;
+}
+
+.sidebarReveal{
+  width: 100px;
 }
 
 footer {
@@ -181,6 +198,7 @@ main {
   display: flex;
   flex-wrap: wrap;
 }
+
 
 .jobCard {
   background-color: var(--card-color-darkmode);
