@@ -6,6 +6,7 @@ import rotateElement from "../script/rotateElement";
 
 // importing SVG files
 import magGlassSVG from "../assets/svg/magnifier-glass-svgrepo-com.svg"
+import cogSVG from "../assets/svg/settings-svgrepo-com.svg"
 
 // export default function createSidebar() {
 //   // Create Sidebar
@@ -77,15 +78,35 @@ import magGlassSVG from "../assets/svg/magnifier-glass-svgrepo-com.svg"
 //   sideBarElement.appendChild(sideBarTabs);
 //   return sideBarElement;
 // }
+function toggleTheme() {
+  document.documentElement.classList.toggle("dark");
+}
 
 export default function activateSidebar(){
-  const filterBarElement = document.querySelector(".filterBar")
-  const sidebarMagGlassElement = createSVGImg(magGlassSVG, "magGlassSVG")
-  const sidebarListElement = document.querySelector(".sidebarList")
-  filterBarElement.appendChild(sidebarMagGlassElement)
-  sidebarMagGlassElement.addEventListener("click", () => {
-    toggleDynamicBar(sidebarListElement, "side")
-    rotateElement(sidebarMagGlassElement)
+  // Activating filter menu
+  const filterBarElement = document.querySelector("#filterBar");
+  const filterMagGlassElement = createSVGImg(magGlassSVG, "customCursor" ,"magGlassSVG");
+  const filterBarListElement = document.querySelector("#filterBarList");
+  filterBarElement.appendChild(filterMagGlassElement);
+  filterMagGlassElement.addEventListener("click", () => {
+    toggleDynamicBar(filterBarListElement, "side");
+    rotateElement(filterMagGlassElement);
+  });
+
+  // Activating settings menu
+  const settingsBarElement = document.querySelector("#settingsBar")
+  const settingsBarCogElement = createSVGImg(cogSVG, "customCursor" ,"cogSVG")
+  const settingsBarListElement = document.querySelector("#settingsBarList")
+  settingsBarElement.appendChild(settingsBarCogElement)
+  settingsBarCogElement.addEventListener("click", ()=> {
+    toggleDynamicBar(settingsBarListElement, "side");
+    rotateElement(settingsBarCogElement)
+  })
+
+  const themeToggleElement = document.querySelector("#theme")
+  themeToggleElement.classList.add("customCursor")
+  themeToggleElement.addEventListener("click", ()=>{
+    toggleTheme()
   })
 
 }
