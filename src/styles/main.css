@@ -104,7 +104,7 @@ video {
   height: 100svh;
   display: grid;
 }
-
+/* Header content */
 header {
   display: flex;
   justify-content: space-between;
@@ -146,7 +146,7 @@ header h1{
 
 }
 
-
+/* Sidebar content */
 #sidebar {
   background-color: var(--main-color-darkmode);
   color: var(--font-color-darkmode);
@@ -157,36 +157,32 @@ header h1{
 }
 
 
-.arrowSVG{
+.magGlassSVG{
   width: 40px;
   height: 40px;
-  transition: transform 300ms ease-in-out;
+  transition: transform 500ms ease-in-out;
 }
 
 .rotate{
-  transform: rotate(180deg);
+  transform: rotate(360deg);
 }
-
+.filterBar{
+  display: flex;
+}
 .sidebarList{
   /* border: 1px red solid; */
   width: 0px;
+  height: 0px;
   overflow: hidden;
-  transition: width 500ms ease-in-out;
+  transition: width 500ms ease-in-out, height 500ms ease-in-out;
 }
-
 .sidebarListItem{
   width: 100px;
 }
 
 .sidebarReveal{
   width: 100px;
-}
-
-footer {
-  background-color: var(--main-color-darkmode);
-  color: var(--font-color-darkmode);
-  grid-column: 1/3;
-  grid-row: 3/4;
+  height: 100px;
 }
 
 /* Main content */
@@ -208,8 +204,7 @@ main {
   margin: 20px;
   padding: 20px;
   height: 250px;
-  width: 300px;
-  width: 1fr;
+  max-width: 300px;
 }
 
 .projectForm {
@@ -228,4 +223,12 @@ main {
 #projectButton {
   justify-self: center;
   align-self: center;
+}
+
+/* Footer content */
+footer {
+  background-color: var(--main-color-darkmode);
+  color: var(--font-color-darkmode);
+  grid-column: 1/3;
+  grid-row: 3/4;
 }

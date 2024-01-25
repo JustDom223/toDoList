@@ -1,8 +1,11 @@
-import populateMain from "../script/populateMain";
+// Importing functions
+// import populateMain from "../script/populateMain";
 import createSVGImg from "../script/createSVGImg";
-import arrowSVG from "../assets/svg/arrow-left-r-svgrepo-com.svg"
 import toggleDynamicBar from "../script/toggleDynamicBar";
 import rotateElement from "../script/rotateElement";
+
+// importing SVG files
+import magGlassSVG from "../assets/svg/magnifier-glass-svgrepo-com.svg"
 
 // export default function createSidebar() {
 //   // Create Sidebar
@@ -76,13 +79,13 @@ import rotateElement from "../script/rotateElement";
 // }
 
 export default function activateSidebar(){
-  const sidebarElement = document.querySelector("#sidebar")
-  const sidebarArrowElement = createSVGImg(arrowSVG, "arrowSVG")
+  const filterBarElement = document.querySelector(".filterBar")
+  const sidebarMagGlassElement = createSVGImg(magGlassSVG, "magGlassSVG")
   const sidebarListElement = document.querySelector(".sidebarList")
-  sidebarElement.appendChild(sidebarArrowElement)
-  sidebarArrowElement.addEventListener("click", () => {
+  filterBarElement.appendChild(sidebarMagGlassElement)
+  sidebarMagGlassElement.addEventListener("click", () => {
     toggleDynamicBar(sidebarListElement, "side")
-    rotateElement(sidebarArrowElement)
+    rotateElement(sidebarMagGlassElement)
   })
 
 }
