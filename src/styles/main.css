@@ -134,6 +134,15 @@ header h1{
   height: 100px;
 }
 
+/* .cogSVG{
+  stroke: aqua;
+} */
+
+.custom-svg.custom-stroke {
+  stroke: red; /* Change this to your desired color */
+}
+
+
 .dropDownContent{
   border-radius: 12px;
   padding: 4px;
