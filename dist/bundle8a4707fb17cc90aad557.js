@@ -1028,6 +1028,7 @@ function createNewProjectForm() {
   const formProjectPriorityLabelElement = document.createElement("label");
   const formProjectPriorityInputElement = document.createElement("select");
 
+  
   const formSubmitButton = document.createElement("input");
 
   // Choosing element type
@@ -1270,8 +1271,10 @@ function createSVGImg(importedSVG, assignedClass, assignedID) {
     svgImage.src = importedSVG;
     svgImage.classList.add(assignedClass);
     svgImage.id = assignedID;
+
     return svgImage;
   }
+  
 
 /***/ }),
 
@@ -1870,4 +1873,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle9e3285f9da4011198ae7.js.map
+//# sourceMappingURL=bundle8a4707fb17cc90aad557.js.map

@@ -39,6 +39,7 @@ export default function createNewProjectForm() {
   const formProjectPriorityLabelElement = document.createElement("label");
   const formProjectPriorityInputElement = document.createElement("select");
 
+  
   const formSubmitButton = document.createElement("input");
 
   // Choosing element type
