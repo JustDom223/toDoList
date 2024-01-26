@@ -5,24 +5,28 @@ import { updateLocalStorage } from "./localStorage";
 
 export function submitTask(projectTitle) {
   const projects = getProjects();
-  for (const project of projects) {
-    if (project.title === projectTitle) {
-      const form = document.querySelector("#taskForm");
-      const formData = new FormData(form);
-      const currentDate = new Date();
-      const newTask = createTask(
-        formData.get("descInput"),
-        formData.get("priorityInput"),
-        currentDate,
-        formData.get("dueDateInput"),
-      );
+  
+  const projectToUpdate = projects.find(project => project.title === projectTitle);
+  
+  if (projectToUpdate) {
+    const form = document.querySelector("#taskForm");
+    const formData = new FormData(form);
+    const currentDate = new Date();
+    const newTask = createTask(
+      formData.get("descInput"),
+      formData.get("priorityInput"),
+      currentDate,
+      formData.get("dueDateInput"),
+    );
 
-      project.tasks.unshift(newTask);
-      updateLocalStorage();
-      break;
-    }
+    projectToUpdate.tasks.unshift(newTask);
+    updateLocalStorage();
+  } else {
+    throw new Error("No project found with the specified title.");
   }
 }
+
+
 export default function createNewTaskForm() {
   // Create form
   const formElement = document.createElement("form");
@@ -89,7 +93,7 @@ export default function createNewTaskForm() {
 
   // Adding an event listener to the submit button
   formSubmitButton.addEventListener("click", (event) => {
-    const taskFormButtonElement = document.querySelector("#taskButton");
+    const taskFormButtonElement = document.querySelector("#taskButtonSVG");
     const { projectTitle } = taskFormButtonElement.dataset;
     const dialogElement = document.querySelector("dialog");
     event.preventDefault();

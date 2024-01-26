@@ -1,12 +1,13 @@
+// importing SVG files
+import magGlassSVG from "../assets/svg/magnifier-glass-svgrepo-com.svg";
+import cogSVG from "../assets/svg/sunflower-flower-svgrepo-com.svg";
+
 // Importing functions
 // import populateMain from "../script/populateMain";
 import createSVGImg from "../script/createSVGImg";
 import toggleDynamicBar from "../script/toggleDynamicBar";
 import rotateElement from "../script/rotateElement";
-
-// importing SVG files
-import magGlassSVG from "../assets/svg/magnifier-glass-svgrepo-com.svg";
-import cogSVG from "../assets/svg/sunflower-flower-svgrepo-com.svg";
+import activateButtons from "../script/activateButtons";
 
 // export default function createSidebar() {
 //   // Create Sidebar
@@ -82,6 +83,7 @@ function toggleTheme() {
   document.documentElement.classList.toggle("dark");
 }
 
+
 export default function activateSidebar(){
   // Activating filter menu
   const filterBarElement = document.querySelector("#filterBar");
@@ -108,5 +110,5 @@ export default function activateSidebar(){
   themeToggleElement.addEventListener("click", ()=>{
     toggleTheme();
   });
-
+  activateButtons()
 }
