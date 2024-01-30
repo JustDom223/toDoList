@@ -4,7 +4,7 @@ import toggleDynamicBar from "./toggleDynamicBar";
 import rotateElement from "./rotateElement";
 import populateMain from "./populateMain";
 import createNewTaskForm from "./createNewTask";
-import { deleteProject } from "./projects";
+import { deleteProject, deleteTask } from "./projects";
 import { updateLocalStorage } from "./localStorage";
 
 function handleClick(event){
@@ -13,7 +13,10 @@ function handleClick(event){
       case "projects":
           populateMain(element.dataset.action);
           break;
-      case "tasks":
+      case "projectTasks":
+        console.log(`${element.dataset.projectTitle} Tasks`);
+          console.log(element.dataset.action);
+          console.log(element.dataset.projectTitle);
           populateMain(element.dataset.action, element.dataset.projectTitle);
           break;
       case "today":
@@ -52,10 +55,15 @@ function handleClick(event){
         rotateElement(element);
         console.log("filter");
         break;
-      case "delete":
+      case "deleteProject":
         deleteProject(element.dataset.projectTitle);
         updateLocalStorage();
         populateMain("projects");
+        break;
+      case "deleteTask":
+        deleteTask(element.dataset.projectTitle, element.dataset.projectTaskDesc);
+        updateLocalStorage();
+        populateMain("projectTasks", element.dataset.projectTitle);
         break;
       default:
           console.log("UnknownButton");
