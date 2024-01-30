@@ -101,7 +101,8 @@ export default function createNewTaskForm() {
     dialogElement.close();
     console.log('I made it here')
     // Updating DOM
-    populateMain("taskButton", projectTitle);
+    console.log(projectTitle)
+    populateMain("projectTasks", projectTitle);
   });
 
   // Add children to containers
