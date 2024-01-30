@@ -1,5 +1,4 @@
 import { getProjects} from "./projects";
-import populateMain from "./populateMain";
 import createSVGImg from "./createSVGImg";
 // import SVG files
 import deleteSVG from "../assets/svg/recycle-bin-trash-svgrepo-com.svg";
@@ -31,9 +30,13 @@ export default function initializeProjects() {
       projectDueDateElement.classList.add("jobDueDate");
       projectPriorityElement.classList.add("jobPriority");
 
+      // projectTaskButtonElement
+      projectTasksButtonElement.dataset.projectTitle = project.title;
+      projectTasksButtonElement.dataset.action = "projectTasks";
+
       // projectDeleteButtonElement
       projectDeleteButtonElement.dataset.projectTitle = project.title;
-      projectDeleteButtonElement.dataset.action = "delete";
+      projectDeleteButtonElement.dataset.action = "deleteProject";
 
 
       // Choosing element type
@@ -49,9 +52,9 @@ export default function initializeProjects() {
 
       // Creating event listeners to the Task button
       // Adding event listeners
-      projectTasksButtonElement.addEventListener("click", () => {
-        populateMain("taskButton", project.title);
-      });
+      // projectTasksButtonElement.addEventListener("click", () => {
+      //   populateMain("taskButton", project.title);
+      // });
 
       // console.log(projectTasksButtonElement.id)
       projectCardElement.appendChild(projectTitleElement);

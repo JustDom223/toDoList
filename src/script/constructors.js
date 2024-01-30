@@ -1,21 +1,24 @@
-// Function to create a task
+// Define taskCompletion function
+export function taskCompletion() {
+  if (this.complete) {
+    this.complete = false;
+  } else {
+    this.complete = true;
+  }
+}
+
+// Define createTask function
 export function createTask(description, priority, dateCreated, dueDate) {
   return {
     description,
     priority,
     dateCreated,
     dueDate,
-
     complete: false,
-    taskCompletion() {
-      if (this.complete) {
-        this.complete = false;
-      } else {
-        this.complete = true;
-      }
-    },
+    taskCompletion, // Reusing the function
   };
 }
+
 // Function to create a project
 export function createProject(
   title,
@@ -33,17 +36,7 @@ export function createProject(
     tasks: [],
     today: false,
     complete: false,
-    taskCompletion() {
-      if (this.complete) {
-        this.complete = false;
-      } else {
-        this.complete = true;
-      }
-    },
-    createTask(taskDescription, taskPriority) {
-      const newTask = createTask(taskDescription, taskPriority);
-      this.tasks.push(newTask);
-      return newTask;
-    },
+    taskCompletion, // Reusing the function
+    createTask, // Reusing the function
   };
 }

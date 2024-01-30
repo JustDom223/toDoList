@@ -4,6 +4,7 @@ import toggleDynamicBar from "./toggleDynamicBar";
 import rotateElement from "./rotateElement";
 import populateMain from "./populateMain";
 import createNewTaskForm from "./createNewTask";
+import createNewProjectForm from "./createNewProject";
 import { deleteProject, deleteTask } from "./projects";
 import { updateLocalStorage } from "./localStorage";
 
@@ -50,11 +51,12 @@ function handleClick(event){
         dialogElement.appendChild(createNewTaskForm());
         dialogElement.showModal();
         break;}
-      case "createProject":
-        toggleDynamicBar(element.previousElementSibling, "side");
-        rotateElement(element);
-        console.log("filter");
-        break;
+      case "createProject":{
+        const dialogElement = document.querySelector("dialog");
+        dialogElement.textContent = "";
+        dialogElement.appendChild(createNewProjectForm());
+        dialogElement.showModal();
+        break;}
       case "deleteProject":
         deleteProject(element.dataset.projectTitle);
         updateLocalStorage();

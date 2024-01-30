@@ -1,4 +1,5 @@
 import { getProjects, setProjects } from "./projects";
+import { taskCompletion, createTask } from "./constructors";
 
 export function updateLocalStorage() {
   const projectsString = JSON.stringify(getProjects());
@@ -10,38 +11,17 @@ export function fetchLocalStorage() {
 
   if (retrievedProjectsString) {
     const retrievedProjects = JSON.parse(retrievedProjectsString);
-    for (const project of retrievedProjects) {
-      project.taskCompletion = function () {
-        if (this.complete) {
-          this.complete = false;
-        } else {
-          this.complete = true;
-        }
-      };
-      project.createTask = function (
-        description,
-        priority,
-        dateCreated,
-        dueDate,
-      ) {
-        return {
-          description,
-          priority,
-          dateCreated,
-          dueDate,
-
-          complete: false,
-          taskCompletion() {
-            if (this.complete) {
-              this.complete = false;
-            } else {
-              this.complete = true;
-            }
-          },
-        };
-      };
-    }
+    
+    // Assign functions to each retrieved project
+    const projectsWithFunctions = retrievedProjects.map(project => ({
+      ...project,
+      taskCompletion,
+      createTask
+    }));
+    
+    // Set the modified projects back
+    setProjects(projectsWithFunctions);
+    console.log(projectsWithFunctions);
     console.log(retrievedProjects);
-    setProjects(retrievedProjects);
   }
 }

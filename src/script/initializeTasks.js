@@ -1,5 +1,6 @@
+import deleteSVG from "../assets/svg/recycle-bin-trash-svgrepo-com.svg";
 import { getProjects } from "./projects";
-
+import createSVGImg from "./createSVGImg";
 
 
 export default function initializeTasks(projectTitle) {
@@ -12,13 +13,18 @@ export default function initializeTasks(projectTitle) {
     const taskDescElement = document.createElement("p");
     const taskPriorityElement = document.createElement("p");
     const taskCompletionElement = document.createElement("input");
+    const taskDeleteButtonElement = createSVGImg(deleteSVG, "actionButton", "taskDeleteSVG");
+
 
     // Adding a class to the card
     taskCardElement.classList.add("jobCard");
     taskPriorityElement.classList.add("jobPriority");
 
-    // Adding ID to
 
+      // taskDeleteButtonElement
+      taskDeleteButtonElement.dataset.projectTitle = projectTitle;
+      taskDeleteButtonElement.dataset.projectTaskDesc = task.description;
+      taskDeleteButtonElement.dataset.action = "deleteTask";
     // Choosing element type
     taskCompletionElement.type = "checkbox";
 
@@ -32,6 +38,7 @@ export default function initializeTasks(projectTitle) {
     taskCardElement.appendChild(taskDescElement);
     taskCardElement.appendChild(taskPriorityElement);
     taskCardElement.appendChild(taskCompletionElement);
+    taskCardElement.appendChild(taskDeleteButtonElement);
     return taskCardElement;
   });
 

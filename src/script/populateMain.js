@@ -72,7 +72,7 @@ export default function populateMain(clickedElementActionData, projectTitle) {
     //     toDoCards.forEach((project) => {
     //       mainElement.appendChild(project);
     //     });
-  } else if (clickedElementActionData === "taskButton") {
+  } else if (clickedElementActionData === "projectTasks") {
     const projectHeading = document.createElement("h1");
     projectHeading.innerText = projectTitle;
     const taskCards = initializeTasks(projectTitle);

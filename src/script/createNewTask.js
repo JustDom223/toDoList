@@ -99,9 +99,7 @@ export default function createNewTaskForm() {
     event.preventDefault();
     submitTask(projectTitle);
     dialogElement.close();
-    console.log('I made it here')
     // Updating DOM
-    console.log(projectTitle)
     populateMain("projectTasks", projectTitle);
   });
 

@@ -4,7 +4,7 @@ import projectSVG from "../assets/svg/rocket-svgrepo-com.svg";
 // Import functions
 import { getProjects } from "./projects";
 import createSVGImg from "./createSVGImg";
-import createNewProjectForm from "./createNewProject";
+
 
 
 export function createTaskButton(projectTitle) {
@@ -17,19 +17,15 @@ export function createTaskButton(projectTitle) {
     // Add project title as data
     taskButtonSVGElement.dataset.projectTitle = selectedProject.title;
     taskButtonSVGElement.dataset.action = "createTask";
-    console.log("did i make it?");
     return taskButtonSVGElement;
   }
   
   export function createProjectButton() {
-    const projectSVGElement = createSVGImg(projectSVG, "customCursor", "projectSVG");
-    // Access existing elements
-    const dialogElement = document.querySelector("dialog");
-    // Create button element
-    projectSVGElement.addEventListener("click", () => {
-      dialogElement.textContent = "";
-      dialogElement.appendChild(createNewProjectForm());
-      dialogElement.showModal();
-    });
+    const projectSVGElement = createSVGImg(projectSVG, "actionButton", "projectSVG");
+    // Add project title as data
+    // projectSVGElement.dataset.projectTitle = selectedProject.title;
+    projectSVGElement.dataset.action = "createProject";
+
+
     return projectSVGElement;
   }

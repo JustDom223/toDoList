@@ -232,6 +232,8 @@ main {
   background-color: var(--main-color-darkmode);
   color: var(--font-color-darkmode);
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
 }
 
@@ -257,6 +259,13 @@ main {
   max-width: 40px;
   max-height: 40px;
 }
+
+#taskDeleteSVG{
+  max-width: 40px;
+  max-height: 40px;
+}
+
+
 
 @keyframes takeOff {
   0% { transform: translateY(2px); }
