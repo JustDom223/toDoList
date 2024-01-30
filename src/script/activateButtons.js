@@ -1,10 +1,78 @@
-export default function activateButtons(){
-    const sideBarListItems = document.querySelectorAll(".sidebarListItem");
-    sideBarListItems.forEach(element => {
-      element.classList.add("customCursor");
-      element.addEventListener("click",()=> {
-        console.log(element.dataset.action);
-        // assignFunction(element.dataset.action);
-      });
-    });
+
+import toggleTheme from "./toggleTheme";
+import toggleDynamicBar from "./toggleDynamicBar";
+import rotateElement from "./rotateElement";
+import populateMain from "./populateMain";
+import createNewTaskForm from "./createNewTask";
+import { deleteProject } from "./projects";
+import { updateLocalStorage } from "./localStorage";
+
+function handleClick(event){
+  const element = event.currentTarget;
+    switch(element.dataset.action) {
+      case "projects":
+          populateMain(element.dataset.action);
+          break;
+      case "tasks":
+          populateMain(element.dataset.action, element.dataset.projectTitle);
+          break;
+      case "today":
+          populateMain(element.dataset.action, element.dataset.projectTitle);
+          break;
+      case "week":
+          console.log("Week action");
+          break;
+      case "month":
+          console.log("Month action");
+          break;
+      case "theme":
+          toggleTheme();
+          break;
+      case "font":
+          console.log("Font action");
+          break;
+      case "settings":
+        toggleDynamicBar(element.previousElementSibling, "side");
+        rotateElement(element);
+        console.log("settings");
+        break;
+      case "filter":
+        toggleDynamicBar(element.previousElementSibling, "side");
+        rotateElement(element);
+        console.log("filter");
+        break;
+      case "createTask":{
+        const dialogElement = document.querySelector("dialog");
+        dialogElement.textContent = "";
+        dialogElement.appendChild(createNewTaskForm());
+        dialogElement.showModal();
+        break;}
+      case "createProject":
+        toggleDynamicBar(element.previousElementSibling, "side");
+        rotateElement(element);
+        console.log("filter");
+        break;
+      case "delete":
+        deleteProject(element.dataset.projectTitle);
+        updateLocalStorage();
+        populateMain("projects");
+        break;
+      default:
+          console.log("UnknownButton");
   }
+}
+
+export default function activateButtons(){
+  // retrieve all buttons 
+    const actionButton = document.querySelectorAll(".actionButton");
+
+    actionButton.forEach(element => {
+      if(!element.classList.contains("customCursor")){
+        element.classList.add("customCursor");
+      }
+      // preventing eventlistener doubling up
+      element.removeEventListener("click", handleClick);
+      element.addEventListener("click", handleClick);
+      });
+    };
+  
