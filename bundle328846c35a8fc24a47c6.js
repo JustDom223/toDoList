@@ -26,7 +26,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root.dark {
   --font-color-darkmode: rgb(109, 197, 255);
   --card-color-darkmode: rgb(95, 94, 94);
 }
-
+/* additional colours that have been saves for later use */
 :root {
   --main-color-darkmode: rgb(255, 255, 255);
   --font-color-darkmode: rgb(0, 0, 0);
@@ -197,6 +197,14 @@ ul{
   list-style: none;
 }
 
+ul li{
+  transition: background-color 500ms ease;
+  border-radius: 4px;
+}
+
+ul li:hover{
+  background-color: #c2b799;
+}
 
 #magGlassSVG{
   width: 40px;
@@ -299,13 +307,18 @@ main {
   justify-content: space-around;
 }
 
+#taskButtonSVG{
+  max-height: 150px;
+  max-width: 150px;
+}
+
 /* Footer content */
 footer {
   background-color: var(--main-color-darkmode);
   color: var(--font-color-darkmode);
   grid-column: 1/3;
   grid-row: 3/4;
-}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"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","sourcesContent":[":root.dark {\n  --main-color-darkmode: rgb(39, 39, 39);\n  --font-color-darkmode: rgb(109, 197, 255);\n  --card-color-darkmode: rgb(95, 94, 94);\n}\n\n:root {\n  --main-color-darkmode: rgb(255, 255, 255);\n  --font-color-darkmode: rgb(0, 0, 0);\n  --card-color-darkmode: rgb(221, 221, 221);\n\n  --color-pair-1-bg: #3498db; /* Background color for pair 1 */\n  --color-pair-1-text: #ffffff; /* Text color for pair 1 */\n  \n  --color-pair-2-bg: #2ecc71; /* Background color for pair 2 */\n  --color-pair-2-text: #ffffff; /* Text color for pair 2 */\n\n  --color-pair-3-bg: #9b59b6; /* Background color for pair 3 */\n  --color-pair-3-text: #ffffff; /* Text color for pair 3 */\n\n  --color-pair-4-bg: #f39c12; /* Background color for pair 4 */\n  --color-pair-4-text: #ffffff; /* Text color for pair 4 */\n\n  --color-pair-5-bg: #e74c3c; /* Background color for pair 5 */\n  --color-pair-5-text: #ffffff; /* Text color for pair 5 */\n\n  --color-pair-6-bg: #2c3e50; /* Background color for pair 6 */\n  --color-pair-6-text: #ffffff; /* Text color for pair 6 */\n\n  --color-pair-7-bg: #1abc9c; /* Background color for pair 7 */\n  --color-pair-7-text: #ffffff; /* Text color for pair 7 */\n\n  --color-pair-8-bg: #3498db; /* Background color for pair 8 */\n  --color-pair-8-text: #2c3e50; /* Text color for pair 8 */\n\n  --color-pair-9-bg: #34495e; /* Background color for pair 9 */\n  --color-pair-9-text: #ecf0f1; /* Text color for pair 9 */\n\n  --color-pair-10-bg: #2980b9; /* Background color for pair 10 */\n  --color-pair-10-text: #ffffff; /* Text color for pair 10 */\n\n\n}\n\n/* CSS Reset */\nhtml,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n\n}\n/* Global */\n#content {\n  height: 100svh;\n  display: grid;\n  grid-template-columns:auto 1fr;\n  /* transition: all 0.3s ease; Smooth transition for all properties */\n\n}\n\n.customCursor{\n  cursor: pointer;\n}\n/* Header content */\nheader {\n  height: fit-content;\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/3;\n  grid-row: 1/2;\n}\n\nheader h1{\n  font-size: 32px;\n  height: fit-content;\n}\n\n\n/* Sidebar content */\n#sidebar {\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/2;\n  grid-row: 2/3;\n  display: flex;\n  flex-direction: column;\n  width: fit-content;\n}\n\nul{\n  list-style: none;\n}\n\n\n#magGlassSVG{\n  width: 40px;\n  height: 40px;\n  transition: transform 500ms ease-in-out;\n}\n\n#cogSVG{\n  width: 40px;\n  height: 40px;\n  transition: transform 500ms ease-in-out;\n}\n\n.rotate{\n  transform: rotate(360deg);\n}\n#filterBar{\n  display: flex;\n}\n#settingsBar{\n  display: flex;\n}\n.sidebarList{\n  width: 0px;\n  height: 0px;\n  border-radius: 12px;\n  background-color: var(--card-color-darkmode);\n  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);\n  margin-bottom: 10px;\n  margin-right: 10px;\n  overflow: hidden;\n  transition: width 500ms ease-in-out, height 500ms ease-in-out, padding 500ms ease-in-out;\n}\n.sidebarListItem{\n  width: 100px;\n}\n\n.sidebarReveal{\n  width: 100px;\n  height: 70px;\n  padding: 10px;\n}\n\n/* Main content */\nmain {\n  grid-column: 2/3;\n  grid-row: 2/3;\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  display: flex;\n  flex-wrap: wrap;\n}\n\n\n.jobCard {\n  background-color: var(--card-color-darkmode);\n  border-radius: 12px;\n  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);\n  justify-self: center;\n  margin: 20px;\n  padding: 20px;\n  height: auto;\n  max-width: 300px;\n  /* transition: all 0.3s ease; Smooth transition for all properties */\n}\n\n#projectTasksSVG{\n  max-width: 40px;\n  max-height: 40px;\n}\n\n#projectDeleteSVG{\n  max-width: 40px;\n  max-height: 40px;\n}\n\n@keyframes takeOff {\n  0% { transform: translateY(2px); }\n  25% { transform: translateY(-2px); }\n  50% { transform: translateX(2px); }\n  75% { transform: translateX(-2px); }\n  90% { transform: translateX(-2px); }\n  100% { transform: translateY(-2px); }\n}\n\n#projectSVG{\n  max-width: 150px;\n  max-height: 150px;\n}\n\n#projectSVG:hover{\n  animation: takeOff 0.5s infinite alternate; /* Apply the takeOff animation */\n}\n\n.projectForm {\n  display: flex;\n  height: 600px;\n  width: 600px;\n  flex-direction: column;\n  justify-content: space-around;\n}\n\n/* Footer content */\nfooter {\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/3;\n  grid-row: 3/4;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"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","sourcesContent":[":root.dark {\n  --main-color-darkmode: rgb(39, 39, 39);\n  --font-color-darkmode: rgb(109, 197, 255);\n  --card-color-darkmode: rgb(95, 94, 94);\n}\n/* additional colours that have been saves for later use */\n:root {\n  --main-color-darkmode: rgb(255, 255, 255);\n  --font-color-darkmode: rgb(0, 0, 0);\n  --card-color-darkmode: rgb(221, 221, 221);\n\n  --color-pair-1-bg: #3498db; /* Background color for pair 1 */\n  --color-pair-1-text: #ffffff; /* Text color for pair 1 */\n  \n  --color-pair-2-bg: #2ecc71; /* Background color for pair 2 */\n  --color-pair-2-text: #ffffff; /* Text color for pair 2 */\n\n  --color-pair-3-bg: #9b59b6; /* Background color for pair 3 */\n  --color-pair-3-text: #ffffff; /* Text color for pair 3 */\n\n  --color-pair-4-bg: #f39c12; /* Background color for pair 4 */\n  --color-pair-4-text: #ffffff; /* Text color for pair 4 */\n\n  --color-pair-5-bg: #e74c3c; /* Background color for pair 5 */\n  --color-pair-5-text: #ffffff; /* Text color for pair 5 */\n\n  --color-pair-6-bg: #2c3e50; /* Background color for pair 6 */\n  --color-pair-6-text: #ffffff; /* Text color for pair 6 */\n\n  --color-pair-7-bg: #1abc9c; /* Background color for pair 7 */\n  --color-pair-7-text: #ffffff; /* Text color for pair 7 */\n\n  --color-pair-8-bg: #3498db; /* Background color for pair 8 */\n  --color-pair-8-text: #2c3e50; /* Text color for pair 8 */\n\n  --color-pair-9-bg: #34495e; /* Background color for pair 9 */\n  --color-pair-9-text: #ecf0f1; /* Text color for pair 9 */\n\n  --color-pair-10-bg: #2980b9; /* Background color for pair 10 */\n  --color-pair-10-text: #ffffff; /* Text color for pair 10 */\n\n\n}\n\n/* CSS Reset */\nhtml,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n\n}\n/* Global */\n#content {\n  height: 100svh;\n  display: grid;\n  grid-template-columns:auto 1fr;\n  /* transition: all 0.3s ease; Smooth transition for all properties */\n\n}\n\n.customCursor{\n  cursor: pointer;\n}\n/* Header content */\nheader {\n  height: fit-content;\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/3;\n  grid-row: 1/2;\n}\n\nheader h1{\n  font-size: 32px;\n  height: fit-content;\n}\n\n\n/* Sidebar content */\n#sidebar {\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/2;\n  grid-row: 2/3;\n  display: flex;\n  flex-direction: column;\n  width: fit-content;\n}\n\nul{\n  list-style: none;\n}\n\nul li{\n  transition: background-color 500ms ease;\n  border-radius: 4px;\n}\n\nul li:hover{\n  background-color: #c2b799;\n}\n\n#magGlassSVG{\n  width: 40px;\n  height: 40px;\n  transition: transform 500ms ease-in-out;\n}\n\n#cogSVG{\n  width: 40px;\n  height: 40px;\n  transition: transform 500ms ease-in-out;\n}\n\n.rotate{\n  transform: rotate(360deg);\n}\n#filterBar{\n  display: flex;\n}\n#settingsBar{\n  display: flex;\n}\n.sidebarList{\n  width: 0px;\n  height: 0px;\n  border-radius: 12px;\n  background-color: var(--card-color-darkmode);\n  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);\n  margin-bottom: 10px;\n  margin-right: 10px;\n  overflow: hidden;\n  transition: width 500ms ease-in-out, height 500ms ease-in-out, padding 500ms ease-in-out;\n}\n.sidebarListItem{\n  width: 100px;\n}\n\n.sidebarReveal{\n  width: 100px;\n  height: 70px;\n  padding: 10px;\n}\n\n/* Main content */\nmain {\n  grid-column: 2/3;\n  grid-row: 2/3;\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  display: flex;\n  flex-wrap: wrap;\n}\n\n\n.jobCard {\n  background-color: var(--card-color-darkmode);\n  border-radius: 12px;\n  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);\n  justify-self: center;\n  margin: 20px;\n  padding: 20px;\n  height: auto;\n  max-width: 300px;\n  /* transition: all 0.3s ease; Smooth transition for all properties */\n}\n\n#projectTasksSVG{\n  max-width: 40px;\n  max-height: 40px;\n}\n\n#projectDeleteSVG{\n  max-width: 40px;\n  max-height: 40px;\n}\n\n@keyframes takeOff {\n  0% { transform: translateY(2px); }\n  25% { transform: translateY(-2px); }\n  50% { transform: translateX(2px); }\n  75% { transform: translateX(-2px); }\n  90% { transform: translateX(-2px); }\n  100% { transform: translateY(-2px); }\n}\n\n#projectSVG{\n  max-width: 150px;\n  max-height: 150px;\n}\n\n#projectSVG:hover{\n  animation: takeOff 0.5s infinite alternate; /* Apply the takeOff animation */\n}\n\n.projectForm {\n  display: flex;\n  height: 600px;\n  width: 600px;\n  flex-direction: column;\n  justify-content: space-around;\n}\n\n#taskButtonSVG{\n  max-height: 150px;\n  max-width: 150px;\n}\n\n/* Footer content */\nfooter {\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/3;\n  grid-row: 3/4;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -788,18 +801,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ activateSidebar)
 /* harmony export */ });
-/* harmony import */ var _script_createSVGImg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../script/createSVGImg */ "./src/script/createSVGImg.js");
-/* harmony import */ var _script_toggleDynamicBar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../script/toggleDynamicBar */ "./src/script/toggleDynamicBar.js");
-/* harmony import */ var _script_rotateElement__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../script/rotateElement */ "./src/script/rotateElement.js");
-/* harmony import */ var _assets_svg_magnifier_glass_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/svg/magnifier-glass-svgrepo-com.svg */ "./src/assets/svg/magnifier-glass-svgrepo-com.svg");
-/* harmony import */ var _assets_svg_sunflower_flower_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/svg/sunflower-flower-svgrepo-com.svg */ "./src/assets/svg/sunflower-flower-svgrepo-com.svg");
+/* harmony import */ var _assets_svg_magnifier_glass_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/svg/magnifier-glass-svgrepo-com.svg */ "./src/assets/svg/magnifier-glass-svgrepo-com.svg");
+/* harmony import */ var _assets_svg_sunflower_flower_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/svg/sunflower-flower-svgrepo-com.svg */ "./src/assets/svg/sunflower-flower-svgrepo-com.svg");
+/* harmony import */ var _script_createSVGImg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../script/createSVGImg */ "./src/script/createSVGImg.js");
+/* harmony import */ var _script_activateButtons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../script/activateButtons */ "./src/script/activateButtons.js");
+// importing SVG files
+
+
+
 // Importing functions
 // import populateMain from "../script/populateMain";
 
-
-
-
-// importing SVG files
 
 
 
@@ -873,38 +885,125 @@ __webpack_require__.r(__webpack_exports__);
 //   sideBarElement.appendChild(sideBarTabs);
 //   return sideBarElement;
 // }
-function toggleTheme() {
-  document.documentElement.classList.toggle("dark");
-}
+
 
 function activateSidebar(){
-  // Activating filter menu
+  // Adding Mag glass
   const filterBarElement = document.querySelector("#filterBar");
-  const filterMagGlassElement = (0,_script_createSVGImg__WEBPACK_IMPORTED_MODULE_0__["default"])(_assets_svg_magnifier_glass_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_3__, "customCursor" ,"magGlassSVG");
-  const filterBarListElement = document.querySelector("#filterBarList");
+  const filterMagGlassElement = (0,_script_createSVGImg__WEBPACK_IMPORTED_MODULE_2__["default"])(_assets_svg_magnifier_glass_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_0__, "actionButton" ,"magGlassSVG");
+  filterMagGlassElement.dataset.action = "filter";
   filterBarElement.appendChild(filterMagGlassElement);
-  filterMagGlassElement.addEventListener("click", () => {
-    (0,_script_toggleDynamicBar__WEBPACK_IMPORTED_MODULE_1__["default"])(filterBarListElement, "side");
-    (0,_script_rotateElement__WEBPACK_IMPORTED_MODULE_2__["default"])(filterMagGlassElement);
-  });
 
-  // Activating settings menu
+
+
+  // Adding settings cog
   const settingsBarElement = document.querySelector("#settingsBar");
-  const settingsBarCogElement = (0,_script_createSVGImg__WEBPACK_IMPORTED_MODULE_0__["default"])(_assets_svg_sunflower_flower_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_4__, "customCursor" ,"cogSVG");
-  const settingsBarListElement = document.querySelector("#settingsBarList");
+  const settingsBarCogElement = (0,_script_createSVGImg__WEBPACK_IMPORTED_MODULE_2__["default"])(_assets_svg_sunflower_flower_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_1__, "actionButton" ,"cogSVG");
+  settingsBarCogElement.dataset.action = "settings";
   settingsBarElement.appendChild(settingsBarCogElement);
-  settingsBarCogElement.addEventListener("click", ()=> {
-    (0,_script_toggleDynamicBar__WEBPACK_IMPORTED_MODULE_1__["default"])(settingsBarListElement, "side");
-    (0,_script_rotateElement__WEBPACK_IMPORTED_MODULE_2__["default"])(settingsBarCogElement);
-  });
 
-  const themeToggleElement = document.querySelector("#theme");
-  themeToggleElement.classList.add("customCursor");
-  themeToggleElement.addEventListener("click", ()=>{
-    toggleTheme();
-  });
 
+  (0,_script_activateButtons__WEBPACK_IMPORTED_MODULE_3__["default"])();
 }
+
+
+/***/ }),
+
+/***/ "./src/script/activateButtons.js":
+/*!***************************************!*\
+  !*** ./src/script/activateButtons.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ activateButtons)
+/* harmony export */ });
+/* harmony import */ var _toggleTheme__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./toggleTheme */ "./src/script/toggleTheme.js");
+/* harmony import */ var _toggleDynamicBar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toggleDynamicBar */ "./src/script/toggleDynamicBar.js");
+/* harmony import */ var _rotateElement__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./rotateElement */ "./src/script/rotateElement.js");
+/* harmony import */ var _populateMain__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./populateMain */ "./src/script/populateMain.js");
+/* harmony import */ var _createNewTask__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./createNewTask */ "./src/script/createNewTask.js");
+/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./projects */ "./src/script/projects.js");
+/* harmony import */ var _localStorage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./localStorage */ "./src/script/localStorage.js");
+
+
+
+
+
+
+
+
+
+function handleClick(event){
+  const element = event.currentTarget;
+    switch(element.dataset.action) {
+      case "projects":
+          (0,_populateMain__WEBPACK_IMPORTED_MODULE_3__["default"])(element.dataset.action);
+          break;
+      case "tasks":
+          (0,_populateMain__WEBPACK_IMPORTED_MODULE_3__["default"])(element.dataset.action, element.dataset.projectTitle);
+          break;
+      case "today":
+          (0,_populateMain__WEBPACK_IMPORTED_MODULE_3__["default"])(element.dataset.action, element.dataset.projectTitle);
+          break;
+      case "week":
+          console.log("Week action");
+          break;
+      case "month":
+          console.log("Month action");
+          break;
+      case "theme":
+          (0,_toggleTheme__WEBPACK_IMPORTED_MODULE_0__["default"])();
+          break;
+      case "font":
+          console.log("Font action");
+          break;
+      case "settings":
+        (0,_toggleDynamicBar__WEBPACK_IMPORTED_MODULE_1__["default"])(element.previousElementSibling, "side");
+        (0,_rotateElement__WEBPACK_IMPORTED_MODULE_2__["default"])(element);
+        console.log("settings");
+        break;
+      case "filter":
+        (0,_toggleDynamicBar__WEBPACK_IMPORTED_MODULE_1__["default"])(element.previousElementSibling, "side");
+        (0,_rotateElement__WEBPACK_IMPORTED_MODULE_2__["default"])(element);
+        console.log("filter");
+        break;
+      case "createTask":{
+        const dialogElement = document.querySelector("dialog");
+        dialogElement.textContent = "";
+        dialogElement.appendChild((0,_createNewTask__WEBPACK_IMPORTED_MODULE_4__["default"])());
+        dialogElement.showModal();
+        break;}
+      case "createProject":
+        (0,_toggleDynamicBar__WEBPACK_IMPORTED_MODULE_1__["default"])(element.previousElementSibling, "side");
+        (0,_rotateElement__WEBPACK_IMPORTED_MODULE_2__["default"])(element);
+        console.log("filter");
+        break;
+      case "delete":
+        (0,_projects__WEBPACK_IMPORTED_MODULE_5__.deleteProject)(element.dataset.projectTitle);
+        (0,_localStorage__WEBPACK_IMPORTED_MODULE_6__.updateLocalStorage)();
+        (0,_populateMain__WEBPACK_IMPORTED_MODULE_3__["default"])("projects");
+        break;
+      default:
+          console.log("UnknownButton");
+  }
+}
+
+function activateButtons(){
+  // retrieve all buttons 
+    const actionButton = document.querySelectorAll(".actionButton");
+
+    actionButton.forEach(element => {
+      if(!element.classList.contains("customCursor")){
+        element.classList.add("customCursor");
+      }
+      // preventing eventlistener doubling up
+      element.removeEventListener("click", handleClick);
+      element.addEventListener("click", handleClick);
+      });
+    };
+  
 
 /***/ }),
 
@@ -972,6 +1071,60 @@ function createProject(
 
 /***/ }),
 
+/***/ "./src/script/createButtons.js":
+/*!*************************************!*\
+  !*** ./src/script/createButtons.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createProjectButton: () => (/* binding */ createProjectButton),
+/* harmony export */   createTaskButton: () => (/* binding */ createTaskButton)
+/* harmony export */ });
+/* harmony import */ var _assets_svg_clipboard_add_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/svg/clipboard-add-svgrepo-com.svg */ "./src/assets/svg/clipboard-add-svgrepo-com.svg");
+/* harmony import */ var _assets_svg_rocket_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/svg/rocket-svgrepo-com.svg */ "./src/assets/svg/rocket-svgrepo-com.svg");
+/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./projects */ "./src/script/projects.js");
+/* harmony import */ var _createSVGImg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./createSVGImg */ "./src/script/createSVGImg.js");
+/* harmony import */ var _createNewProject__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./createNewProject */ "./src/script/createNewProject.js");
+// Import SVG files
+
+
+// Import functions
+
+
+
+
+
+function createTaskButton(projectTitle) {
+    // Access existing elements
+    const selectedProject = (0,_projects__WEBPACK_IMPORTED_MODULE_2__.getProjects)().find(
+      (project) => project.title === projectTitle,
+    );
+    // Create button element
+    const taskButtonSVGElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_3__["default"])(_assets_svg_clipboard_add_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_0__, "actionButton", "taskButtonSVG");
+    // Add project title as data
+    taskButtonSVGElement.dataset.projectTitle = selectedProject.title;
+    taskButtonSVGElement.dataset.action = "createTask";
+    console.log("did i make it?");
+    return taskButtonSVGElement;
+  }
+  
+  function createProjectButton() {
+    const projectSVGElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_3__["default"])(_assets_svg_rocket_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_1__, "customCursor", "projectSVG");
+    // Access existing elements
+    const dialogElement = document.querySelector("dialog");
+    // Create button element
+    projectSVGElement.addEventListener("click", () => {
+      dialogElement.textContent = "";
+      dialogElement.appendChild((0,_createNewProject__WEBPACK_IMPORTED_MODULE_4__["default"])());
+      dialogElement.showModal();
+    });
+    return projectSVGElement;
+  }
+
+/***/ }),
+
 /***/ "./src/script/createNewProject.js":
 /*!****************************************!*\
   !*** ./src/script/createNewProject.js ***!
@@ -1006,6 +1159,7 @@ function submitProject() {
   (0,_projects__WEBPACK_IMPORTED_MODULE_1__.getProjects)().unshift(newProject);
   (0,_localStorage__WEBPACK_IMPORTED_MODULE_3__.updateLocalStorage)();
 }
+
 function createNewProjectForm() {
   // Create form
   const formElement = document.createElement("form");
@@ -1138,24 +1292,28 @@ __webpack_require__.r(__webpack_exports__);
 
 function submitTask(projectTitle) {
   const projects = (0,_projects__WEBPACK_IMPORTED_MODULE_0__.getProjects)();
-  for (const project of projects) {
-    if (project.title === projectTitle) {
-      const form = document.querySelector("#taskForm");
-      const formData = new FormData(form);
-      const currentDate = new Date();
-      const newTask = (0,_constructors__WEBPACK_IMPORTED_MODULE_2__.createTask)(
-        formData.get("descInput"),
-        formData.get("priorityInput"),
-        currentDate,
-        formData.get("dueDateInput"),
-      );
+  
+  const projectToUpdate = projects.find(project => project.title === projectTitle);
+  
+  if (projectToUpdate) {
+    const form = document.querySelector("#taskForm");
+    const formData = new FormData(form);
+    const currentDate = new Date();
+    const newTask = (0,_constructors__WEBPACK_IMPORTED_MODULE_2__.createTask)(
+      formData.get("descInput"),
+      formData.get("priorityInput"),
+      currentDate,
+      formData.get("dueDateInput"),
+    );
 
-      project.tasks.unshift(newTask);
-      (0,_localStorage__WEBPACK_IMPORTED_MODULE_3__.updateLocalStorage)();
-      break;
-    }
+    projectToUpdate.tasks.unshift(newTask);
+    (0,_localStorage__WEBPACK_IMPORTED_MODULE_3__.updateLocalStorage)();
+  } else {
+    throw new Error("No project found with the specified title.");
   }
 }
+
+
 function createNewTaskForm() {
   // Create form
   const formElement = document.createElement("form");
@@ -1222,14 +1380,15 @@ function createNewTaskForm() {
 
   // Adding an event listener to the submit button
   formSubmitButton.addEventListener("click", (event) => {
-    const taskFormButtonElement = document.querySelector("#taskButton");
+    const taskFormButtonElement = document.querySelector("#taskButtonSVG");
     const { projectTitle } = taskFormButtonElement.dataset;
     const dialogElement = document.querySelector("dialog");
     event.preventDefault();
     submitTask(projectTitle);
     dialogElement.close();
+    console.log('I made it here')
     // Updating DOM
-    (0,_populateMain__WEBPACK_IMPORTED_MODULE_1__["default"])("taskButton", projectTitle);
+    ;(0,_populateMain__WEBPACK_IMPORTED_MODULE_1__["default"])("taskButton", projectTitle);
   });
 
   // Add children to containers
@@ -1290,11 +1449,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/script/projects.js");
 /* harmony import */ var _populateMain__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./populateMain */ "./src/script/populateMain.js");
-/* harmony import */ var _localStorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./localStorage */ "./src/script/localStorage.js");
-/* harmony import */ var _createSVGImg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./createSVGImg */ "./src/script/createSVGImg.js");
-/* harmony import */ var _assets_svg_recycle_bin_trash_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/svg/recycle-bin-trash-svgrepo-com.svg */ "./src/assets/svg/recycle-bin-trash-svgrepo-com.svg");
-/* harmony import */ var _assets_svg_tasks_tick_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/svg/tasks-tick-svgrepo-com.svg */ "./src/assets/svg/tasks-tick-svgrepo-com.svg");
-
+/* harmony import */ var _createSVGImg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./createSVGImg */ "./src/script/createSVGImg.js");
+/* harmony import */ var _assets_svg_recycle_bin_trash_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/svg/recycle-bin-trash-svgrepo-com.svg */ "./src/assets/svg/recycle-bin-trash-svgrepo-com.svg");
+/* harmony import */ var _assets_svg_tasks_tick_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/svg/tasks-tick-svgrepo-com.svg */ "./src/assets/svg/tasks-tick-svgrepo-com.svg");
 
 
 
@@ -1318,8 +1475,8 @@ function initializeProjects() {
       const projectDueDateElement = document.createElement("input");
       const projectPriorityElement = document.createElement("p");
       const projectCompletionElement = document.createElement("input");
-      const projectTasksButtonElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_3__["default"])(_assets_svg_tasks_tick_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_5__, "customCursor", "projectTasksSVG");
-      const projectDeleteButtonElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_3__["default"])(_assets_svg_recycle_bin_trash_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_4__, "customCursor", "projectDeleteSVG");
+      const projectTasksButtonElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_2__["default"])(_assets_svg_tasks_tick_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_4__, "actionButton", "projectTasksSVG");
+      const projectDeleteButtonElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_2__["default"])(_assets_svg_recycle_bin_trash_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_3__, "actionButton", "projectDeleteSVG");
 
       // Adding a class to the card
       projectCardElement.classList.add("jobCard");
@@ -1330,6 +1487,8 @@ function initializeProjects() {
 
       // projectDeleteButtonElement
       projectDeleteButtonElement.dataset.projectTitle = project.title;
+      projectDeleteButtonElement.dataset.action = "delete";
+
 
       // Choosing element type
       projectDueDateElement.type = "date";
@@ -1348,12 +1507,6 @@ function initializeProjects() {
         (0,_populateMain__WEBPACK_IMPORTED_MODULE_1__["default"])("taskButton", project.title);
       });
 
-      projectDeleteButtonElement.addEventListener("click", () => {
-        const { projectTitle } = projectDeleteButtonElement.dataset;
-        (0,_projects__WEBPACK_IMPORTED_MODULE_0__.deleteProject)(projectTitle);
-        (0,_localStorage__WEBPACK_IMPORTED_MODULE_2__.updateLocalStorage)();
-        (0,_populateMain__WEBPACK_IMPORTED_MODULE_1__["default"])("projects");
-      });
       // console.log(projectTasksButtonElement.id)
       projectCardElement.appendChild(projectTitleElement);
       projectCardElement.appendChild(projectDescElement);
@@ -1497,103 +1650,97 @@ function fetchLocalStorage() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   createProjectButton: () => (/* binding */ createProjectButton),
-/* harmony export */   createTaskButton: () => (/* binding */ createTaskButton),
 /* harmony export */   "default": () => (/* binding */ populateMain)
 /* harmony export */ });
 /* harmony import */ var _initializeProjects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./initializeProjects */ "./src/script/initializeProjects.js");
 /* harmony import */ var _initializeTasks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./initializeTasks */ "./src/script/initializeTasks.js");
-/* harmony import */ var _createNewProject__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./createNewProject */ "./src/script/createNewProject.js");
-/* harmony import */ var _createNewTask__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./createNewTask */ "./src/script/createNewTask.js");
-/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./projects */ "./src/script/projects.js");
-/* harmony import */ var _createSVGImg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./createSVGImg */ "./src/script/createSVGImg.js");
-/* harmony import */ var _assets_svg_clipboard_add_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/svg/clipboard-add-svgrepo-com.svg */ "./src/assets/svg/clipboard-add-svgrepo-com.svg");
-/* harmony import */ var _assets_svg_rocket_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../assets/svg/rocket-svgrepo-com.svg */ "./src/assets/svg/rocket-svgrepo-com.svg");
+/* harmony import */ var _createButtons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./createButtons */ "./src/script/createButtons.js");
+/* harmony import */ var _activateButtons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./activateButtons */ "./src/script/activateButtons.js");
 
 
 
 
 
+// export function createTaskButton(projectTitle) {
+//   // Access existing elements
+//   const selectedProject = getProjects().find(
+//     (project) => project.title === projectTitle,
+//   );
+//   // const dialogElement = document.querySelector("dialog");
+//   // Create button element
+//   const taskButtonSVGElement = createSVGImg(tasksSVG, "actionButton", "taskButtonSVG");
+//   // Add project title as data
+//   taskButtonSVGElement.dataset.projectTitle = selectedProject.title;
+//   taskButtonSVGElement.dataset.action = "createTask";
 
+//   // taskButtonSVGElement.addEventListener("click", () => {
+//   //   dialogElement.textContent = "";
+//   //   dialogElement.appendChild(createNewTaskForm());
+//   //   dialogElement.showModal();
+//   // });
 
+//   return taskButtonSVGElement;
+// }
 
+// export function createProjectButton() {
+//   const projectSVGElement = createSVGImg(projectSVG, "customCursor", "projectSVG");
+//   // Access existing elements
+//   const dialogElement = document.querySelector("dialog");
+//   // Create button element
+//   projectSVGElement.addEventListener("click", () => {
+//     dialogElement.textContent = "";
+//     dialogElement.appendChild(createNewProjectForm());
+//     dialogElement.showModal();
+//   });
+//   return projectSVGElement;
+// }
 
-function createTaskButton(projectTitle) {
-  // Access existing elements
-  const selectedProject = (0,_projects__WEBPACK_IMPORTED_MODULE_4__.getProjects)().find(
-    (project) => project.title === projectTitle,
-  );
-  const dialogElement = document.querySelector("dialog");
-  // Create button element
-  const taskButtonSVGElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_5__["default"])(_assets_svg_clipboard_add_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_6__, "customCursor", "taskButtonSVG");
-  // Add project title as data
-  taskButtonSVGElement.dataset.projectTitle = selectedProject.title;
-
-  taskButtonSVGElement.addEventListener("click", () => {
-    dialogElement.textContent = "";
-    dialogElement.appendChild((0,_createNewTask__WEBPACK_IMPORTED_MODULE_3__["default"])());
-    dialogElement.showModal();
-  });
-  return taskButtonSVGElement;
-}
-
-function createProjectButton() {
-  const projectSVGElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_5__["default"])(_assets_svg_rocket_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_7__, "customCursor", "projectSVG");
-  // Access existing elements
-  const dialogElement = document.querySelector("dialog");
-  // Create button element
-  projectSVGElement.addEventListener("click", () => {
-    dialogElement.textContent = "";
-    dialogElement.appendChild((0,_createNewProject__WEBPACK_IMPORTED_MODULE_2__["default"])());
-    dialogElement.showModal();
-  });
-  return projectSVGElement;
-}
-
-function populateMain(clickedElementId, projectTitle) {
+function populateMain(clickedElementActionData, projectTitle) {
   const mainElement = document.querySelector("main");
   // Clear main
   mainElement.textContent = "";
 
   // Adding content to main elements
 
-  if (clickedElementId === "projects") {
-    const newProjectButton = createProjectButton();
+  if (clickedElementActionData === "projects") {
+    const newProjectButton = (0,_createButtons__WEBPACK_IMPORTED_MODULE_2__.createProjectButton)();
     const toDoCards = (0,_initializeProjects__WEBPACK_IMPORTED_MODULE_0__["default"])();
     toDoCards.forEach((project) => {
       mainElement.appendChild(project);
     });
     mainElement.appendChild(newProjectButton);
-  } else if (clickedElementId === "today") {
+  } else if (clickedElementActionData === "today") {
     const toDoCards = (0,_initializeProjects__WEBPACK_IMPORTED_MODULE_0__["default"])();
     toDoCards.forEach((project) => {
       mainElement.appendChild(project);
     });
-    //   } else if (clickedElementId === 'week') {
+    
+    //   } else if (clickedElementActionData === 'week') {
     //     const toDoCards = initializeWeek();
     //     toDoCards.forEach((project) => {
     //       mainElement.appendChild(project);
     //     });
-    //   } else if (clickedElementId === 'month') {
+    //   } else if (clickedElementActionData === 'month') {
     //     const toDoCards = initializeMonth();
     //     toDoCards.forEach((project) => {
     //       mainElement.appendChild(project);
     //     });
-    //   } else if (clickedElementId === 'quater') {
+    //   } else if (clickedElementActionData === 'quater') {
     //     const toDoCards = initializeQuater();
     //     toDoCards.forEach((project) => {
     //       mainElement.appendChild(project);
     //     });
-  } else if (clickedElementId === "taskButton") {
+  } else if (clickedElementActionData === "taskButton") {
     const projectHeading = document.createElement("h1");
     projectHeading.innerText = projectTitle;
     const taskCards = (0,_initializeTasks__WEBPACK_IMPORTED_MODULE_1__["default"])(projectTitle);
     taskCards.forEach((task) => {
       mainElement.appendChild(task);
     });
-    const newTaskButton = createTaskButton(projectTitle);
+    const newTaskButton = (0,_createButtons__WEBPACK_IMPORTED_MODULE_2__.createTaskButton)(projectTitle);
     mainElement.appendChild(newTaskButton);
   }
+  (0,_activateButtons__WEBPACK_IMPORTED_MODULE_3__["default"])();
   return mainElement;
 }
 
@@ -1669,6 +1816,23 @@ function toggleDynamicBar(element, direction) {
   }else if(direction === "side"){
     element.classList.toggle("sidebarReveal");
   }}
+
+/***/ }),
+
+/***/ "./src/script/toggleTheme.js":
+/*!***********************************!*\
+  !*** ./src/script/toggleTheme.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ toggleTheme)
+/* harmony export */ });
+function toggleTheme() {
+    document.documentElement.classList.toggle("dark");
+  }
+  
 
 /***/ }),
 
@@ -1873,4 +2037,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle8a4707fb17cc90aad557.js.map
+//# sourceMappingURL=bundle328846c35a8fc24a47c6.js.map
