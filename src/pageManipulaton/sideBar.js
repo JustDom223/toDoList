@@ -5,9 +5,8 @@ import cogSVG from "../assets/svg/sunflower-flower-svgrepo-com.svg";
 // Importing functions
 // import populateMain from "../script/populateMain";
 import createSVGImg from "../script/createSVGImg";
-import toggleDynamicBar from "../script/toggleDynamicBar";
-import rotateElement from "../script/rotateElement";
 import activateButtons from "../script/activateButtons";
+
 
 // export default function createSidebar() {
 //   // Create Sidebar
@@ -79,36 +78,23 @@ import activateButtons from "../script/activateButtons";
 //   sideBarElement.appendChild(sideBarTabs);
 //   return sideBarElement;
 // }
-function toggleTheme() {
-  document.documentElement.classList.toggle("dark");
-}
 
 
 export default function activateSidebar(){
-  // Activating filter menu
+  // Adding Mag glass
   const filterBarElement = document.querySelector("#filterBar");
-  const filterMagGlassElement = createSVGImg(magGlassSVG, "customCursor" ,"magGlassSVG");
-  const filterBarListElement = document.querySelector("#filterBarList");
+  const filterMagGlassElement = createSVGImg(magGlassSVG, "actionButton" ,"magGlassSVG");
+  filterMagGlassElement.dataset.action = "filter";
   filterBarElement.appendChild(filterMagGlassElement);
-  filterMagGlassElement.addEventListener("click", () => {
-    toggleDynamicBar(filterBarListElement, "side");
-    rotateElement(filterMagGlassElement);
-  });
 
-  // Activating settings menu
+
+
+  // Adding settings cog
   const settingsBarElement = document.querySelector("#settingsBar");
-  const settingsBarCogElement = createSVGImg(cogSVG, "customCursor" ,"cogSVG");
-  const settingsBarListElement = document.querySelector("#settingsBarList");
+  const settingsBarCogElement = createSVGImg(cogSVG, "actionButton" ,"cogSVG");
+  settingsBarCogElement.dataset.action = "settings";
   settingsBarElement.appendChild(settingsBarCogElement);
-  settingsBarCogElement.addEventListener("click", ()=> {
-    toggleDynamicBar(settingsBarListElement, "side");
-    rotateElement(settingsBarCogElement);
-  });
 
-  const themeToggleElement = document.querySelector("#theme");
-  themeToggleElement.classList.add("customCursor");
-  themeToggleElement.addEventListener("click", ()=>{
-    toggleTheme();
-  });
-  activateButtons()
+
+  activateButtons();
 }

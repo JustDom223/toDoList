@@ -17,6 +17,7 @@ export function submitProject() {
   getProjects().unshift(newProject);
   updateLocalStorage();
 }
+
 export default function createNewProjectForm() {
   // Create form
   const formElement = document.createElement("form");
