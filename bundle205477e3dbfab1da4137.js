@@ -255,6 +255,8 @@ main {
   background-color: var(--main-color-darkmode);
   color: var(--font-color-darkmode);
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
 }
 
@@ -280,6 +282,13 @@ main {
   max-width: 40px;
   max-height: 40px;
 }
+
+#taskDeleteSVG{
+  max-width: 40px;
+  max-height: 40px;
+}
+
+
 
 @keyframes takeOff {
   0% { transform: translateY(2px); }
@@ -318,7 +327,7 @@ footer {
   color: var(--font-color-darkmode);
   grid-column: 1/3;
   grid-row: 3/4;
-}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"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","sourcesContent":[":root.dark {\n  --main-color-darkmode: rgb(39, 39, 39);\n  --font-color-darkmode: rgb(109, 197, 255);\n  --card-color-darkmode: rgb(95, 94, 94);\n}\n/* additional colours that have been saves for later use */\n:root {\n  --main-color-darkmode: rgb(255, 255, 255);\n  --font-color-darkmode: rgb(0, 0, 0);\n  --card-color-darkmode: rgb(221, 221, 221);\n\n  --color-pair-1-bg: #3498db; /* Background color for pair 1 */\n  --color-pair-1-text: #ffffff; /* Text color for pair 1 */\n  \n  --color-pair-2-bg: #2ecc71; /* Background color for pair 2 */\n  --color-pair-2-text: #ffffff; /* Text color for pair 2 */\n\n  --color-pair-3-bg: #9b59b6; /* Background color for pair 3 */\n  --color-pair-3-text: #ffffff; /* Text color for pair 3 */\n\n  --color-pair-4-bg: #f39c12; /* Background color for pair 4 */\n  --color-pair-4-text: #ffffff; /* Text color for pair 4 */\n\n  --color-pair-5-bg: #e74c3c; /* Background color for pair 5 */\n  --color-pair-5-text: #ffffff; /* Text color for pair 5 */\n\n  --color-pair-6-bg: #2c3e50; /* Background color for pair 6 */\n  --color-pair-6-text: #ffffff; /* Text color for pair 6 */\n\n  --color-pair-7-bg: #1abc9c; /* Background color for pair 7 */\n  --color-pair-7-text: #ffffff; /* Text color for pair 7 */\n\n  --color-pair-8-bg: #3498db; /* Background color for pair 8 */\n  --color-pair-8-text: #2c3e50; /* Text color for pair 8 */\n\n  --color-pair-9-bg: #34495e; /* Background color for pair 9 */\n  --color-pair-9-text: #ecf0f1; /* Text color for pair 9 */\n\n  --color-pair-10-bg: #2980b9; /* Background color for pair 10 */\n  --color-pair-10-text: #ffffff; /* Text color for pair 10 */\n\n\n}\n\n/* CSS Reset */\nhtml,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n\n}\n/* Global */\n#content {\n  height: 100svh;\n  display: grid;\n  grid-template-columns:auto 1fr;\n  /* transition: all 0.3s ease; Smooth transition for all properties */\n\n}\n\n.customCursor{\n  cursor: pointer;\n}\n/* Header content */\nheader {\n  height: fit-content;\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/3;\n  grid-row: 1/2;\n}\n\nheader h1{\n  font-size: 32px;\n  height: fit-content;\n}\n\n\n/* Sidebar content */\n#sidebar {\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/2;\n  grid-row: 2/3;\n  display: flex;\n  flex-direction: column;\n  width: fit-content;\n}\n\nul{\n  list-style: none;\n}\n\nul li{\n  transition: background-color 500ms ease;\n  border-radius: 4px;\n}\n\nul li:hover{\n  background-color: #c2b799;\n}\n\n#magGlassSVG{\n  width: 40px;\n  height: 40px;\n  transition: transform 500ms ease-in-out;\n}\n\n#cogSVG{\n  width: 40px;\n  height: 40px;\n  transition: transform 500ms ease-in-out;\n}\n\n.rotate{\n  transform: rotate(360deg);\n}\n#filterBar{\n  display: flex;\n}\n#settingsBar{\n  display: flex;\n}\n.sidebarList{\n  width: 0px;\n  height: 0px;\n  border-radius: 12px;\n  background-color: var(--card-color-darkmode);\n  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);\n  margin-bottom: 10px;\n  margin-right: 10px;\n  overflow: hidden;\n  transition: width 500ms ease-in-out, height 500ms ease-in-out, padding 500ms ease-in-out;\n}\n.sidebarListItem{\n  width: 100px;\n}\n\n.sidebarReveal{\n  width: 100px;\n  height: 70px;\n  padding: 10px;\n}\n\n/* Main content */\nmain {\n  grid-column: 2/3;\n  grid-row: 2/3;\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  display: flex;\n  flex-wrap: wrap;\n}\n\n\n.jobCard {\n  background-color: var(--card-color-darkmode);\n  border-radius: 12px;\n  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);\n  justify-self: center;\n  margin: 20px;\n  padding: 20px;\n  height: auto;\n  max-width: 300px;\n  /* transition: all 0.3s ease; Smooth transition for all properties */\n}\n\n#projectTasksSVG{\n  max-width: 40px;\n  max-height: 40px;\n}\n\n#projectDeleteSVG{\n  max-width: 40px;\n  max-height: 40px;\n}\n\n@keyframes takeOff {\n  0% { transform: translateY(2px); }\n  25% { transform: translateY(-2px); }\n  50% { transform: translateX(2px); }\n  75% { transform: translateX(-2px); }\n  90% { transform: translateX(-2px); }\n  100% { transform: translateY(-2px); }\n}\n\n#projectSVG{\n  max-width: 150px;\n  max-height: 150px;\n}\n\n#projectSVG:hover{\n  animation: takeOff 0.5s infinite alternate; /* Apply the takeOff animation */\n}\n\n.projectForm {\n  display: flex;\n  height: 600px;\n  width: 600px;\n  flex-direction: column;\n  justify-content: space-around;\n}\n\n#taskButtonSVG{\n  max-height: 150px;\n  max-width: 150px;\n}\n\n/* Footer content */\nfooter {\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/3;\n  grid-row: 3/4;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"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","sourcesContent":[":root.dark {\n  --main-color-darkmode: rgb(39, 39, 39);\n  --font-color-darkmode: rgb(109, 197, 255);\n  --card-color-darkmode: rgb(95, 94, 94);\n}\n/* additional colours that have been saves for later use */\n:root {\n  --main-color-darkmode: rgb(255, 255, 255);\n  --font-color-darkmode: rgb(0, 0, 0);\n  --card-color-darkmode: rgb(221, 221, 221);\n\n  --color-pair-1-bg: #3498db; /* Background color for pair 1 */\n  --color-pair-1-text: #ffffff; /* Text color for pair 1 */\n  \n  --color-pair-2-bg: #2ecc71; /* Background color for pair 2 */\n  --color-pair-2-text: #ffffff; /* Text color for pair 2 */\n\n  --color-pair-3-bg: #9b59b6; /* Background color for pair 3 */\n  --color-pair-3-text: #ffffff; /* Text color for pair 3 */\n\n  --color-pair-4-bg: #f39c12; /* Background color for pair 4 */\n  --color-pair-4-text: #ffffff; /* Text color for pair 4 */\n\n  --color-pair-5-bg: #e74c3c; /* Background color for pair 5 */\n  --color-pair-5-text: #ffffff; /* Text color for pair 5 */\n\n  --color-pair-6-bg: #2c3e50; /* Background color for pair 6 */\n  --color-pair-6-text: #ffffff; /* Text color for pair 6 */\n\n  --color-pair-7-bg: #1abc9c; /* Background color for pair 7 */\n  --color-pair-7-text: #ffffff; /* Text color for pair 7 */\n\n  --color-pair-8-bg: #3498db; /* Background color for pair 8 */\n  --color-pair-8-text: #2c3e50; /* Text color for pair 8 */\n\n  --color-pair-9-bg: #34495e; /* Background color for pair 9 */\n  --color-pair-9-text: #ecf0f1; /* Text color for pair 9 */\n\n  --color-pair-10-bg: #2980b9; /* Background color for pair 10 */\n  --color-pair-10-text: #ffffff; /* Text color for pair 10 */\n\n\n}\n\n/* CSS Reset */\nhtml,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n\n}\n/* Global */\n#content {\n  height: 100svh;\n  display: grid;\n  grid-template-columns:auto 1fr;\n  /* transition: all 0.3s ease; Smooth transition for all properties */\n\n}\n\n.customCursor{\n  cursor: pointer;\n}\n/* Header content */\nheader {\n  height: fit-content;\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/3;\n  grid-row: 1/2;\n}\n\nheader h1{\n  font-size: 32px;\n  height: fit-content;\n}\n\n\n/* Sidebar content */\n#sidebar {\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/2;\n  grid-row: 2/3;\n  display: flex;\n  flex-direction: column;\n  width: fit-content;\n}\n\nul{\n  list-style: none;\n}\n\nul li{\n  transition: background-color 500ms ease;\n  border-radius: 4px;\n}\n\nul li:hover{\n  background-color: #c2b799;\n}\n\n#magGlassSVG{\n  width: 40px;\n  height: 40px;\n  transition: transform 500ms ease-in-out;\n}\n\n#cogSVG{\n  width: 40px;\n  height: 40px;\n  transition: transform 500ms ease-in-out;\n}\n\n.rotate{\n  transform: rotate(360deg);\n}\n#filterBar{\n  display: flex;\n}\n#settingsBar{\n  display: flex;\n}\n.sidebarList{\n  width: 0px;\n  height: 0px;\n  border-radius: 12px;\n  background-color: var(--card-color-darkmode);\n  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);\n  margin-bottom: 10px;\n  margin-right: 10px;\n  overflow: hidden;\n  transition: width 500ms ease-in-out, height 500ms ease-in-out, padding 500ms ease-in-out;\n}\n.sidebarListItem{\n  width: 100px;\n}\n\n.sidebarReveal{\n  width: 100px;\n  height: 70px;\n  padding: 10px;\n}\n\n/* Main content */\nmain {\n  grid-column: 2/3;\n  grid-row: 2/3;\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n\n.jobCard {\n  background-color: var(--card-color-darkmode);\n  border-radius: 12px;\n  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);\n  justify-self: center;\n  margin: 20px;\n  padding: 20px;\n  height: auto;\n  max-width: 300px;\n  /* transition: all 0.3s ease; Smooth transition for all properties */\n}\n\n#projectTasksSVG{\n  max-width: 40px;\n  max-height: 40px;\n}\n\n#projectDeleteSVG{\n  max-width: 40px;\n  max-height: 40px;\n}\n\n#taskDeleteSVG{\n  max-width: 40px;\n  max-height: 40px;\n}\n\n\n\n@keyframes takeOff {\n  0% { transform: translateY(2px); }\n  25% { transform: translateY(-2px); }\n  50% { transform: translateX(2px); }\n  75% { transform: translateX(-2px); }\n  90% { transform: translateX(-2px); }\n  100% { transform: translateY(-2px); }\n}\n\n#projectSVG{\n  max-width: 150px;\n  max-height: 150px;\n}\n\n#projectSVG:hover{\n  animation: takeOff 0.5s infinite alternate; /* Apply the takeOff animation */\n}\n\n.projectForm {\n  display: flex;\n  height: 600px;\n  width: 600px;\n  flex-direction: column;\n  justify-content: space-around;\n}\n\n#taskButtonSVG{\n  max-height: 150px;\n  max-width: 150px;\n}\n\n/* Footer content */\nfooter {\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/3;\n  grid-row: 3/4;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -924,8 +933,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _rotateElement__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./rotateElement */ "./src/script/rotateElement.js");
 /* harmony import */ var _populateMain__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./populateMain */ "./src/script/populateMain.js");
 /* harmony import */ var _createNewTask__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./createNewTask */ "./src/script/createNewTask.js");
-/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./projects */ "./src/script/projects.js");
-/* harmony import */ var _localStorage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./localStorage */ "./src/script/localStorage.js");
+/* harmony import */ var _createNewProject__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./createNewProject */ "./src/script/createNewProject.js");
+/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./projects */ "./src/script/projects.js");
+/* harmony import */ var _localStorage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./localStorage */ "./src/script/localStorage.js");
+
 
 
 
@@ -941,7 +952,10 @@ function handleClick(event){
       case "projects":
           (0,_populateMain__WEBPACK_IMPORTED_MODULE_3__["default"])(element.dataset.action);
           break;
-      case "tasks":
+      case "projectTasks":
+        console.log(`${element.dataset.projectTitle} Tasks`);
+          console.log(element.dataset.action);
+          console.log(element.dataset.projectTitle);
           (0,_populateMain__WEBPACK_IMPORTED_MODULE_3__["default"])(element.dataset.action, element.dataset.projectTitle);
           break;
       case "today":
@@ -975,15 +989,21 @@ function handleClick(event){
         dialogElement.appendChild((0,_createNewTask__WEBPACK_IMPORTED_MODULE_4__["default"])());
         dialogElement.showModal();
         break;}
-      case "createProject":
-        (0,_toggleDynamicBar__WEBPACK_IMPORTED_MODULE_1__["default"])(element.previousElementSibling, "side");
-        (0,_rotateElement__WEBPACK_IMPORTED_MODULE_2__["default"])(element);
-        console.log("filter");
-        break;
-      case "delete":
-        (0,_projects__WEBPACK_IMPORTED_MODULE_5__.deleteProject)(element.dataset.projectTitle);
-        (0,_localStorage__WEBPACK_IMPORTED_MODULE_6__.updateLocalStorage)();
+      case "createProject":{
+        const dialogElement = document.querySelector("dialog");
+        dialogElement.textContent = "";
+        dialogElement.appendChild((0,_createNewProject__WEBPACK_IMPORTED_MODULE_5__["default"])());
+        dialogElement.showModal();
+        break;}
+      case "deleteProject":
+        (0,_projects__WEBPACK_IMPORTED_MODULE_6__.deleteProject)(element.dataset.projectTitle);
+        (0,_localStorage__WEBPACK_IMPORTED_MODULE_7__.updateLocalStorage)();
         (0,_populateMain__WEBPACK_IMPORTED_MODULE_3__["default"])("projects");
+        break;
+      case "deleteTask":
+        (0,_projects__WEBPACK_IMPORTED_MODULE_6__.deleteTask)(element.dataset.projectTitle, element.dataset.projectTaskDesc);
+        (0,_localStorage__WEBPACK_IMPORTED_MODULE_7__.updateLocalStorage)();
+        (0,_populateMain__WEBPACK_IMPORTED_MODULE_3__["default"])("projectTasks", element.dataset.projectTitle);
         break;
       default:
           console.log("UnknownButton");
@@ -1016,26 +1036,30 @@ function activateButtons(){
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   createProject: () => (/* binding */ createProject),
-/* harmony export */   createTask: () => (/* binding */ createTask)
+/* harmony export */   createTask: () => (/* binding */ createTask),
+/* harmony export */   taskCompletion: () => (/* binding */ taskCompletion)
 /* harmony export */ });
-// Function to create a task
+// Define taskCompletion function
+function taskCompletion() {
+  if (this.complete) {
+    this.complete = false;
+  } else {
+    this.complete = true;
+  }
+}
+
+// Define createTask function
 function createTask(description, priority, dateCreated, dueDate) {
   return {
     description,
     priority,
     dateCreated,
     dueDate,
-
     complete: false,
-    taskCompletion() {
-      if (this.complete) {
-        this.complete = false;
-      } else {
-        this.complete = true;
-      }
-    },
+    taskCompletion, // Reusing the function
   };
 }
+
 // Function to create a project
 function createProject(
   title,
@@ -1053,18 +1077,8 @@ function createProject(
     tasks: [],
     today: false,
     complete: false,
-    taskCompletion() {
-      if (this.complete) {
-        this.complete = false;
-      } else {
-        this.complete = true;
-      }
-    },
-    createTask(taskDescription, taskPriority) {
-      const newTask = createTask(taskDescription, taskPriority);
-      this.tasks.push(newTask);
-      return newTask;
-    },
+    taskCompletion, // Reusing the function
+    createTask, // Reusing the function
   };
 }
 
@@ -1086,7 +1100,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_svg_rocket_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/svg/rocket-svgrepo-com.svg */ "./src/assets/svg/rocket-svgrepo-com.svg");
 /* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./projects */ "./src/script/projects.js");
 /* harmony import */ var _createSVGImg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./createSVGImg */ "./src/script/createSVGImg.js");
-/* harmony import */ var _createNewProject__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./createNewProject */ "./src/script/createNewProject.js");
 // Import SVG files
 
 
@@ -1106,20 +1119,16 @@ function createTaskButton(projectTitle) {
     // Add project title as data
     taskButtonSVGElement.dataset.projectTitle = selectedProject.title;
     taskButtonSVGElement.dataset.action = "createTask";
-    console.log("did i make it?");
     return taskButtonSVGElement;
   }
   
   function createProjectButton() {
-    const projectSVGElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_3__["default"])(_assets_svg_rocket_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_1__, "customCursor", "projectSVG");
-    // Access existing elements
-    const dialogElement = document.querySelector("dialog");
-    // Create button element
-    projectSVGElement.addEventListener("click", () => {
-      dialogElement.textContent = "";
-      dialogElement.appendChild((0,_createNewProject__WEBPACK_IMPORTED_MODULE_4__["default"])());
-      dialogElement.showModal();
-    });
+    const projectSVGElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_3__["default"])(_assets_svg_rocket_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_1__, "actionButton", "projectSVG");
+    // Add project title as data
+    // projectSVGElement.dataset.projectTitle = selectedProject.title;
+    projectSVGElement.dataset.action = "createProject";
+
+
     return projectSVGElement;
   }
 
@@ -1386,9 +1395,8 @@ function createNewTaskForm() {
     event.preventDefault();
     submitTask(projectTitle);
     dialogElement.close();
-    console.log('I made it here')
     // Updating DOM
-    ;(0,_populateMain__WEBPACK_IMPORTED_MODULE_1__["default"])("taskButton", projectTitle);
+    (0,_populateMain__WEBPACK_IMPORTED_MODULE_1__["default"])("projectTasks", projectTitle);
   });
 
   // Add children to containers
@@ -1448,11 +1456,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ initializeProjects)
 /* harmony export */ });
 /* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/script/projects.js");
-/* harmony import */ var _populateMain__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./populateMain */ "./src/script/populateMain.js");
-/* harmony import */ var _createSVGImg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./createSVGImg */ "./src/script/createSVGImg.js");
-/* harmony import */ var _assets_svg_recycle_bin_trash_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/svg/recycle-bin-trash-svgrepo-com.svg */ "./src/assets/svg/recycle-bin-trash-svgrepo-com.svg");
-/* harmony import */ var _assets_svg_tasks_tick_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/svg/tasks-tick-svgrepo-com.svg */ "./src/assets/svg/tasks-tick-svgrepo-com.svg");
-
+/* harmony import */ var _createSVGImg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createSVGImg */ "./src/script/createSVGImg.js");
+/* harmony import */ var _assets_svg_recycle_bin_trash_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/svg/recycle-bin-trash-svgrepo-com.svg */ "./src/assets/svg/recycle-bin-trash-svgrepo-com.svg");
+/* harmony import */ var _assets_svg_tasks_tick_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/svg/tasks-tick-svgrepo-com.svg */ "./src/assets/svg/tasks-tick-svgrepo-com.svg");
 
 
 // import SVG files
@@ -1475,8 +1481,8 @@ function initializeProjects() {
       const projectDueDateElement = document.createElement("input");
       const projectPriorityElement = document.createElement("p");
       const projectCompletionElement = document.createElement("input");
-      const projectTasksButtonElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_2__["default"])(_assets_svg_tasks_tick_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_4__, "actionButton", "projectTasksSVG");
-      const projectDeleteButtonElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_2__["default"])(_assets_svg_recycle_bin_trash_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_3__, "actionButton", "projectDeleteSVG");
+      const projectTasksButtonElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_1__["default"])(_assets_svg_tasks_tick_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_3__, "actionButton", "projectTasksSVG");
+      const projectDeleteButtonElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_1__["default"])(_assets_svg_recycle_bin_trash_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_2__, "actionButton", "projectDeleteSVG");
 
       // Adding a class to the card
       projectCardElement.classList.add("jobCard");
@@ -1485,9 +1491,13 @@ function initializeProjects() {
       projectDueDateElement.classList.add("jobDueDate");
       projectPriorityElement.classList.add("jobPriority");
 
+      // projectTaskButtonElement
+      projectTasksButtonElement.dataset.projectTitle = project.title;
+      projectTasksButtonElement.dataset.action = "projectTasks";
+
       // projectDeleteButtonElement
       projectDeleteButtonElement.dataset.projectTitle = project.title;
-      projectDeleteButtonElement.dataset.action = "delete";
+      projectDeleteButtonElement.dataset.action = "deleteProject";
 
 
       // Choosing element type
@@ -1503,9 +1513,9 @@ function initializeProjects() {
 
       // Creating event listeners to the Task button
       // Adding event listeners
-      projectTasksButtonElement.addEventListener("click", () => {
-        (0,_populateMain__WEBPACK_IMPORTED_MODULE_1__["default"])("taskButton", project.title);
-      });
+      // projectTasksButtonElement.addEventListener("click", () => {
+      //   populateMain("taskButton", project.title);
+      // });
 
       // console.log(projectTasksButtonElement.id)
       projectCardElement.appendChild(projectTitleElement);
@@ -1535,13 +1545,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ initializeTasks)
 /* harmony export */ });
-/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/script/projects.js");
+/* harmony import */ var _assets_svg_recycle_bin_trash_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/svg/recycle-bin-trash-svgrepo-com.svg */ "./src/assets/svg/recycle-bin-trash-svgrepo-com.svg");
+/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./projects */ "./src/script/projects.js");
+/* harmony import */ var _createSVGImg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./createSVGImg */ "./src/script/createSVGImg.js");
+
 
 
 
 
 function initializeTasks(projectTitle) {
-  const selectedProject = (0,_projects__WEBPACK_IMPORTED_MODULE_0__.getProjects)().find(
+  const selectedProject = (0,_projects__WEBPACK_IMPORTED_MODULE_1__.getProjects)().find(
     (project) => project.title === projectTitle,
   );
   const taskCards = selectedProject.tasks.map((task) => {
@@ -1550,13 +1563,18 @@ function initializeTasks(projectTitle) {
     const taskDescElement = document.createElement("p");
     const taskPriorityElement = document.createElement("p");
     const taskCompletionElement = document.createElement("input");
+    const taskDeleteButtonElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_2__["default"])(_assets_svg_recycle_bin_trash_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_0__, "actionButton", "taskDeleteSVG");
+
 
     // Adding a class to the card
     taskCardElement.classList.add("jobCard");
     taskPriorityElement.classList.add("jobPriority");
 
-    // Adding ID to
 
+      // taskDeleteButtonElement
+      taskDeleteButtonElement.dataset.projectTitle = projectTitle;
+      taskDeleteButtonElement.dataset.projectTaskDesc = task.description;
+      taskDeleteButtonElement.dataset.action = "deleteTask";
     // Choosing element type
     taskCompletionElement.type = "checkbox";
 
@@ -1570,6 +1588,7 @@ function initializeTasks(projectTitle) {
     taskCardElement.appendChild(taskDescElement);
     taskCardElement.appendChild(taskPriorityElement);
     taskCardElement.appendChild(taskCompletionElement);
+    taskCardElement.appendChild(taskDeleteButtonElement);
     return taskCardElement;
   });
 
@@ -1591,6 +1610,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   updateLocalStorage: () => (/* binding */ updateLocalStorage)
 /* harmony export */ });
 /* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/script/projects.js");
+/* harmony import */ var _constructors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constructors */ "./src/script/constructors.js");
+
 
 
 function updateLocalStorage() {
@@ -1603,39 +1624,18 @@ function fetchLocalStorage() {
 
   if (retrievedProjectsString) {
     const retrievedProjects = JSON.parse(retrievedProjectsString);
-    for (const project of retrievedProjects) {
-      project.taskCompletion = function () {
-        if (this.complete) {
-          this.complete = false;
-        } else {
-          this.complete = true;
-        }
-      };
-      project.createTask = function (
-        description,
-        priority,
-        dateCreated,
-        dueDate,
-      ) {
-        return {
-          description,
-          priority,
-          dateCreated,
-          dueDate,
-
-          complete: false,
-          taskCompletion() {
-            if (this.complete) {
-              this.complete = false;
-            } else {
-              this.complete = true;
-            }
-          },
-        };
-      };
-    }
+    
+    // Assign functions to each retrieved project
+    const projectsWithFunctions = retrievedProjects.map(project => ({
+      ...project,
+      taskCompletion: _constructors__WEBPACK_IMPORTED_MODULE_1__.taskCompletion,
+      createTask: _constructors__WEBPACK_IMPORTED_MODULE_1__.createTask
+    }));
+    
+    // Set the modified projects back
+    (0,_projects__WEBPACK_IMPORTED_MODULE_0__.setProjects)(projectsWithFunctions);
+    console.log(projectsWithFunctions);
     console.log(retrievedProjects);
-    (0,_projects__WEBPACK_IMPORTED_MODULE_0__.setProjects)(retrievedProjects);
   }
 }
 
@@ -1730,7 +1730,7 @@ function populateMain(clickedElementActionData, projectTitle) {
     //     toDoCards.forEach((project) => {
     //       mainElement.appendChild(project);
     //     });
-  } else if (clickedElementActionData === "taskButton") {
+  } else if (clickedElementActionData === "projectTasks") {
     const projectHeading = document.createElement("h1");
     projectHeading.innerText = projectTitle;
     const taskCards = (0,_initializeTasks__WEBPACK_IMPORTED_MODULE_1__["default"])(projectTitle);
@@ -1756,6 +1756,7 @@ function populateMain(clickedElementActionData, projectTitle) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   deleteProject: () => (/* binding */ deleteProject),
+/* harmony export */   deleteTask: () => (/* binding */ deleteTask),
 /* harmony export */   getProjects: () => (/* binding */ getProjects),
 /* harmony export */   setProjects: () => (/* binding */ setProjects)
 /* harmony export */ });
@@ -1779,8 +1780,16 @@ function deleteProject(projectTitle) {
   }
 }
 
-function replaceConstructorFunctions() {}
-
+function deleteTask(projectTitle, taskDesc){
+  const isConfirmed = confirm("Are you sure you want to delete this project?");
+  if (isConfirmed){
+    projects.forEach((project) => {
+      if(project.title === projectTitle){
+        project.tasks = project.tasks.filter((task) => task.description !== taskDesc);
+      }
+    });
+  }
+}
 
 /***/ }),
 
@@ -2037,4 +2046,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle328846c35a8fc24a47c6.js.map
+//# sourceMappingURL=bundle205477e3dbfab1da4137.js.map
