@@ -1,4 +1,4 @@
-
+import { getProjects } from "./projects";
 import toggleTheme from "./toggleTheme";
 import toggleDynamicBar from "./toggleDynamicBar";
 import rotateElement from "./rotateElement";
@@ -7,6 +7,7 @@ import createNewTaskForm from "./createNewTask";
 import createNewProjectForm from "./createNewProject";
 import { deleteProject, deleteTask } from "./projects";
 import { updateLocalStorage } from "./localStorage";
+import { taskCompletion } from "./constructors";
 
 function handleClick(event){
   const element = event.currentTarget;
@@ -67,6 +68,9 @@ function handleClick(event){
         updateLocalStorage();
         populateMain("projectTasks", element.dataset.projectTitle);
         break;
+      case "completeTask":
+        completeProjectTask()
+        updateLocalStorage()
       default:
           console.log("UnknownButton");
   }
