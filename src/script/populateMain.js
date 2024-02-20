@@ -1,6 +1,6 @@
 import initializeProjects from "./initializeProjects";
 import initializeTasks from "./initializeTasks";
-import { createProjectButton, createTaskButton  } from "./createButtons";
+import { createProjectButton, createTaskButton } from "./createButtons";
 import activateButtons from "./activateButtons";
 
 // export function createTaskButton(projectTitle) {
@@ -56,7 +56,7 @@ export default function populateMain(clickedElementActionData, projectTitle) {
     toDoCards.forEach((project) => {
       mainElement.appendChild(project);
     });
-    
+
     //   } else if (clickedElementActionData === 'week') {
     //     const toDoCards = initializeWeek();
     //     toDoCards.forEach((project) => {

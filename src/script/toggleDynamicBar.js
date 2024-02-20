@@ -1,6 +1,7 @@
 export default function toggleDynamicBar(element, direction) {
-  if(direction === "down"){
+  if (direction === "down") {
     element.classList.toggle("dropdownReveal");
-  }else if(direction === "side"){
+  } else if (direction === "side") {
     element.classList.toggle("sidebarReveal");
-  }}
+  }
+}

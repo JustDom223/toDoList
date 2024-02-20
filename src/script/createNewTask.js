@@ -5,9 +5,11 @@ import { updateLocalStorage } from "./localStorage";
 
 export function submitTask(projectTitle) {
   const projects = getProjects();
-  
-  const projectToUpdate = projects.find(project => project.title === projectTitle);
-  
+
+  const projectToUpdate = projects.find(
+    (project) => project.title === projectTitle,
+  );
+
   if (projectToUpdate) {
     const form = document.querySelector("#taskForm");
     const formData = new FormData(form);
@@ -25,7 +27,6 @@ export function submitTask(projectTitle) {
     throw new Error("No project found with the specified title.");
   }
 }
-
 
 export default function createNewTaskForm() {
   // Create form

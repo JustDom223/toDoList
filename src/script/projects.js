@@ -18,12 +18,14 @@ export function deleteProject(projectTitle) {
   }
 }
 
-export function deleteTask(projectTitle, taskDesc){
+export function deleteTask(projectTitle, taskDesc) {
   const isConfirmed = confirm("Are you sure you want to delete this project?");
-  if (isConfirmed){
+  if (isConfirmed) {
     projects.forEach((project) => {
-      if(project.title === projectTitle){
-        project.tasks = project.tasks.filter((task) => task.description !== taskDesc);
+      if (project.title === projectTitle) {
+        project.tasks = project.tasks.filter(
+          (task) => task.description !== taskDesc,
+        );
       }
     });
   }
