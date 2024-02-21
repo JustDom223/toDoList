@@ -248,6 +248,7 @@ main {
   height: auto;
   max-width: 300px;
   /* transition: all 0.3s ease; Smooth transition for all properties */
+  transition: background-color 0.3s ease;
 }
 
 #projectTasksSVG{
@@ -259,6 +260,13 @@ main {
   max-width: 40px;
   max-height: 40px;
 }
+
+#taskCompleteSVG{
+  max-width: 40px;
+  max-height: 40px;
+
+}
+
 
 #taskDeleteSVG{
   max-width: 40px;
