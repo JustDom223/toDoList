@@ -21,11 +21,10 @@ export default function initializeTasks(projectTitle) {
     taskCardElement.classList.add("jobCard");
     taskPriorityElement.classList.add("jobPriority");
 
-
-      // taskDeleteButtonElement
-      taskDeleteButtonElement.dataset.projectTitle = projectTitle;
-      taskDeleteButtonElement.dataset.projectTaskDesc = task.description;
-      taskDeleteButtonElement.dataset.action = "deleteTask";
+    // taskDeleteButtonElement
+    taskDeleteButtonElement.dataset.projectTitle = projectTitle;
+    taskDeleteButtonElement.dataset.projectTaskDesc = task.description;
+    taskDeleteButtonElement.dataset.action = "deleteTask";
     // Choosing element type
     taskCompletionButtonElement.dataset.projectTitle = projectTitle;
     taskCompletionButtonElement.dataset.projectTaskDesc = task.description;

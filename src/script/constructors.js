@@ -15,7 +15,7 @@ export function createTask(description, priority, dateCreated, dueDate) {
     dateCreated,
     dueDate,
     complete: false,
-    taskCompletion, // Reusing the function
+    taskCompletion,
   };
 }
 
@@ -36,7 +36,7 @@ export function createProject(
     tasks: [],
     today: false,
     complete: false,
-    taskCompletion, // Reusing the function
-    createTask, // Reusing the function
+    taskCompletion,
+    createTask,
   };
 }

@@ -11,7 +11,7 @@
 
   --color-pair-1-bg: #3498db; /* Background color for pair 1 */
   --color-pair-1-text: #ffffff; /* Text color for pair 1 */
-  
+
   --color-pair-2-bg: #2ecc71; /* Background color for pair 2 */
   --color-pair-2-text: #ffffff; /* Text color for pair 2 */
 
@@ -38,8 +38,6 @@
 
   --color-pair-10-bg: #2980b9; /* Background color for pair 10 */
   --color-pair-10-text: #ffffff; /* Text color for pair 10 */
-
-
 }
 
 /* CSS Reset */
@@ -130,18 +128,17 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-
 }
 /* Global */
 #content {
   height: 100svh;
   display: grid;
-  grid-template-columns:auto 1fr;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr auto;
   /* transition: all 0.3s ease; Smooth transition for all properties */
-
 }
 
-.customCursor{
+.customCursor {
   cursor: pointer;
 }
 /* Header content */
@@ -153,11 +150,10 @@ header {
   grid-row: 1/2;
 }
 
-header h1{
+header h1 {
   font-size: 32px;
   height: fit-content;
 }
-
 
 /* Sidebar content */
 #sidebar {
@@ -170,41 +166,41 @@ header h1{
   width: fit-content;
 }
 
-ul{
+ul {
   list-style: none;
 }
 
-ul li{
+ul li {
   transition: background-color 500ms ease;
   border-radius: 4px;
 }
 
-ul li:hover{
+ul li:hover {
   background-color: #c2b799;
 }
 
-#magGlassSVG{
+#magGlassSVG {
   width: 40px;
   height: 40px;
   transition: transform 500ms ease-in-out;
 }
 
-#cogSVG{
+#cogSVG {
   width: 40px;
   height: 40px;
   transition: transform 500ms ease-in-out;
 }
 
-.rotate{
+.rotate {
   transform: rotate(360deg);
 }
-#filterBar{
+#filterBar {
   display: flex;
 }
-#settingsBar{
+#settingsBar {
   display: flex;
 }
-.sidebarList{
+.sidebarList {
   width: 0px;
   height: 0px;
   border-radius: 12px;
@@ -213,13 +209,16 @@ ul li:hover{
   margin-bottom: 10px;
   margin-right: 10px;
   overflow: hidden;
-  transition: width 500ms ease-in-out, height 500ms ease-in-out, padding 500ms ease-in-out;
+  transition:
+    width 500ms ease-in-out,
+    height 500ms ease-in-out,
+    padding 500ms ease-in-out;
 }
-.sidebarListItem{
+.sidebarListItem {
   width: 100px;
 }
 
-.sidebarReveal{
+.sidebarReveal {
   width: 100px;
   height: 70px;
   padding: 10px;
@@ -237,7 +236,6 @@ main {
   flex-wrap: wrap;
 }
 
-
 .jobCard {
   background-color: var(--card-color-darkmode);
   border-radius: 12px;
@@ -251,12 +249,12 @@ main {
   transition: background-color 0.3s ease;
 }
 
-#projectTasksSVG{
+#projectTasksSVG {
   max-width: 40px;
   max-height: 40px;
 }
 
-#projectDeleteSVG{
+#projectDeleteSVG {
   max-width: 40px;
   max-height: 40px;
 }
@@ -268,28 +266,45 @@ main {
 }
 
 
-#taskDeleteSVG{
+#taskCompleteSVG{
+  max-width: 40px;
+  max-height: 40px;
+
+}
+
+
+#taskDeleteSVG {
   max-width: 40px;
   max-height: 40px;
 }
 
-
-
 @keyframes takeOff {
-  0% { transform: translateY(2px); }
-  25% { transform: translateY(-2px); }
-  50% { transform: translateX(2px); }
-  75% { transform: translateX(-2px); }
-  90% { transform: translateX(-2px); }
-  100% { transform: translateY(-2px); }
+  0% {
+    transform: translateY(2px);
+  }
+  25% {
+    transform: translateY(-2px);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+  90% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateY(-2px);
+  }
 }
 
-#projectSVG{
+#projectSVG {
   max-width: 150px;
   max-height: 150px;
 }
 
-#projectSVG:hover{
+#projectSVG:hover {
   animation: takeOff 0.5s infinite alternate; /* Apply the takeOff animation */
 }
 
@@ -301,7 +316,7 @@ main {
   justify-content: space-around;
 }
 
-#taskButtonSVG{
+#taskButtonSVG {
   max-height: 150px;
   max-width: 150px;
 }

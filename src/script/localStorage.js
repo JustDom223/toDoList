@@ -11,14 +11,14 @@ export function fetchLocalStorage() {
 
   if (retrievedProjectsString) {
     const retrievedProjects = JSON.parse(retrievedProjectsString);
-    
+
     // Assign functions to each retrieved project
-    const projectsWithFunctions = retrievedProjects.map(project => ({
+    const projectsWithFunctions = retrievedProjects.map((project) => ({
       ...project,
       taskCompletion,
-      createTask
+      createTask,
     }));
-    
+
     // Set the modified projects back
     setProjects(projectsWithFunctions);
     console.log(projectsWithFunctions);

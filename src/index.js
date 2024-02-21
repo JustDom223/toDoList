@@ -4,8 +4,6 @@ import createMain from "./pageManipulaton/main";
 import { fetchLocalStorage } from "./script/localStorage";
 import populateMain from "./script/populateMain";
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
   fetchLocalStorage();
   // DOM is fully parsed and ready for manipulation

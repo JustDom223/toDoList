@@ -7,7 +7,6 @@ import cogSVG from "../assets/svg/sunflower-flower-svgrepo-com.svg";
 import createSVGImg from "../script/createSVGImg";
 import activateButtons from "../script/activateButtons";
 
-
 // export default function createSidebar() {
 //   // Create Sidebar
 //   const sideBarElement = document.createElement("div");
@@ -79,22 +78,22 @@ import activateButtons from "../script/activateButtons";
 //   return sideBarElement;
 // }
 
-
-export default function activateSidebar(){
+export default function activateSidebar() {
   // Adding Mag glass
   const filterBarElement = document.querySelector("#filterBar");
-  const filterMagGlassElement = createSVGImg(magGlassSVG, "actionButton" ,"magGlassSVG");
+  const filterMagGlassElement = createSVGImg(
+    magGlassSVG,
+    "actionButton",
+    "magGlassSVG",
+  );
   filterMagGlassElement.dataset.action = "filter";
   filterBarElement.appendChild(filterMagGlassElement);
 
-
-
   // Adding settings cog
   const settingsBarElement = document.querySelector("#settingsBar");
-  const settingsBarCogElement = createSVGImg(cogSVG, "actionButton" ,"cogSVG");
+  const settingsBarCogElement = createSVGImg(cogSVG, "actionButton", "cogSVG");
   settingsBarCogElement.dataset.action = "settings";
   settingsBarElement.appendChild(settingsBarCogElement);
-
 
   activateButtons();
 }

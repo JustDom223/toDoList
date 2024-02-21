@@ -34,7 +34,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root.dark {
 
   --color-pair-1-bg: #3498db; /* Background color for pair 1 */
   --color-pair-1-text: #ffffff; /* Text color for pair 1 */
-  
+
   --color-pair-2-bg: #2ecc71; /* Background color for pair 2 */
   --color-pair-2-text: #ffffff; /* Text color for pair 2 */
 
@@ -61,8 +61,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root.dark {
 
   --color-pair-10-bg: #2980b9; /* Background color for pair 10 */
   --color-pair-10-text: #ffffff; /* Text color for pair 10 */
-
-
 }
 
 /* CSS Reset */
@@ -153,18 +151,17 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-
 }
 /* Global */
 #content {
   height: 100svh;
   display: grid;
-  grid-template-columns:auto 1fr;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr auto;
   /* transition: all 0.3s ease; Smooth transition for all properties */
-
 }
 
-.customCursor{
+.customCursor {
   cursor: pointer;
 }
 /* Header content */
@@ -176,11 +173,10 @@ header {
   grid-row: 1/2;
 }
 
-header h1{
+header h1 {
   font-size: 32px;
   height: fit-content;
 }
-
 
 /* Sidebar content */
 #sidebar {
@@ -193,41 +189,41 @@ header h1{
   width: fit-content;
 }
 
-ul{
+ul {
   list-style: none;
 }
 
-ul li{
+ul li {
   transition: background-color 500ms ease;
   border-radius: 4px;
 }
 
-ul li:hover{
+ul li:hover {
   background-color: #c2b799;
 }
 
-#magGlassSVG{
+#magGlassSVG {
   width: 40px;
   height: 40px;
   transition: transform 500ms ease-in-out;
 }
 
-#cogSVG{
+#cogSVG {
   width: 40px;
   height: 40px;
   transition: transform 500ms ease-in-out;
 }
 
-.rotate{
+.rotate {
   transform: rotate(360deg);
 }
-#filterBar{
+#filterBar {
   display: flex;
 }
-#settingsBar{
+#settingsBar {
   display: flex;
 }
-.sidebarList{
+.sidebarList {
   width: 0px;
   height: 0px;
   border-radius: 12px;
@@ -236,13 +232,16 @@ ul li:hover{
   margin-bottom: 10px;
   margin-right: 10px;
   overflow: hidden;
-  transition: width 500ms ease-in-out, height 500ms ease-in-out, padding 500ms ease-in-out;
+  transition:
+    width 500ms ease-in-out,
+    height 500ms ease-in-out,
+    padding 500ms ease-in-out;
 }
-.sidebarListItem{
+.sidebarListItem {
   width: 100px;
 }
 
-.sidebarReveal{
+.sidebarReveal {
   width: 100px;
   height: 70px;
   padding: 10px;
@@ -260,7 +259,6 @@ main {
   flex-wrap: wrap;
 }
 
-
 .jobCard {
   background-color: var(--card-color-darkmode);
   border-radius: 12px;
@@ -273,38 +271,48 @@ main {
   /* transition: all 0.3s ease; Smooth transition for all properties */
 }
 
-#projectTasksSVG{
+#projectTasksSVG {
   max-width: 40px;
   max-height: 40px;
 }
 
-#projectDeleteSVG{
+#projectDeleteSVG {
   max-width: 40px;
   max-height: 40px;
 }
 
-#taskDeleteSVG{
+#taskDeleteSVG {
   max-width: 40px;
   max-height: 40px;
 }
-
-
 
 @keyframes takeOff {
-  0% { transform: translateY(2px); }
-  25% { transform: translateY(-2px); }
-  50% { transform: translateX(2px); }
-  75% { transform: translateX(-2px); }
-  90% { transform: translateX(-2px); }
-  100% { transform: translateY(-2px); }
+  0% {
+    transform: translateY(2px);
+  }
+  25% {
+    transform: translateY(-2px);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+  90% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateY(-2px);
+  }
 }
 
-#projectSVG{
+#projectSVG {
   max-width: 150px;
   max-height: 150px;
 }
 
-#projectSVG:hover{
+#projectSVG:hover {
   animation: takeOff 0.5s infinite alternate; /* Apply the takeOff animation */
 }
 
@@ -316,7 +324,7 @@ main {
   justify-content: space-around;
 }
 
-#taskButtonSVG{
+#taskButtonSVG {
   max-height: 150px;
   max-width: 150px;
 }
@@ -327,7 +335,8 @@ footer {
   color: var(--font-color-darkmode);
   grid-column: 1/3;
   grid-row: 3/4;
-}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"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","sourcesContent":[":root.dark {\n  --main-color-darkmode: rgb(39, 39, 39);\n  --font-color-darkmode: rgb(109, 197, 255);\n  --card-color-darkmode: rgb(95, 94, 94);\n}\n/* additional colours that have been saves for later use */\n:root {\n  --main-color-darkmode: rgb(255, 255, 255);\n  --font-color-darkmode: rgb(0, 0, 0);\n  --card-color-darkmode: rgb(221, 221, 221);\n\n  --color-pair-1-bg: #3498db; /* Background color for pair 1 */\n  --color-pair-1-text: #ffffff; /* Text color for pair 1 */\n  \n  --color-pair-2-bg: #2ecc71; /* Background color for pair 2 */\n  --color-pair-2-text: #ffffff; /* Text color for pair 2 */\n\n  --color-pair-3-bg: #9b59b6; /* Background color for pair 3 */\n  --color-pair-3-text: #ffffff; /* Text color for pair 3 */\n\n  --color-pair-4-bg: #f39c12; /* Background color for pair 4 */\n  --color-pair-4-text: #ffffff; /* Text color for pair 4 */\n\n  --color-pair-5-bg: #e74c3c; /* Background color for pair 5 */\n  --color-pair-5-text: #ffffff; /* Text color for pair 5 */\n\n  --color-pair-6-bg: #2c3e50; /* Background color for pair 6 */\n  --color-pair-6-text: #ffffff; /* Text color for pair 6 */\n\n  --color-pair-7-bg: #1abc9c; /* Background color for pair 7 */\n  --color-pair-7-text: #ffffff; /* Text color for pair 7 */\n\n  --color-pair-8-bg: #3498db; /* Background color for pair 8 */\n  --color-pair-8-text: #2c3e50; /* Text color for pair 8 */\n\n  --color-pair-9-bg: #34495e; /* Background color for pair 9 */\n  --color-pair-9-text: #ecf0f1; /* Text color for pair 9 */\n\n  --color-pair-10-bg: #2980b9; /* Background color for pair 10 */\n  --color-pair-10-text: #ffffff; /* Text color for pair 10 */\n\n\n}\n\n/* CSS Reset */\nhtml,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n\n}\n/* Global */\n#content {\n  height: 100svh;\n  display: grid;\n  grid-template-columns:auto 1fr;\n  /* transition: all 0.3s ease; Smooth transition for all properties */\n\n}\n\n.customCursor{\n  cursor: pointer;\n}\n/* Header content */\nheader {\n  height: fit-content;\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/3;\n  grid-row: 1/2;\n}\n\nheader h1{\n  font-size: 32px;\n  height: fit-content;\n}\n\n\n/* Sidebar content */\n#sidebar {\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/2;\n  grid-row: 2/3;\n  display: flex;\n  flex-direction: column;\n  width: fit-content;\n}\n\nul{\n  list-style: none;\n}\n\nul li{\n  transition: background-color 500ms ease;\n  border-radius: 4px;\n}\n\nul li:hover{\n  background-color: #c2b799;\n}\n\n#magGlassSVG{\n  width: 40px;\n  height: 40px;\n  transition: transform 500ms ease-in-out;\n}\n\n#cogSVG{\n  width: 40px;\n  height: 40px;\n  transition: transform 500ms ease-in-out;\n}\n\n.rotate{\n  transform: rotate(360deg);\n}\n#filterBar{\n  display: flex;\n}\n#settingsBar{\n  display: flex;\n}\n.sidebarList{\n  width: 0px;\n  height: 0px;\n  border-radius: 12px;\n  background-color: var(--card-color-darkmode);\n  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);\n  margin-bottom: 10px;\n  margin-right: 10px;\n  overflow: hidden;\n  transition: width 500ms ease-in-out, height 500ms ease-in-out, padding 500ms ease-in-out;\n}\n.sidebarListItem{\n  width: 100px;\n}\n\n.sidebarReveal{\n  width: 100px;\n  height: 70px;\n  padding: 10px;\n}\n\n/* Main content */\nmain {\n  grid-column: 2/3;\n  grid-row: 2/3;\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n\n.jobCard {\n  background-color: var(--card-color-darkmode);\n  border-radius: 12px;\n  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);\n  justify-self: center;\n  margin: 20px;\n  padding: 20px;\n  height: auto;\n  max-width: 300px;\n  /* transition: all 0.3s ease; Smooth transition for all properties */\n}\n\n#projectTasksSVG{\n  max-width: 40px;\n  max-height: 40px;\n}\n\n#projectDeleteSVG{\n  max-width: 40px;\n  max-height: 40px;\n}\n\n#taskDeleteSVG{\n  max-width: 40px;\n  max-height: 40px;\n}\n\n\n\n@keyframes takeOff {\n  0% { transform: translateY(2px); }\n  25% { transform: translateY(-2px); }\n  50% { transform: translateX(2px); }\n  75% { transform: translateX(-2px); }\n  90% { transform: translateX(-2px); }\n  100% { transform: translateY(-2px); }\n}\n\n#projectSVG{\n  max-width: 150px;\n  max-height: 150px;\n}\n\n#projectSVG:hover{\n  animation: takeOff 0.5s infinite alternate; /* Apply the takeOff animation */\n}\n\n.projectForm {\n  display: flex;\n  height: 600px;\n  width: 600px;\n  flex-direction: column;\n  justify-content: space-around;\n}\n\n#taskButtonSVG{\n  max-height: 150px;\n  max-width: 150px;\n}\n\n/* Footer content */\nfooter {\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/3;\n  grid-row: 3/4;\n}"],"sourceRoot":""}]);
+}
+`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"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","sourcesContent":[":root.dark {\n  --main-color-darkmode: rgb(39, 39, 39);\n  --font-color-darkmode: rgb(109, 197, 255);\n  --card-color-darkmode: rgb(95, 94, 94);\n}\n/* additional colours that have been saves for later use */\n:root {\n  --main-color-darkmode: rgb(255, 255, 255);\n  --font-color-darkmode: rgb(0, 0, 0);\n  --card-color-darkmode: rgb(221, 221, 221);\n\n  --color-pair-1-bg: #3498db; /* Background color for pair 1 */\n  --color-pair-1-text: #ffffff; /* Text color for pair 1 */\n\n  --color-pair-2-bg: #2ecc71; /* Background color for pair 2 */\n  --color-pair-2-text: #ffffff; /* Text color for pair 2 */\n\n  --color-pair-3-bg: #9b59b6; /* Background color for pair 3 */\n  --color-pair-3-text: #ffffff; /* Text color for pair 3 */\n\n  --color-pair-4-bg: #f39c12; /* Background color for pair 4 */\n  --color-pair-4-text: #ffffff; /* Text color for pair 4 */\n\n  --color-pair-5-bg: #e74c3c; /* Background color for pair 5 */\n  --color-pair-5-text: #ffffff; /* Text color for pair 5 */\n\n  --color-pair-6-bg: #2c3e50; /* Background color for pair 6 */\n  --color-pair-6-text: #ffffff; /* Text color for pair 6 */\n\n  --color-pair-7-bg: #1abc9c; /* Background color for pair 7 */\n  --color-pair-7-text: #ffffff; /* Text color for pair 7 */\n\n  --color-pair-8-bg: #3498db; /* Background color for pair 8 */\n  --color-pair-8-text: #2c3e50; /* Text color for pair 8 */\n\n  --color-pair-9-bg: #34495e; /* Background color for pair 9 */\n  --color-pair-9-text: #ecf0f1; /* Text color for pair 9 */\n\n  --color-pair-10-bg: #2980b9; /* Background color for pair 10 */\n  --color-pair-10-text: #ffffff; /* Text color for pair 10 */\n}\n\n/* CSS Reset */\nhtml,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\n/* Global */\n#content {\n  height: 100svh;\n  display: grid;\n  grid-template-columns: auto 1fr;\n  grid-template-rows: auto 1fr auto;\n  /* transition: all 0.3s ease; Smooth transition for all properties */\n}\n\n.customCursor {\n  cursor: pointer;\n}\n/* Header content */\nheader {\n  height: fit-content;\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/3;\n  grid-row: 1/2;\n}\n\nheader h1 {\n  font-size: 32px;\n  height: fit-content;\n}\n\n/* Sidebar content */\n#sidebar {\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/2;\n  grid-row: 2/3;\n  display: flex;\n  flex-direction: column;\n  width: fit-content;\n}\n\nul {\n  list-style: none;\n}\n\nul li {\n  transition: background-color 500ms ease;\n  border-radius: 4px;\n}\n\nul li:hover {\n  background-color: #c2b799;\n}\n\n#magGlassSVG {\n  width: 40px;\n  height: 40px;\n  transition: transform 500ms ease-in-out;\n}\n\n#cogSVG {\n  width: 40px;\n  height: 40px;\n  transition: transform 500ms ease-in-out;\n}\n\n.rotate {\n  transform: rotate(360deg);\n}\n#filterBar {\n  display: flex;\n}\n#settingsBar {\n  display: flex;\n}\n.sidebarList {\n  width: 0px;\n  height: 0px;\n  border-radius: 12px;\n  background-color: var(--card-color-darkmode);\n  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);\n  margin-bottom: 10px;\n  margin-right: 10px;\n  overflow: hidden;\n  transition:\n    width 500ms ease-in-out,\n    height 500ms ease-in-out,\n    padding 500ms ease-in-out;\n}\n.sidebarListItem {\n  width: 100px;\n}\n\n.sidebarReveal {\n  width: 100px;\n  height: 70px;\n  padding: 10px;\n}\n\n/* Main content */\nmain {\n  grid-column: 2/3;\n  grid-row: 2/3;\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n.jobCard {\n  background-color: var(--card-color-darkmode);\n  border-radius: 12px;\n  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);\n  justify-self: center;\n  margin: 20px;\n  padding: 20px;\n  height: auto;\n  max-width: 300px;\n  /* transition: all 0.3s ease; Smooth transition for all properties */\n}\n\n#projectTasksSVG {\n  max-width: 40px;\n  max-height: 40px;\n}\n\n#projectDeleteSVG {\n  max-width: 40px;\n  max-height: 40px;\n}\n\n#taskDeleteSVG {\n  max-width: 40px;\n  max-height: 40px;\n}\n\n@keyframes takeOff {\n  0% {\n    transform: translateY(2px);\n  }\n  25% {\n    transform: translateY(-2px);\n  }\n  50% {\n    transform: translateX(2px);\n  }\n  75% {\n    transform: translateX(-2px);\n  }\n  90% {\n    transform: translateX(-2px);\n  }\n  100% {\n    transform: translateY(-2px);\n  }\n}\n\n#projectSVG {\n  max-width: 150px;\n  max-height: 150px;\n}\n\n#projectSVG:hover {\n  animation: takeOff 0.5s infinite alternate; /* Apply the takeOff animation */\n}\n\n.projectForm {\n  display: flex;\n  height: 600px;\n  width: 600px;\n  flex-direction: column;\n  justify-content: space-around;\n}\n\n#taskButtonSVG {\n  max-height: 150px;\n  max-width: 150px;\n}\n\n/* Footer content */\nfooter {\n  background-color: var(--main-color-darkmode);\n  color: var(--font-color-darkmode);\n  grid-column: 1/3;\n  grid-row: 3/4;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -823,7 +832,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 // export default function createSidebar() {
 //   // Create Sidebar
 //   const sideBarElement = document.createElement("div");
@@ -895,22 +903,22 @@ __webpack_require__.r(__webpack_exports__);
 //   return sideBarElement;
 // }
 
-
-function activateSidebar(){
+function activateSidebar() {
   // Adding Mag glass
   const filterBarElement = document.querySelector("#filterBar");
-  const filterMagGlassElement = (0,_script_createSVGImg__WEBPACK_IMPORTED_MODULE_2__["default"])(_assets_svg_magnifier_glass_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_0__, "actionButton" ,"magGlassSVG");
+  const filterMagGlassElement = (0,_script_createSVGImg__WEBPACK_IMPORTED_MODULE_2__["default"])(
+    _assets_svg_magnifier_glass_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_0__,
+    "actionButton",
+    "magGlassSVG",
+  );
   filterMagGlassElement.dataset.action = "filter";
   filterBarElement.appendChild(filterMagGlassElement);
 
-
-
   // Adding settings cog
   const settingsBarElement = document.querySelector("#settingsBar");
-  const settingsBarCogElement = (0,_script_createSVGImg__WEBPACK_IMPORTED_MODULE_2__["default"])(_assets_svg_sunflower_flower_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_1__, "actionButton" ,"cogSVG");
+  const settingsBarCogElement = (0,_script_createSVGImg__WEBPACK_IMPORTED_MODULE_2__["default"])(_assets_svg_sunflower_flower_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_1__, "actionButton", "cogSVG");
   settingsBarCogElement.dataset.action = "settings";
   settingsBarElement.appendChild(settingsBarCogElement);
-
 
   (0,_script_activateButtons__WEBPACK_IMPORTED_MODULE_3__["default"])();
 }
@@ -945,85 +953,86 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-function handleClick(event){
+function handleClick(event) {
   const element = event.currentTarget;
-    switch(element.dataset.action) {
-      case "projects":
-          (0,_populateMain__WEBPACK_IMPORTED_MODULE_3__["default"])(element.dataset.action);
-          break;
-      case "projectTasks":
-        console.log(`${element.dataset.projectTitle} Tasks`);
-          console.log(element.dataset.action);
-          console.log(element.dataset.projectTitle);
-          (0,_populateMain__WEBPACK_IMPORTED_MODULE_3__["default"])(element.dataset.action, element.dataset.projectTitle);
-          break;
-      case "today":
-          (0,_populateMain__WEBPACK_IMPORTED_MODULE_3__["default"])(element.dataset.action, element.dataset.projectTitle);
-          break;
-      case "week":
-          console.log("Week action");
-          break;
-      case "month":
-          console.log("Month action");
-          break;
-      case "theme":
-          (0,_toggleTheme__WEBPACK_IMPORTED_MODULE_0__["default"])();
-          break;
-      case "font":
-          console.log("Font action");
-          break;
-      case "settings":
-        (0,_toggleDynamicBar__WEBPACK_IMPORTED_MODULE_1__["default"])(element.previousElementSibling, "side");
-        (0,_rotateElement__WEBPACK_IMPORTED_MODULE_2__["default"])(element);
-        console.log("settings");
-        break;
-      case "filter":
-        (0,_toggleDynamicBar__WEBPACK_IMPORTED_MODULE_1__["default"])(element.previousElementSibling, "side");
-        (0,_rotateElement__WEBPACK_IMPORTED_MODULE_2__["default"])(element);
-        console.log("filter");
-        break;
-      case "createTask":{
-        const dialogElement = document.querySelector("dialog");
-        dialogElement.textContent = "";
-        dialogElement.appendChild((0,_createNewTask__WEBPACK_IMPORTED_MODULE_4__["default"])());
-        dialogElement.showModal();
-        break;}
-      case "createProject":{
-        const dialogElement = document.querySelector("dialog");
-        dialogElement.textContent = "";
-        dialogElement.appendChild((0,_createNewProject__WEBPACK_IMPORTED_MODULE_5__["default"])());
-        dialogElement.showModal();
-        break;}
-      case "deleteProject":
-        (0,_projects__WEBPACK_IMPORTED_MODULE_6__.deleteProject)(element.dataset.projectTitle);
-        (0,_localStorage__WEBPACK_IMPORTED_MODULE_7__.updateLocalStorage)();
-        (0,_populateMain__WEBPACK_IMPORTED_MODULE_3__["default"])("projects");
-        break;
-      case "deleteTask":
-        (0,_projects__WEBPACK_IMPORTED_MODULE_6__.deleteTask)(element.dataset.projectTitle, element.dataset.projectTaskDesc);
-        (0,_localStorage__WEBPACK_IMPORTED_MODULE_7__.updateLocalStorage)();
-        (0,_populateMain__WEBPACK_IMPORTED_MODULE_3__["default"])("projectTasks", element.dataset.projectTitle);
-        break;
-      default:
-          console.log("UnknownButton");
+  switch (element.dataset.action) {
+    case "projects":
+      (0,_populateMain__WEBPACK_IMPORTED_MODULE_3__["default"])(element.dataset.action);
+      break;
+    case "projectTasks":
+      console.log(`${element.dataset.projectTitle} Tasks`);
+      console.log(element.dataset.action);
+      console.log(element.dataset.projectTitle);
+      (0,_populateMain__WEBPACK_IMPORTED_MODULE_3__["default"])(element.dataset.action, element.dataset.projectTitle);
+      break;
+    case "today":
+      (0,_populateMain__WEBPACK_IMPORTED_MODULE_3__["default"])(element.dataset.action, element.dataset.projectTitle);
+      break;
+    case "week":
+      console.log("Week action");
+      break;
+    case "month":
+      console.log("Month action");
+      break;
+    case "theme":
+      (0,_toggleTheme__WEBPACK_IMPORTED_MODULE_0__["default"])();
+      break;
+    case "font":
+      console.log("Font action");
+      break;
+    case "settings":
+      (0,_toggleDynamicBar__WEBPACK_IMPORTED_MODULE_1__["default"])(element.previousElementSibling, "side");
+      (0,_rotateElement__WEBPACK_IMPORTED_MODULE_2__["default"])(element);
+      console.log("settings");
+      break;
+    case "filter":
+      (0,_toggleDynamicBar__WEBPACK_IMPORTED_MODULE_1__["default"])(element.previousElementSibling, "side");
+      (0,_rotateElement__WEBPACK_IMPORTED_MODULE_2__["default"])(element);
+      console.log("filter");
+      break;
+    case "createTask": {
+      const dialogElement = document.querySelector("dialog");
+      dialogElement.textContent = "";
+      dialogElement.appendChild((0,_createNewTask__WEBPACK_IMPORTED_MODULE_4__["default"])());
+      dialogElement.showModal();
+      break;
+    }
+    case "createProject": {
+      const dialogElement = document.querySelector("dialog");
+      dialogElement.textContent = "";
+      dialogElement.appendChild((0,_createNewProject__WEBPACK_IMPORTED_MODULE_5__["default"])());
+      dialogElement.showModal();
+      break;
+    }
+    case "deleteProject":
+      (0,_projects__WEBPACK_IMPORTED_MODULE_6__.deleteProject)(element.dataset.projectTitle);
+      (0,_localStorage__WEBPACK_IMPORTED_MODULE_7__.updateLocalStorage)();
+      (0,_populateMain__WEBPACK_IMPORTED_MODULE_3__["default"])("projects");
+      break;
+    case "deleteTask":
+      (0,_projects__WEBPACK_IMPORTED_MODULE_6__.deleteTask)(element.dataset.projectTitle, element.dataset.projectTaskDesc);
+      (0,_localStorage__WEBPACK_IMPORTED_MODULE_7__.updateLocalStorage)();
+      (0,_populateMain__WEBPACK_IMPORTED_MODULE_3__["default"])("projectTasks", element.dataset.projectTitle);
+      break;
+    default:
+      console.log("UnknownButton");
   }
 }
 
-function activateButtons(){
-  // retrieve all buttons 
-    const actionButton = document.querySelectorAll(".actionButton");
+function activateButtons() {
+  // retrieve all buttons
+  const actionButton = document.querySelectorAll(".actionButton");
 
-    actionButton.forEach(element => {
-      if(!element.classList.contains("customCursor")){
-        element.classList.add("customCursor");
-      }
-      // preventing eventlistener doubling up
-      element.removeEventListener("click", handleClick);
-      element.addEventListener("click", handleClick);
-      });
-    };
-  
+  actionButton.forEach((element) => {
+    if (!element.classList.contains("customCursor")) {
+      element.classList.add("customCursor");
+    }
+    // preventing eventlistener doubling up
+    element.removeEventListener("click", handleClick);
+    element.addEventListener("click", handleClick);
+  });
+}
+
 
 /***/ }),
 
@@ -1056,7 +1065,7 @@ function createTask(description, priority, dateCreated, dueDate) {
     dateCreated,
     dueDate,
     complete: false,
-    taskCompletion, // Reusing the function
+    taskCompletion,
   };
 }
 
@@ -1077,8 +1086,8 @@ function createProject(
     tasks: [],
     today: false,
     complete: false,
-    taskCompletion, // Reusing the function
-    createTask, // Reusing the function
+    taskCompletion,
+    createTask,
   };
 }
 
@@ -1107,30 +1116,36 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
 function createTaskButton(projectTitle) {
-    // Access existing elements
-    const selectedProject = (0,_projects__WEBPACK_IMPORTED_MODULE_2__.getProjects)().find(
-      (project) => project.title === projectTitle,
-    );
-    // Create button element
-    const taskButtonSVGElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_3__["default"])(_assets_svg_clipboard_add_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_0__, "actionButton", "taskButtonSVG");
-    // Add project title as data
-    taskButtonSVGElement.dataset.projectTitle = selectedProject.title;
-    taskButtonSVGElement.dataset.action = "createTask";
-    return taskButtonSVGElement;
-  }
-  
-  function createProjectButton() {
-    const projectSVGElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_3__["default"])(_assets_svg_rocket_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_1__, "actionButton", "projectSVG");
-    // Add project title as data
-    // projectSVGElement.dataset.projectTitle = selectedProject.title;
-    projectSVGElement.dataset.action = "createProject";
+  // Access existing elements
+  const selectedProject = (0,_projects__WEBPACK_IMPORTED_MODULE_2__.getProjects)().find(
+    (project) => project.title === projectTitle,
+  );
+  // Create button element
+  const taskButtonSVGElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_3__["default"])(
+    _assets_svg_clipboard_add_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_0__,
+    "actionButton",
+    "taskButtonSVG",
+  );
+  // Add project title as data
+  taskButtonSVGElement.dataset.projectTitle = selectedProject.title;
+  taskButtonSVGElement.dataset.action = "createTask";
+  return taskButtonSVGElement;
+}
 
+function createProjectButton() {
+  const projectSVGElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_3__["default"])(
+    _assets_svg_rocket_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_1__,
+    "actionButton",
+    "projectSVG",
+  );
+  // Add project title as data
+  // projectSVGElement.dataset.projectTitle = selectedProject.title;
+  projectSVGElement.dataset.action = "createProject";
 
-    return projectSVGElement;
-  }
+  return projectSVGElement;
+}
+
 
 /***/ }),
 
@@ -1191,7 +1206,6 @@ function createNewProjectForm() {
   const formProjectPriorityLabelElement = document.createElement("label");
   const formProjectPriorityInputElement = document.createElement("select");
 
-  
   const formSubmitButton = document.createElement("input");
 
   // Choosing element type
@@ -1301,9 +1315,11 @@ __webpack_require__.r(__webpack_exports__);
 
 function submitTask(projectTitle) {
   const projects = (0,_projects__WEBPACK_IMPORTED_MODULE_0__.getProjects)();
-  
-  const projectToUpdate = projects.find(project => project.title === projectTitle);
-  
+
+  const projectToUpdate = projects.find(
+    (project) => project.title === projectTitle,
+  );
+
   if (projectToUpdate) {
     const form = document.querySelector("#taskForm");
     const formData = new FormData(form);
@@ -1321,7 +1337,6 @@ function submitTask(projectTitle) {
     throw new Error("No project found with the specified title.");
   }
 }
-
 
 function createNewTaskForm() {
   // Create form
@@ -1434,14 +1449,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ createSVGImg)
 /* harmony export */ });
 function createSVGImg(importedSVG, assignedClass, assignedID) {
-    const svgImage = new Image();
-    svgImage.src = importedSVG;
-    svgImage.classList.add(assignedClass);
-    svgImage.id = assignedID;
+  const svgImage = new Image();
+  svgImage.src = importedSVG;
+  svgImage.classList.add(assignedClass);
+  svgImage.id = assignedID;
 
-    return svgImage;
-  }
-  
+  return svgImage;
+}
+
 
 /***/ }),
 
@@ -1481,8 +1496,16 @@ function initializeProjects() {
       const projectDueDateElement = document.createElement("input");
       const projectPriorityElement = document.createElement("p");
       const projectCompletionElement = document.createElement("input");
-      const projectTasksButtonElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_1__["default"])(_assets_svg_tasks_tick_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_3__, "actionButton", "projectTasksSVG");
-      const projectDeleteButtonElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_1__["default"])(_assets_svg_recycle_bin_trash_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_2__, "actionButton", "projectDeleteSVG");
+      const projectTasksButtonElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_1__["default"])(
+        _assets_svg_tasks_tick_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_3__,
+        "actionButton",
+        "projectTasksSVG",
+      );
+      const projectDeleteButtonElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_1__["default"])(
+        _assets_svg_recycle_bin_trash_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_2__,
+        "actionButton",
+        "projectDeleteSVG",
+      );
 
       // Adding a class to the card
       projectCardElement.classList.add("jobCard");
@@ -1498,7 +1521,6 @@ function initializeProjects() {
       // projectDeleteButtonElement
       projectDeleteButtonElement.dataset.projectTitle = project.title;
       projectDeleteButtonElement.dataset.action = "deleteProject";
-
 
       // Choosing element type
       projectDueDateElement.type = "date";
@@ -1552,7 +1574,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 function initializeTasks(projectTitle) {
   const selectedProject = (0,_projects__WEBPACK_IMPORTED_MODULE_1__.getProjects)().find(
     (project) => project.title === projectTitle,
@@ -1563,18 +1584,20 @@ function initializeTasks(projectTitle) {
     const taskDescElement = document.createElement("p");
     const taskPriorityElement = document.createElement("p");
     const taskCompletionElement = document.createElement("input");
-    const taskDeleteButtonElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_2__["default"])(_assets_svg_recycle_bin_trash_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_0__, "actionButton", "taskDeleteSVG");
-
+    const taskDeleteButtonElement = (0,_createSVGImg__WEBPACK_IMPORTED_MODULE_2__["default"])(
+      _assets_svg_recycle_bin_trash_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_0__,
+      "actionButton",
+      "taskDeleteSVG",
+    );
 
     // Adding a class to the card
     taskCardElement.classList.add("jobCard");
     taskPriorityElement.classList.add("jobPriority");
 
-
-      // taskDeleteButtonElement
-      taskDeleteButtonElement.dataset.projectTitle = projectTitle;
-      taskDeleteButtonElement.dataset.projectTaskDesc = task.description;
-      taskDeleteButtonElement.dataset.action = "deleteTask";
+    // taskDeleteButtonElement
+    taskDeleteButtonElement.dataset.projectTitle = projectTitle;
+    taskDeleteButtonElement.dataset.projectTaskDesc = task.description;
+    taskDeleteButtonElement.dataset.action = "deleteTask";
     // Choosing element type
     taskCompletionElement.type = "checkbox";
 
@@ -1624,14 +1647,14 @@ function fetchLocalStorage() {
 
   if (retrievedProjectsString) {
     const retrievedProjects = JSON.parse(retrievedProjectsString);
-    
+
     // Assign functions to each retrieved project
-    const projectsWithFunctions = retrievedProjects.map(project => ({
+    const projectsWithFunctions = retrievedProjects.map((project) => ({
       ...project,
       taskCompletion: _constructors__WEBPACK_IMPORTED_MODULE_1__.taskCompletion,
-      createTask: _constructors__WEBPACK_IMPORTED_MODULE_1__.createTask
+      createTask: _constructors__WEBPACK_IMPORTED_MODULE_1__.createTask,
     }));
-    
+
     // Set the modified projects back
     (0,_projects__WEBPACK_IMPORTED_MODULE_0__.setProjects)(projectsWithFunctions);
     console.log(projectsWithFunctions);
@@ -1714,7 +1737,7 @@ function populateMain(clickedElementActionData, projectTitle) {
     toDoCards.forEach((project) => {
       mainElement.appendChild(project);
     });
-    
+
     //   } else if (clickedElementActionData === 'week') {
     //     const toDoCards = initializeWeek();
     //     toDoCards.forEach((project) => {
@@ -1780,16 +1803,19 @@ function deleteProject(projectTitle) {
   }
 }
 
-function deleteTask(projectTitle, taskDesc){
+function deleteTask(projectTitle, taskDesc) {
   const isConfirmed = confirm("Are you sure you want to delete this project?");
-  if (isConfirmed){
+  if (isConfirmed) {
     projects.forEach((project) => {
-      if(project.title === projectTitle){
-        project.tasks = project.tasks.filter((task) => task.description !== taskDesc);
+      if (project.title === projectTitle) {
+        project.tasks = project.tasks.filter(
+          (task) => task.description !== taskDesc,
+        );
       }
     });
   }
 }
+
 
 /***/ }),
 
@@ -1803,9 +1829,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ rotateElement)
 /* harmony export */ });
-function rotateElement(element){
-    element.classList.toggle("rotate");
+function rotateElement(element) {
+  element.classList.toggle("rotate");
 }
+
 
 /***/ }),
 
@@ -1820,11 +1847,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ toggleDynamicBar)
 /* harmony export */ });
 function toggleDynamicBar(element, direction) {
-  if(direction === "down"){
+  if (direction === "down") {
     element.classList.toggle("dropdownReveal");
-  }else if(direction === "side"){
+  } else if (direction === "side") {
     element.classList.toggle("sidebarReveal");
-  }}
+  }
+}
+
 
 /***/ }),
 
@@ -1839,9 +1868,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ toggleTheme)
 /* harmony export */ });
 function toggleTheme() {
-    document.documentElement.classList.toggle("dark");
-  }
-  
+  document.documentElement.classList.toggle("dark");
+}
+
 
 /***/ }),
 
@@ -2031,8 +2060,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
   (0,_script_localStorage__WEBPACK_IMPORTED_MODULE_3__.fetchLocalStorage)();
   // DOM is fully parsed and ready for manipulation
@@ -2046,4 +2073,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle205477e3dbfab1da4137.js.map
+//# sourceMappingURL=bundle2c3658841447392ca249.js.map

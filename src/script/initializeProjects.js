@@ -1,4 +1,4 @@
-import { getProjects} from "./projects";
+import { getProjects } from "./projects";
 import createSVGImg from "./createSVGImg";
 // import SVG files
 import deleteSVG from "../assets/svg/recycle-bin-trash-svgrepo-com.svg";
@@ -20,8 +20,16 @@ export default function initializeProjects() {
       const projectDueDateElement = document.createElement("input");
       const projectPriorityElement = document.createElement("p");
       const projectCompletionElement = document.createElement("input");
-      const projectTasksButtonElement = createSVGImg(taskSVG, "actionButton", "projectTasksSVG");
-      const projectDeleteButtonElement = createSVGImg(deleteSVG, "actionButton", "projectDeleteSVG");
+      const projectTasksButtonElement = createSVGImg(
+        taskSVG,
+        "actionButton",
+        "projectTasksSVG",
+      );
+      const projectDeleteButtonElement = createSVGImg(
+        deleteSVG,
+        "actionButton",
+        "projectDeleteSVG",
+      );
 
       // Adding a class to the card
       projectCardElement.classList.add("jobCard");
@@ -37,7 +45,6 @@ export default function initializeProjects() {
       // projectDeleteButtonElement
       projectDeleteButtonElement.dataset.projectTitle = project.title;
       projectDeleteButtonElement.dataset.action = "deleteProject";
-
 
       // Choosing element type
       projectDueDateElement.type = "date";
