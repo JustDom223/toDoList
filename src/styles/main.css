@@ -134,6 +134,7 @@ video {
   height: 100svh;
   display: grid;
   grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr auto;
   /* transition: all 0.3s ease; Smooth transition for all properties */
 }
 
